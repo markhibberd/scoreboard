@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>web artifacts</title>
+    <link rel="stylesheet" type="text/css" title="Style" href="stylesheet.css">
+</head>
+
+<body bgcolor="#DDDDFF">
+<table width="100%">
+    <tr>
+        <td colspan="5">
+            <h1>Artifacts profile=@BUILD_NAME@ [@BUILD_DATE@]</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Test Results
+        </td>
+        <td>
+            Coverage
+        </td>
+        <td>
+            Checkstyle
+        </td>
+        <td>
+            Duplication
+        </td>
+        <td>
+            Miscellaneous
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li><a href="reports/test/all/index.html" target="show_frame">all</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="reports/coverage/all/all/index.html" target="show_frame">all</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="reports/checkstyle/checkstyle-core.html" target="show_frame">core</a></li>
+                <li><a href="reports/checkstyle/checkstyle-ui.html" target="show_frame">ui</a></li>
+                <li><a href="reports/checkstyle/checkstyle-prod.html" target="show_frame">prod</a></li>
+                <li><a href="reports/checkstyle/checkstyle-hudson.html" target="show_frame">hudson</a></li>
+                <li><a href="reports/checkstyle/checkstyle-test.html" target="show_frame">test</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="reports/simian/simian-all.html" target="show_frame">all</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="jars/scoreboard.jar">Scoreboard Jar</a></li>
+                <li><a href="jars/scoreboard-all.jar">Scoreboard and the Whole World Jar</a></li>
+                <li><a href="jars/scoreboard-hudson.hpi">Scoreboard Hudson Plugin</a></li>
+                <li><a href="jars/scoreboard-cruise.jar">Scoreboard Cruise Plugin</a></li>
+                <li><a href="tars/scoreboard-@BUILD_LABEL@.tar">Scoreboard Release Tarball</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

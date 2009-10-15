@@ -1,0 +1,10 @@
+BuildName(value=boost),
+Status(value=BUILDING, timestamp=1000000)
+History(results=[
+    Build(result=SUCCESS, timestamp=1),
+    Build(result=FAILURE, timestamp=1),
+    Build(result=SUCCESS, timestamp=1),
+    Build(result=SUCCESS, timestamp=1),
+    Build(result=SUCCESS, timestamp=1),
+    Build(result=FAILURE, timestamp=1),
+])

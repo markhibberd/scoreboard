@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="compile" basedir="../..">
+    <import file="build-init.xml"/>
+
+    <target name="-compile">
+        <macro_compile version="1.5" src.type="edge"/>
+        <macro_compile version="1.5" src.type="alien"/>
+        <macro_compile version="1.5" src.type="clobber"/>
+        <macro_compile version="1.5" src.type="core"/>
+        <macro_compile version="1.5" src.type="providers"/>
+        <macro_compile version="1.5" src.type="test"/>
+        <macro_compile_coverage test.type="all"/>
+    </target>
+</project>

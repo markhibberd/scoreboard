@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="resources">
+    <import file="build-init.xml"/>
+
+    <target name="test.resources">
+        <copy todir="${test.class.dir}">
+            <fileset dir="${test.src.dir}" excludes="**/*.java"/>
+        </copy>
+    </target>
+
+    <target name="core.resources">
+        <copy todir="${core.class.dir}">
+            <fileset dir="${core.src.dir}" excludes="**/*.java"/>
+        </copy>
+    </target>
+</project>

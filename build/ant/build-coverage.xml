@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instrument" default="ignore" basedir="../..">
+    <import file="build-init.xml"/>
+
+    <fileset id="coverage.fileset" dir="${src.dir}">
+        <include name="**/*.java"/>
+    </fileset>
+
+    <target name="-instrument">
+        <macro_instrument_clover test.type="all" fileset.ref="coverage.fileset"/>
+    </target>
+
+    <target name="-coverage_report">
+        <macro_report_clover code.type="all" test.type="all"/>
+    </target>
+
+    <target name="-coverage_check">
+        <!-- FIX some work to be done here. need to split out a few code types ui vs core -->
+        <macro_check_clover code.type="all" test.type="all" min.coverage="100.0%"/>
+    </target>
+</project>

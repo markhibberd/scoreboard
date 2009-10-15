@@ -1,0 +1,7 @@
+<project name="plugins">
+    <import file="build-init.xml"/>
+    <import file="build-plugin-hudson.xml"/>
+    <import file="build-plugin-cruise.xml"/>
+
+    <target name="-package_plugins" depends="-hudson,-cruise"/>
+</project>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="bob-overrides" basedir="../..">
+
+    <!-- Put project specific overrides here! -->
+
+    <property name="project.name" value="scoreboard"/>
+    <property name="build.name" value="scoreboard"/>
+    <property name="vendor.name" value="leapstream"/>
+
+    <property name="src.dir" value="src/java"/>
+    <property name="checkstyle.code.types" value="core,clobber,providers,test"/>
+    <property name="simian.code.types" value="all"/>
+
+    <property name="jar.core.name" value="${project.name}"/>
+
+    <property name="jar.${jar.core.name}.fileset.ids" value="jar.core.class,jar.edge.class,jar.clobber.class,jar.alien.class"/>
+
+    <property name="jar.src.${jar.core.name}.fileset.ids" value="jar.core.code,jar.edge.code,jar.clobber.code,jar.alien.code"/>
+
+    <property environment="env"/>
+    <condition property="label" value="${env.BUILD_NUMBER}" else="dev">
+        <isset property="env.BUILD_NUMBER"/>
+    </condition>
+</project>

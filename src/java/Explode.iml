@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/alien" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/clobber" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/edge" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/providers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="runtime">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../build/lib/runtime/boost" />
+          <root url="file://$MODULE_DIR$/../../build/lib/runtime/freetts" />
+          <root url="file://$MODULE_DIR$/../../build/lib/runtime/jna" />
+          <root url="file://$MODULE_DIR$/../../build/lib/runtime/scripting" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/runtime/boost" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/runtime/freetts" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/runtime/jna" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/runtime/scripting" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="providers">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../build/lib/providers/cruise" />
+          <root url="file://$MODULE_DIR$/../../build/lib/providers/hudson" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/providers/cruise" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/providers/hudson" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="tools">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../build/lib/tools/junit" />
+          <root url="file://$MODULE_DIR$/../../build/lib/tools/simian" />
+          <root url="file://$MODULE_DIR$/../../build/lib/tools/clover" />
+          <root url="file://$MODULE_DIR$/../../build/lib/tools/checkstyle" />
+          <root url="file://$MODULE_DIR$/../../build/lib/tools/jmock" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/tools/checkstyle" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/tools/clover" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/tools/jmock" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/tools/junit" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../build/lib/tools/simian" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+

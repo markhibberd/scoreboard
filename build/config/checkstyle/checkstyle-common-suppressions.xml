@@ -1,0 +1,5 @@
+<module name="SuppressionCommentFilter">
+    <property name="offCommentFormat" value="(DEBT|OK) ([\w\|]+) \{"/>
+    <property name="onCommentFormat" value="\} (DEBT|OK) ([\w\|]+)"/>
+    <property name="checkFormat" value="$2"/>
+</module>

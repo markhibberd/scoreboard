@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd"
+        [
+                <!ENTITY common-rules SYSTEM "file:build/config/checkstyle/checkstyle-common.xml">
+                <!ENTITY common-checkstyle-suppressions SYSTEM "file:build/config/checkstyle/checkstyle-common-suppressions.xml">
+                ]
+        >
+<module name="Checker">
+    &common-checkstyle-suppressions;
+    <module name="TreeWalker">
+        <property name="cacheFile" value="gen/checkstyle/checkstyle-test.cache"/>
+        &common-rules;
+        <module name="JavaNCSS">
+            <property name="classMaximum" value="120"/>
+        </module>
+        <module name="JavaNCSS">
+            <property name="methodMaximum" value="10"/>
+        </module>
+        <!-- SUGGEST Put a checkstyle rule in to nail jMock. -->
+        <module name="IllegalImport">
+            <!-- Use automocking instead. -->
+            <!--<property name="illegalPkgs" value="org.jmock"/>-->
+        </module>
+    </module>
+</module>

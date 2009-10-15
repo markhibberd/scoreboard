@@ -1,0 +1,100 @@
+<module name="FileContentsHolder"/>
+<property name="fileExtensions" value="java"/>
+<property name="tabWidth" value="4"/>
+        <!--
+        <module name="RegexpHeader">
+            <property name="headerFile" value="ClassHeader.txt"/>
+        </module>
+        -->
+<module name="UnusedImports"/>
+<module name="TabCharacter"/>
+<module name="AvoidNestedBlocks"/>
+        <!-- Would complain when using this.xxx = xxx for a constructor or method, as standard is _xxx. -->
+        <!-- <module name="HiddenField"/> -->
+<module name="IllegalInstantiation">
+<property name="classes" value="java.lang.Boolean"/>
+</module>
+<module name="ParameterNumber">
+<property name="max" value="4"/>
+</module>
+<module name="ReturnCount">
+<property name="max" value="4"/>
+</module>
+<module name="LineLength">
+    <property name="max" value="160"/>
+    <property name="ignorePattern" value="^[\s]*// FIX.*"/>
+</module>
+<module name="ConstantName">
+<property name="format" value="^[A-Z_][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+</module>
+<module name="MemberName"/>
+<module name="StaticVariableName"/>
+<module name="PackageName">
+<property name="format" value="^[a-z]+(\.[a-z][a-z0-9_]*)*$"/>
+</module>
+<module name="TypeName"/>
+<module name="MethodName"/>
+<module name="LocalFinalVariableName"/>
+<module name="LocalVariableName"/>
+<module name="ParameterName"/>
+<module name="GenericIllegalRegexp">
+<property name="format"
+          value="sleep|abstract|extends HttpServlet|static void main|System\.out|System\.err|\.printStackTrace\(\)|Calendar|new Date|new DefaultEdgifier\(|extends TestCase|extends BoooostCase|InteractionTestCase|System.current"/>
+</module>
+<module name="EqualsHashCode"/>
+<module name="ParenPad"/>
+<module name="TypecastParenPad"/>
+<module name="ModifierOrder"/>
+<module name="RedundantModifier"/>
+        <!--<module name="NeedBraces"/>-->
+<module name="CovariantEquals"/>
+<module name="DoubleCheckedLocking"/>
+<module name="EmptyStatement"/>
+        <!--<module name="FinalLocalVariable" />-->
+<module name="InnerAssignment"/>
+<module name="MissingSwitchDefault"/>
+<module name="FallThrough"/>
+<module name="SimplifyBooleanExpression"/>
+<module name="SimplifyBooleanReturn"/>
+<module name="StringLiteralEquality"/>
+<module name="NestedIfDepth">
+<property name="max" value="1"/>
+</module>
+<module name="NestedTryDepth">
+<property name="max" value="1"/>
+</module>
+<module name="SuperClone"/>
+<module name="SuperFinalize"/>
+<module name="PackageDeclaration"/>
+<module name="IllegalType">
+<property name="format" value="^Default.*$"/>
+</module>
+        <!--
+        This rule is fundamentally broken when you have non-private constants which depend on private constants.
+        The private constants need to come first in a source file to avoid illegal forward references, but this rule
+        wants you to do the opposite.
+        -->
+        <!--<module name="DeclarationOrder"/>-->
+<module name="ParameterAssignment"/>
+        <!--
+        <module name="VisibilityModifier"/>
+        -->
+<module name="FinalClass"/>
+<module name="MutableException"/>
+<module name="ThrowsCount">
+<property name="max" value="1"/>
+</module>
+<module name="CyclomaticComplexity">
+<property name="max" value="4"/>
+</module>
+<module name="UpperEll"/>
+<module name="ArrayTypeStyle"/>
+<module name="IllegalImport"/>
+<module name="AvoidStarImport"/>
+<module name="RedundantImport"/>
+<module name="InterfaceIsType">
+<property name="allowMarkerInterfaces" value="true"/>
+</module>
+<module name="ClassDataAbstractionCoupling">
+<property name="max" value="6"/>
+</module>

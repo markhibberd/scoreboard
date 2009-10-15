@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="config" basedir="../..">
+    <import file="bob-overrides.xml"/>
+    <import file="${basedir}/bob/ant/bob.xml"/>
+
+    <!-- FIX Could something like this get moved to bob. -->
+    <macrodef name="config">
+        <attribute name="type"/>
+        <sequential>
+            <property name="@{type}.src.dir" location="${src.dir}/@{type}"/>
+            <property name="@{type}.class.dir" location="${classes.dir}/@{type}"/>
+            <fileset id="checkstyle.@{type}.code" dir="${@{type}.src.dir}">
+                <patternset refid="code.pattern"/>
+            </fileset>
+            <fileset id="jar.@{type}.class" dir="${@{type}.class.dir}" includes="**"/>
+            <fileset id="jar.@{type}.code" dir="${@{type}.src.dir}" includes="**"/>
+        </sequential>
+    </macrodef>
+</project>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="release" basedir="../..">
+    <import file="build-project.xml"/>
+    <import file="build-sign.xml"/>
+
+    <!-- FIX move to bob? -->
+    <target name="-package_release" depends="_super_jar, -sign-jar, _prepare_tar, _package_tar"/>
+
+    <!-- FIX split this out... -->
+    <target name="_super_jar">
+        <copy file="${jars.dir}/${dist.jar.name}" tofile="${jars.dir}/${super.jar.name}"/>
+
+        <for param="jar">
+            <fileset dir="${runtime.lib.dir}" includes="**/*.jar"/>
+            <sequential>
+                <!-- FIX Add name warp to avoid name clashes. -->
+                <jar jarfile="${jars.dir}/${super.jar.name}" update="true">
+                    <zipfileset src="@{jar}" excludes="**/*.java" />
+                </jar>
+            </sequential>
+        </for>
+    </target>
+
+    <target name="_prepare_tar">
+        <mkdir dir="${release.tar.plugins.dir}"/>
+        <copy todir="${release.tar.dir}">
+            <fileset dir="${release.template.dir}" includes="**"/>
+        </copy>
+        <copy file="${jars.dir}/${super.jar.name}" todir="${release.tar.dir}"/>
+        <copy file="${hudson.plugin.hpi}" todir="${release.tar.plugins.dir}"/>
+        <copy file="${cruise.plugin.jar}" todir="${release.tar.plugins.dir}"/>
+    </target>
+
+    <target name="_package_tar">
+        <mkdir dir="${tar.dir}"/>
+        <tar tarfile="${tar.dir}/${release.tar.name}">
+            <tarfileset dir="${release.tar.dir}" includes="**" prefix="${project.name}"/>
+        </tar>
+    </target>
+</project>

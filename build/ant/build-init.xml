@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="init" basedir="../..">
+    <import file="build-config.xml"/>
+    <import file="bob-overrides.xml"/>
+    <import file="${basedir}/bob/ant/bob.xml"/>
+
+
+    <!-- FIX move to bob -->
+
+    <property name="tar.temp.dir" location="${gen.dir}/tar"/>
+    <property name="tar.dir" value="${artifacts.dir}/tars"/>
+    <property name="images.dir" value="${basedir}/images"/>
+    <property name="release.tar.name" value="${project.name}-${label}.tar"/>
+    <property name="release.tar.dir" value="${tar.temp.dir}/${release.tar.name}"/>
+    <property name="release.tar.plugins.dir" value="${release.tar.dir}/plugins"/>
+    <property name="release.template.dir" location="${config.dir}/release"/>
+    <property name="super.jar.name" value="${project.name}-all.jar"/>
+    <property name="signed.jar.name" value="${project.name}-all-signed.jar"/>
+
+    <config type="alien"/>
+    <config type="core"/>
+    <config type="clobber"/>
+    <config type="edge"/>
+    <config type="providers"/>
+    <config type="test"/>
+
+    <property name="providers.lib.dir" location="${build.lib.dir}/providers"/>
+
+    <fileset id="simian.all.code" dir="${src.dir}">
+        <patternset refid="code.pattern"/>
+        <!-- FIX 1915 Remove THE DUPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  -->
+        <exclude name="**/DefaultScorePylonWirer**"/>
+    </fileset>
+
+    <path id="lib.runtime.classpath">
+        <fileset dir="${runtime.lib.dir}">
+            <patternset refid="jar.pattern"/>
+        </fileset>
+    </path>
+
+    <path id="lib.providers.classpath">
+        <path refid="lib.runtime.classpath"/>
+        <fileset dir="${providers.lib.dir}">
+            <patternset refid="jar.pattern"/>
+        </fileset>
+    </path>
+
+
+    <path id="alien.compile.classpath">
+        <path refid="lib.runtime.classpath"/>
+        <path location="${edge.class.dir}"/>
+    </path>
+
+    <path id="core.compile.classpath">
+        <path refid="lib.runtime.classpath"/>
+        <path location="${edge.class.dir}"/>
+        <path location="${alien.class.dir}"/>
+        <path location="${clobber.class.dir}"/>
+    </path>
+
+    <path id="clobber.compile.classpath">
+        <path refid="lib.runtime.classpath"/>
+        <path location="${alien.class.dir}"/>
+        <path location="${edge.class.dir}"/>
+    </path>
+
+    <path id="edge.compile.classpath">
+        <path refid="lib.runtime.classpath"/>
+    </path>
+
+    <path id="providers.compile.classpath">
+        <path refid="lib.providers.classpath"/>
+        <path location="${core.class.dir}"/>
+        <path location="${clobber.class.dir}"/>
+        <path location="${edge.class.dir}"/>
+    </path>
+
+    <path id="test.compile.classpath">
+        <path refid="lib.runtime.classpath"/>
+        <path location="${core.class.dir}"/>
+        <path location="${clobber.class.dir}"/>
+        <path location="${providers.class.dir}"/>
+        <path location="${edge.class.dir}"/>
+        <path location="${alien.class.dir}"/>
+        <path refid="junit.classpath"/>
+        <path refid="jmock.classpath"/>
+    </path>
+
+    <path id="coverage.compile.classpath">
+        <path refid="edge.compile.classpath"/>
+        <path refid="alien.compile.classpath"/>
+        <path refid="core.compile.classpath"/>
+        <path refid="clobber.compile.classpath"/>
+        <path refid="providers.compile.classpath"/>
+        <path refid="test.compile.classpath"/>
+        <path refid="clover.classpath"/>
+        <path location="${test.class.dir}"/>
+    </path>
+
+    <path id="test.runtime.classpath">
+        <path refid="clover.classpath"/>
+        <path location="${test.class.dir}"/>
+        <path refid="test.compile.classpath"/>
+    </path>
+
+    <path id="all.test.classpath">
+        <path location="${coverage.class.dir}/all"/>
+        <path refid="test.runtime.classpath"/>
+    </path>
+</project>

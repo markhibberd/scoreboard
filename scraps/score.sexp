@@ -1,0 +1,23 @@
+(leapstream.scoreboard.core.model.Score
+   ((name boost)
+    (timestamp 1228087942585)
+    (status
+        (is WAITING)
+        (since 1227964071668))
+    (history
+       (((timestamp 1227964071668)
+	     (id 174)
+	     (result SUCCESS))
+	    ((timestamp 1227964071668)
+	     (id 174)
+	     (result SUCCESS))
+	    ((timestamp 1227964071668)
+	     (id 174)
+	     (result SUCCESS))
+	    ((timestamp 1227964071668)
+	     (id 174)
+	     (result SUCCESS))
+	    ((timestamp 1227964071668)
+	     (id 174)
+	     (result SUCCESS)
+	    )))))

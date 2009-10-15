@@ -1,0 +1,13 @@
+name: scoreboard
+status: {is: IN_PROGRESS, since: "2008-09-01T12:45:00Z"}
+timestamp: "2008-09-01T12:45:00Z"
+history:
+    - run: {id: 9, result: FAILURE, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 8, result: SUCCESS, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 7, result: SUCCESS, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 6, result: SUCCESS, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 5, result: FAILURE, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 4, result: FAILURE, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 3, result: FAILURE, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 2, result: FAILURE, timestamp: "2008-09-01T12:45:00Z"}
+    - run: {id: 1, result: ERROR, timestamp: "2008-09-01T12:45:00Z"}

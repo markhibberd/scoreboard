@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Convention: Aggregating targets no prefix.  Internal targets "-" prefix.  Worker targets "_" prefix. -->
+<project name="scoreboard" default="all" basedir=".">
+    <property name="ant.dir" value="build/ant"/>
+    <ant antfile="${ant.dir}/bob-get.xml" target="wake_up_bob"/>
+    <import file="${ant.dir}/build-project.xml"/>
+    <target name="all" depends="-all"/>
+    <target name="jar" depends="-jar"/>
+    <target name="plugins" depends="-plugins"/>
+    <target name="release" depends="-release"/>
+    <target name="simstyle" depends="-simstyle"/>
+    <target name="clean" depends="-clean"/>
+</project>

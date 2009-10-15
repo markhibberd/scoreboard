@@ -1,0 +1,4 @@
+print(config);
+
+function foo() {
+}

@@ -24,7 +24,7 @@ function layoutboard() {
          var y = parseInt(i / layout.x);
          var xx = offset.x + x * layout.width;
          var yy = offset.y + y * layout.height;
-         // magic num is margin, need to parametize, and enable border shrinking, etc...
+         // XXX magic num is margin, need to parametize, and enable border shrinking, etc...
          layouttile($(this), xx + 2, yy + 2, layout.width - 4, layout.height - 4);
     });
 }  
@@ -76,13 +76,12 @@ function biggest(layouts, tiles) {
         width: 0,
         height: 0
     };
-    var fit = result;
     for (var i = 0; i < layouts.length; ++i) {
         if (tiles[i].width > result.width) {
-            result.x = layouts[i].width
-            result.y = layouts[i].height
-            result.width = tiles[i].width
-            result.height = tiles[i].height
+            result.x = layouts[i].width;
+            result.y = layouts[i].height;
+            result.width = tiles[i].width;
+            result.height = tiles[i].height;
         }
     }
     result.offset.x = parseInt((viewport.width() - result.x * result.width) / 2) + 5;
@@ -92,11 +91,7 @@ function biggest(layouts, tiles) {
 
 function size(w, h) {
     return {
-        width: int(w),
-        height: int(h)
+        width: parseInt(w),
+        height: parseInt(h)
     };
-}
-
-function int(x) {
-    return parseInt(x)
 }

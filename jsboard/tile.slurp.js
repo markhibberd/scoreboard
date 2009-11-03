@@ -3,7 +3,6 @@
 
 function slurp(tile) {
     var element = tile.element();
-    var title = element.children(".title");
     var pegtainer = element.children(".pegs");
     var score = element.children(".score");
     var status = element.children(".status");

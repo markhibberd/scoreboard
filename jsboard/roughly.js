@@ -11,7 +11,7 @@ function s(start, unit, message) {
         start: start,
         unit: unit, 
         message: message
-    }
+    };
 }
 
 var slices = new Array(

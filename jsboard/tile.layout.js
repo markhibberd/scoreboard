@@ -31,8 +31,8 @@ function layouttile(tile, x, y, w, h) {
 }
 
 function box(el, x, y, w, h) {
-        el.css("left", x)
-        el.css("top", y)
+        el.css("left", x);
+        el.css("top", y);
         el.width(w);
         el.height(h);
 }

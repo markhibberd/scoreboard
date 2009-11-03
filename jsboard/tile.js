@@ -6,7 +6,7 @@ function maketile(name, url) {
             return $("#" + name);
         },
         html: maketilehtml(name)
-    }
+    };
 }
 
 function maketilehtml(name) {

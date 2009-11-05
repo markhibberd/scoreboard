@@ -8,4 +8,8 @@ public interface Thread extends Edge {
     void interrupt();
 
     void join();
+
+    void join(long millis);
+
+    void setDaemon(boolean b);
 }

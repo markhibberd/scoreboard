@@ -11,6 +11,7 @@ import leapstream.scoreboard.pylons.score.ui.comp.Dial;
 import leapstream.scoreboard.pylons.score.ui.gunge.Digger;
 import leapstream.scoreboard.pylons.status.ui.core.StatusTile;
 
+// FIX AQUEDUCT Rip out farmer gumf.
 // FIX 1915 Dec 23, 2008 Dupe with PeggedUiScorePusher.
 // FIX 1915 Dec 23, 2008 Does Digger need to be more generic or does it suggest other changes.
 public final class StatusUiScorePusher implements ScorePusher {

@@ -32,6 +32,7 @@ public final class KeyWeb implements Web {
         // FIX 1205 Switch key for this. 'h' == help. '??' = this.
         bind("h", HHandler.class);
         bind("c", CHandler.class);
+        bind("s", SHandler.class);
     }
 
     private void bind(String name, Class<? extends Handler> c) {

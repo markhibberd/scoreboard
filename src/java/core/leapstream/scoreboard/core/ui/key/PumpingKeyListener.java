@@ -8,8 +8,6 @@ import java.awt.event.KeyListener;
 
 public final class PumpingKeyListener implements KeyListener, Constructable {
     StrictMap<Integer, Handler> codes;
-    // FIX 1205 smells - should be 'f'
-    Handler fullscreener;
     Handler esc;
     Handler up;
     Handler down;
@@ -18,11 +16,12 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
     Handler space;
     Handler h;
     Handler c;
+    Handler s;
+    Handler f;
 
     public void constructor() {
-        // FIX 1205 Why not bind(' ', space) but still have only one backing map?
         codes(32, space);
-        codes(70, fullscreener);
+        codes(70, f);
         codes(27, esc);
         codes(38, up);
         codes(39, right);
@@ -30,6 +29,7 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
         codes(37, left);
         codes(72, h);
         codes(67, c);
+        codes(83, s);
     }
 
     public void keyTyped(KeyEvent e) {

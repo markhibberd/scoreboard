@@ -23,7 +23,7 @@ public final class KeyWeb implements Web {
         // FIX 1205 Leave name as key.
         // FIX 1205 This way it actually reads as binding "h" to HelpHandler. Much nicer :)
         bind("space", SpaceHandler.class);
-        bind("fullscreener", FullScreenHandler.class);
+        bind("f", FullScreenHandler.class);
         bind("esc", EscHandler.class);
         bind("up", UpHandler.class);
         bind("down", DownHandler.class);

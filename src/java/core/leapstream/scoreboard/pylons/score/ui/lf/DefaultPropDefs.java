@@ -3,7 +3,7 @@ package leapstream.scoreboard.pylons.score.ui.lf;
 import au.net.netstorm.boost.gunge.collection.DefaultStrictMap;
 import au.net.netstorm.boost.gunge.collection.StrictMap;
 
-// FIX 252 Precursor to properties.
+// FIX CONFIG Replace this with js. 
 public final class DefaultPropDefs implements PropDefs {
     StrictMap<String, String> map = new DefaultStrictMap();
 

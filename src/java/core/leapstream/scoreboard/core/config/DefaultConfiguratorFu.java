@@ -21,6 +21,7 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
     Script script;
     Pylons pylons;
     Nu nu;
+    // FIX CONFIG add config facade here.
 
     public void config(URL... urls) {
         Args args = args();
@@ -29,6 +30,7 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
 
     private Args args() {
         Args args = nu.nu(Args.class);
+        // FIX CONFIG wire in config facade.
         args.put("pylons", pylons);
         args.put("wirer", wirer);
         args.put("images", images);

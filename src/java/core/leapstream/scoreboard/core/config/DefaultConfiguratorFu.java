@@ -7,14 +7,12 @@ import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.core.pylon.PylonWirer;
 import leapstream.scoreboard.core.pylon.Pylons;
 import leapstream.scoreboard.edge.java.net.URL;
-import leapstream.scoreboard.pylons.brand.core.BrandPylonWirer;
 import leapstream.scoreboard.pylons.image.core.ImagePylonWirer;
 import leapstream.scoreboard.pylons.score.core.ScorePylonWirer;
 import leapstream.scoreboard.pylons.status.core.StatusPylonWirer;
 
 public final class DefaultConfiguratorFu implements ConfiguratorFu {
     // FIX 1205 Need a generic way to allow this to be bound. Spider??
-    BrandPylonWirer brands;
     ImagePylonWirer images;
     ScorePylonWirer scores;
     StatusPylonWirer stati;
@@ -35,7 +33,6 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
         args.put("wirer", wirer);
         args.put("images", images);
         args.put("builds", scores);
-        args.put("brands", brands);
         args.put("stati", stati);
         args.put("threadpool", aqueduct);
         return args;

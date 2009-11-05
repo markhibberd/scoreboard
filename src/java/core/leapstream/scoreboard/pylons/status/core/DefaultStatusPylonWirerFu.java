@@ -45,7 +45,7 @@ public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
         sticker.instance(resolver, Build.class, build);
     }
 
-    private Widget<StatusTile> resolve(Resolver resolver) {
+    private Widget<StatusTile> resolve(Resolver resolver) {           
         StatusTileWidgets widgets = resolver.resolve(StatusTileWidgets.class);
         return widgets.nu();
     }

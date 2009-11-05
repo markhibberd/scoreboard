@@ -21,6 +21,8 @@ import leapstream.scoreboard.alien.ui.swing.pear.Panel;
 import leapstream.scoreboard.alien.ui.swing.pear.PanelProvider;
 import leapstream.scoreboard.alien.ui.val.AspectRatio;
 import leapstream.scoreboard.alien.ui.val.PreferredSize;
+import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
+import leapstream.scoreboard.alien.aqueduct.ConduitIn;
 import leapstream.scoreboard.core.ui.key.DefaultNavigator;
 import leapstream.scoreboard.core.ui.key.KeyWeb;
 import leapstream.scoreboard.core.ui.key.Navigator;
@@ -28,6 +30,8 @@ import leapstream.scoreboard.core.ui.widgets.Board;
 import leapstream.scoreboard.core.ui.widgets.DefaultBoard;
 import leapstream.scoreboard.core.ui.widgets.DefaultNavigableTiles;
 import leapstream.scoreboard.core.ui.widgets.NavigableTiles;
+import leapstream.scoreboard.core.poll.Times;
+import leapstream.scoreboard.core.poll.Threads;
 
 import java.awt.Dimension;
 
@@ -51,6 +55,7 @@ public final class ScoreboardWeb implements Web {
         mapper.prefix("Default");
         subwebs();
         ui();
+        backend();
         logging();
     }
 
@@ -78,8 +83,6 @@ public final class ScoreboardWeb implements Web {
     private void single() {
         wire.nu(PreferredSize.class, preferred).to(PreferredSize.class);
         wire.nu(AspectRatio.class, aspect).to(AspectRatio.class);
-        //sorry guys, we need to call new here!
-//        single.bind(Frame.class).provider(FrameProvider.class);
         wire.provider(FrameProvider.class).one().to(Frame.class);
         // FIX 1596 Mar 5, 2009 The following do not need the mapping (only the single).
         wire.cls(DefaultNavigator.class).one().to(Navigator.class);
@@ -87,15 +90,14 @@ public final class ScoreboardWeb implements Web {
         wire.cls(DefaultBoard.class).one().to(Board.class);
     }
 
+    private void backend() {
+        AqueductWirer aqueducts = nu.nu(AqueductWirer.class);
+        ConduitIn in = aqueducts.nu(Threads.POOL, Times.TIMEOUT);
+        wire.ref(in).to(ConduitIn.class);
+    }
+
     private void logging() {
         wire.cls(StandardOutLogEngine.class).to(LogEngine.class);
     }
-    /*
-
-      Provider p = s.nu(Board.class);
-      Provider x = s.one(p);
-      pattern(x, Board.class, ScoreboardGo.class);
-      pattern(x, Board.class, DefaultPylonWirer.class);
-    */
 }
 // } OK NCSS

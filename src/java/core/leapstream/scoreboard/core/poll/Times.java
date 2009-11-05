@@ -1,6 +1,7 @@
 package leapstream.scoreboard.core.poll;
 
 public final class Times {
+    public static final int TIMEOUT = seconds(20);
     public static final int IMAGE = seconds(20);
     public static final int SCORE_TIMEOUT = seconds(30);
     public static final int SCORE_POLL = seconds(5);

@@ -4,6 +4,7 @@ import au.net.netstorm.boost.spider.api.builder.Sticker;
 import au.net.netstorm.boost.spider.api.builder.Egg;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import au.net.netstorm.boost.spider.api.runtime.Spider;
+import au.net.netstorm.boost.spider.ioc.BoostWeb;
 import leapstream.scoreboard.alien.ui.gunge.thread.ThreadUtil;
 
 public class DefaultAqueductWirer implements AqueductWirer {
@@ -11,10 +12,10 @@ public class DefaultAqueductWirer implements AqueductWirer {
     Sticker sticker;
     Nu nu;
 
-    public ConduitIn nu(int size, long timeout) {
-        Egg egg = nu.nu(Egg.class, AqueductWeb.class);
+    public ConduitIn nu(int pool, long timeout) {
+        Egg egg = nu.nu(Egg.class, BoostWeb.class, AqueductWeb.class);
         Spider spider = egg.hatch();
-        sticker.data(spider, Pool.class, size);
+        sticker.data(spider, Pool.class, pool);
         sticker.data(spider, Timeout.class, timeout);
         Conduit conduit = spider.resolve(Conduit.class);
         Resivoir resivoir = spider.resolve(Resivoir.class);

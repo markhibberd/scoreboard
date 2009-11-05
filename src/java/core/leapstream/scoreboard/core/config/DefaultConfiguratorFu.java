@@ -3,6 +3,7 @@ package leapstream.scoreboard.core.config;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.script.Args;
 import leapstream.scoreboard.alien.script.Script;
+import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.core.pylon.PylonWirer;
 import leapstream.scoreboard.core.pylon.Pylons;
 import leapstream.scoreboard.edge.java.net.URL;
@@ -17,6 +18,7 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
     ImagePylonWirer images;
     ScorePylonWirer scores;
     StatusPylonWirer stati;
+    Aqueduct aqueduct;
     PylonWirer wirer;
     Script script;
     Pylons pylons;
@@ -35,6 +37,7 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
         args.put("builds", scores);
         args.put("brands", brands);
         args.put("stati", stati);
+        args.put("threadpool", aqueduct);
         return args;
     }
 }

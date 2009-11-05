@@ -1,3 +1,7 @@
+
+// Thread management example....
+// threadpool.threads(20);
+
 hudson = "http://hudson:10080/score/";
 geekscape = "http://boost:boost@geekscape.org/dashboard/tab/score/boost";
 all = ["boost", "fist", "hammer", "juggernaut", "scoreboard", "shampoo", "web", "penetrate", ];

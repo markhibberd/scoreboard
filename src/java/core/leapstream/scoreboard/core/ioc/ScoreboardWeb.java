@@ -23,6 +23,7 @@ import leapstream.scoreboard.alien.ui.val.AspectRatio;
 import leapstream.scoreboard.alien.ui.val.PreferredSize;
 import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
 import leapstream.scoreboard.alien.aqueduct.ConduitIn;
+import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.core.ui.key.DefaultNavigator;
 import leapstream.scoreboard.core.ui.key.KeyWeb;
 import leapstream.scoreboard.core.ui.key.Navigator;
@@ -92,8 +93,10 @@ public final class ScoreboardWeb implements Web {
 
     private void backend() {
         AqueductWirer aqueducts = nu.nu(AqueductWirer.class);
-        ConduitIn in = aqueducts.nu(Threads.POOL);
+        Aqueduct aqueduct = aqueducts.nu(Threads.POOL);
+        ConduitIn in = aqueduct.in();
         wire.ref(in).to(ConduitIn.class);
+        wire.ref(aqueduct).to(Aqueduct.class);
     }
 
     private void logging() {

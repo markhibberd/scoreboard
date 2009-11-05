@@ -26,6 +26,8 @@ public class DefaultResivoir implements Resivoir, Constructable {
     }
 
     public void threads(int count) {
+        if (count < 2)
+            throw new IllegalArgumentException("Must be atleast 2 threads in pool.");
         executor.setMaximumPoolSize(count);
     }
 

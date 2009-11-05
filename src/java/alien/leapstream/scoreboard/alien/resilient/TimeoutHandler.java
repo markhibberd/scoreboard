@@ -1,4 +1,4 @@
-package leapstream.scoreboard.alien.aqueduct;
+package leapstream.scoreboard.alien.resilient;
 
 public interface TimeoutHandler {
     void timeout();

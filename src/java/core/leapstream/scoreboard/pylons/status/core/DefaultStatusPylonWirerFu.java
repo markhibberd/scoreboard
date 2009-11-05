@@ -1,9 +1,5 @@
 package leapstream.scoreboard.pylons.status.core;
 
-import au.net.netstorm.boost.bullet.farmer.Farmer;
-import au.net.netstorm.boost.bullet.farmer.FarmerWirer;
-import au.net.netstorm.boost.bullet.farmer.Pull;
-import au.net.netstorm.boost.bullet.farmer.Push;
 import au.net.netstorm.boost.gunge.lifecycle.StartStop;
 import au.net.netstorm.boost.spider.api.builder.Egg;
 import au.net.netstorm.boost.spider.api.builder.SpiderEgg;
@@ -11,30 +7,43 @@ import au.net.netstorm.boost.spider.api.builder.Sticker;
 import au.net.netstorm.boost.spider.api.runtime.Resolver;
 import au.net.netstorm.boost.spider.api.runtime.Spider;
 import au.net.netstorm.boost.spider.ioc.BoostWeb;
+import leapstream.scoreboard.alien.resilient.ErrorHandler;
+import leapstream.scoreboard.alien.resilient.ResilientRunnables;
+import leapstream.scoreboard.alien.resilient.TimeoutHandler;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.core.ioc.ScoreboardWeb;
 import leapstream.scoreboard.core.model.Build;
-import static leapstream.scoreboard.core.poll.Times.STATUS_POLL;
-import static leapstream.scoreboard.core.poll.Times.STATUS_TIMEOUT;
+import leapstream.scoreboard.core.poll.Poller;
+import leapstream.scoreboard.core.poll.Times;
 import leapstream.scoreboard.core.pylon.Pylon;
 import leapstream.scoreboard.pylons.score.core.HubWeb;
 import leapstream.scoreboard.pylons.score.core.StatusUiWeb;
-import leapstream.scoreboard.pylons.score.pull.ScorePuller;
-import leapstream.scoreboard.pylons.score.push.ScorePusher;
+import leapstream.scoreboard.pylons.score.job.ScoreErrorHandler;
+import leapstream.scoreboard.pylons.score.job.ScoreRunnable;
+import leapstream.scoreboard.pylons.score.job.ScoreTimeoutHandler;
 import leapstream.scoreboard.pylons.status.ui.core.StatusTile;
 import leapstream.scoreboard.pylons.status.ui.core.StatusTileWidgets;
 
 // FIX 1915 Dec 23, 2008 Remove dupe
 public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
-    FarmerWirer farmers;
+    ResilientRunnables resilient;
     Sticker sticker;
+    Poller poller;
 
     // FIX BREADCRUMB 1915 AAAAAAAAAAAAAAAAAAAAAAAAAA Here.
     public Pylon<StatusTile> nu(Build build) {
         Spider spider = spider();
         Widget<StatusTile> widget = resolve(spider);
         wire(spider, build, widget);
-        StartStop ss = farm(spider);
+        StartStop ss = new StartStop() {
+
+            public void start() {
+            }
+
+            public void stop() {
+            }
+        };
+        poll(spider);
         return spider.nu(Pylon.class, widget, ss);
     }
 
@@ -49,11 +58,12 @@ public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
         return widgets.nu();
     }
 
-    private StartStop farm(Resolver resolver) {
-        Farmer farmer = farmers.nu(STATUS_POLL, STATUS_TIMEOUT);
-        Pull puller = resolver.resolve(ScorePuller.class);
-        Push pusher = resolver.resolve(ScorePusher.class);
-        return farmer.farm(pusher, puller);
+    private void poll(Spider spider) {
+        Runnable runnable = spider.impl(ScoreRunnable.class);
+        TimeoutHandler times = spider.impl(ScoreTimeoutHandler.class);
+        ErrorHandler errors = spider.impl(ScoreErrorHandler.class);
+        Runnable imbued = resilient.imbune(runnable, errors, times, Times.STATUS_POLL);
+        poller.poll(imbued, Times.STATUS_POLL);
     }
 
     private Spider spider() {

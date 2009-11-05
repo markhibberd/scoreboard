@@ -12,11 +12,10 @@ public class DefaultAqueductWirer implements AqueductWirer {
     Sticker sticker;
     Nu nu;
 
-    public ConduitIn nu(int pool, long timeout) {
+    public ConduitIn nu(int pool) {
         Egg egg = nu.nu(Egg.class, BoostWeb.class, AqueductWeb.class);
         Spider spider = egg.hatch();
         sticker.data(spider, Pool.class, pool);
-        sticker.data(spider, Timeout.class, timeout);
         Conduit conduit = spider.resolve(Conduit.class);
         Resivoir resivoir = spider.resolve(Resivoir.class);
         threader.daemon(resivoir);

@@ -13,6 +13,6 @@ public class AqueductWeb implements Web {
 
     public void web() {
         mapper.prefix("Default", scope);
-        wire.cls(DefaultConduit.class).to(Conduit.class).to(ConduitIn.class).to(ConduitOut.class);
+        wire.cls(DefaultConduit.class).one().to(Conduit.class).to(ConduitIn.class).to(ConduitOut.class);
     }
 }

@@ -92,7 +92,7 @@ public final class ScoreboardWeb implements Web {
 
     private void backend() {
         AqueductWirer aqueducts = nu.nu(AqueductWirer.class);
-        ConduitIn in = aqueducts.nu(Threads.POOL, Times.TIMEOUT);
+        ConduitIn in = aqueducts.nu(Threads.POOL);
         wire.ref(in).to(ConduitIn.class);
     }
 

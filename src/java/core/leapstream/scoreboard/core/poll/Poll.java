@@ -1,17 +1,16 @@
 package leapstream.scoreboard.core.poll;
 
 import leapstream.scoreboard.alien.aqueduct.ConduitIn;
-import leapstream.scoreboard.alien.aqueduct.Job;
 
 public class Poll implements Runnable {
-    private Job job;
+    private Runnable r;
     ConduitIn in;
 
-    public Poll(Job job) {
-        this.job = job;
+    public Poll(Runnable r) {
+        this.r = r;
     }
 
     public void run() {
-        in.add(job);
+        in.add(r);
     }
 }

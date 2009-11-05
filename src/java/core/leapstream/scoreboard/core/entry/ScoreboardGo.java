@@ -51,13 +51,7 @@ public final class ScoreboardGo implements Go, Constructable {
     }
 
     private void config(String[] args) {
-        brand();
         configurator.config(args);
-    }
-
-    private void brand() {
-        URL brand = bits.url("brand.js");
-        fu.config(brand);
     }
 
     private void wire() {

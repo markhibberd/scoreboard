@@ -32,9 +32,8 @@ public class DefaultResivoir implements Resivoir, Constructable {
     // FIX AQUEDUCT Stop?
     public void run() {
         for (;;) {
-            Job job = out.take();
-            Pipe pipe = impl.impl(Pipe.class, job);
-            executor.execute(pipe);
+            Runnable runnable = out.take();
+            executor.execute(runnable);
         }
     }
 }

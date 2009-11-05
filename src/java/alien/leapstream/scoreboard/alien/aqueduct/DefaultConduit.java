@@ -4,13 +4,13 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class DefaultConduit implements Conduit {
-    private final BlockingQueue<Job> q = new LinkedBlockingQueue<Job>();
-    
-    public void add(Job job) {
-        q.add(job);
+    private final BlockingQueue<Runnable> q = new LinkedBlockingQueue<Runnable>();
+
+    public void add(Runnable runnable) {
+        q.add(runnable);
     }
 
-    public Job take() {
+    public Runnable take() {
         try {
             return q.take();
         // FIX AQUEDUCT edge? maybe need to handle this a bit better

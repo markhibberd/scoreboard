@@ -44,8 +44,8 @@ public final class DefaultImagePylonWirerFu implements ImagePylonWirerFu {
 
     private Pylon<ImageTile> pylon(Spider spider, Farmer farmer, Class<? extends ImagePuller> type) {
         Widget<ImageTile> widget = widgets(spider);
-        StartStop ss = farm(spider, farmer, type);
-        return spider.nu(Pylon.class, widget, ss);
+        farm(spider, farmer, type);
+        return spider.nu(Pylon.class, widget);
     }
 
     private Widget<ImageTile> widgets(Spider spider) {
@@ -55,11 +55,12 @@ public final class DefaultImagePylonWirerFu implements ImagePylonWirerFu {
         return widget;
     }
 
-    private StartStop farm(Spider spider, Farmer farmer, Class<? extends ImagePuller> type) {
+    private void farm(Spider spider, Farmer farmer, Class<? extends ImagePuller> type) {
         Impl impl = spider.resolve(Impl.class);
         ImagePuller puller = impl.impl(type);
         ImagePusher pusher = spider.resolve(ImagePusher.class);
-        return farmer.farm(pusher, puller);
+        StartStop ss = farmer.farm(pusher, puller);
+        ss.start();
     }
 
     private Spider spider() {

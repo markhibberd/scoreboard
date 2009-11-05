@@ -35,16 +35,8 @@ public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
         Spider spider = spider();
         Widget<StatusTile> widget = resolve(spider);
         wire(spider, build, widget);
-        StartStop ss = new StartStop() {
-
-            public void start() {
-            }
-
-            public void stop() {
-            }
-        };
         poll(spider);
-        return spider.nu(Pylon.class, widget, ss);
+        return spider.nu(Pylon.class, widget);
     }
 
     private void wire(Resolver resolver, Build build, Widget<StatusTile> widget) {

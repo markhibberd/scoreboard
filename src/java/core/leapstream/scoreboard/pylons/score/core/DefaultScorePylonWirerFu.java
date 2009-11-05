@@ -32,16 +32,8 @@ public final class DefaultScorePylonWirerFu implements ScorePylonWirerFu {
         Spider spider = spider();
         Widget<ScoreTile> widget = resolve(spider);
         wire(spider, build, widget);
-        StartStop ss = new StartStop() {
-
-            public void start() {
-            }
-
-            public void stop() {
-            }
-        };
         poll(spider);
-        return spider.nu(Pylon.class, widget, ss);
+        return spider.nu(Pylon.class, widget);
     }
 
     private void poll(Spider spider) {

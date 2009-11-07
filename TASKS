@@ -1,0 +1,36 @@
+The world according to mark:
+
+. Tidy up. Project is a mess.
+ . Dead code.
+ . Dead tests.
+ . Tidy / speed up build.
+ . CI on eminentfu.
+ . De-alienize.
+. Threading.
+ . Strip farmer (aqueduct, resilient).
+ . InvokeLater layer.
+. Sort entry/wiring.
+ . Kill ScoreboardGo.
+ . Split ScoreboardWeb.
+. Sort layouts.
+ . Matrix to control/access pylons in more structured way.
+ . Drive out state required for state/config/transform changes.
+. Sort pylon state.
+ . Kill dupe for orthogonal pylon services and wiring.
+ . Clean state for each pylon.
+ . Should be able to reproduce view from state alone (req'd to update config)
+. Sort config.
+ . Modifiable at runtime.
+ . Invalidate current components.
+ . Js write fragments, to persist config.
+. Cube transform.
+ . 4 way panels, cube rotate to switch between
+ . Pylon cube: Score [current], Config [urls, poll period, pause, etc..]. Stats [No of polls, poll rate, success, failures, longest run], High scores.
+  . Board cube: Pylons [current], Log, Config [thread pool, pylons add & remove], Help/KeyMap.
+. UI Drive.
+ . Configure & Control from UI using 'cube'.
+ . Window mannagement: snap, split, to front, freeze
+. Plugins.                       ,
+ . Format support, html [for eyeballs], clobber [for swing], json [for js board],
+ . Auto configure.
+ . Save config via plugin, i.e. psuedo settings server.

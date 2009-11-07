@@ -16,4 +16,4 @@ echo $jars
 #FIX switch around and kill hard coded config.
 #java -cp $jars leapstream.scoreboard.core.entry.Main $*
 
-$JAVA_CMD -cp $jars leapstream.scoreboard.core.entry.Main "file:config.js"
+$JAVA_CMD -cp $jars leapstream.scoreboard.core.entry.Main "file:config/config.js"

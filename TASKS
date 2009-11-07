@@ -9,6 +9,8 @@ The world according to mark:
 . Threading.
  . Strip farmer (aqueduct, resilient).
  . InvokeLater layer.
+. Sort Clobber.
+ . Finish s-expr.
 . Sort entry/wiring.
  . Kill ScoreboardGo.
  . Split ScoreboardWeb.

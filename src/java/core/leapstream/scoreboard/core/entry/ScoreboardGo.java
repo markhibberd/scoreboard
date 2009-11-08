@@ -2,20 +2,15 @@ package leapstream.scoreboard.core.entry;
 
 import au.net.netstorm.boost.spider.api.entry.Go;
 import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
-import au.net.netstorm.boost.spider.api.config.wire.Wire;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
-import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
-import leapstream.scoreboard.alien.aqueduct.ConduitIn;
 import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.config.Configurator;
 import leapstream.scoreboard.core.config.ConfiguratorFu;
 import leapstream.scoreboard.core.ui.config.Config;
 import leapstream.scoreboard.core.ui.widgets.Board;
-import leapstream.scoreboard.core.poll.Threads;
 import leapstream.scoreboard.edge.java.awt.FontStatic;
 import leapstream.scoreboard.edge.java.io.InputStream;
-import leapstream.scoreboard.edge.java.net.URL;
 import leapstream.scoreboard.pylons.score.ui.lf.Colors;
 
 import javax.swing.JComponent;

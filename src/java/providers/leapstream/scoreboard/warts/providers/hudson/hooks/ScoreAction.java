@@ -2,13 +2,12 @@ package leapstream.scoreboard.warts.providers.hudson.hooks;
 
 import hudson.model.Action;
 import hudson.model.Hudson;
+import leapstream.scoreboard.warts.providers.hudson.transforms.Scorer;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import leapstream.scoreboard.warts.providers.hudson.transforms.Scorer;
 
 public final class ScoreAction implements Action {
     Scorer scorer;

@@ -1,7 +1,7 @@
 package leapstream.scoreboard.core.poll;
 
-import au.net.netstorm.boost.spider.api.runtime.Impl;
 import au.net.netstorm.boost.bullet.repeater.Repeater;
+import au.net.netstorm.boost.spider.api.runtime.Impl;
 
 public class DefaultPoller implements Poller {
     Repeater repeater;

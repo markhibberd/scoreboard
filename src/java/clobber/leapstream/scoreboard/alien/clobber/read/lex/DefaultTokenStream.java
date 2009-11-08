@@ -1,8 +1,8 @@
 package leapstream.scoreboard.alien.clobber.read.lex;
 
+import au.net.netstorm.boost.gunge.collection.DefaultFunctionalMaestro;
 import au.net.netstorm.boost.gunge.collection.FunctionalMaestro;
 import au.net.netstorm.boost.gunge.collection.ObjectEqualityFilter;
-import au.net.netstorm.boost.gunge.collection.DefaultFunctionalMaestro;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,9 +1,9 @@
 package leapstream.scoreboard.alien.clobber.test;
 
-import java.util.List;
-
-import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.bullet.incredibles.core.Struct;
+import au.net.netstorm.boost.bullet.time.core.TimePoint;
+
+import java.util.List;
 
 public interface Root extends Struct {
     TimePoint time();

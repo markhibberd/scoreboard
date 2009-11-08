@@ -1,5 +1,6 @@
 package leapstream.scoreboard.pylons.score.push;
 
+import au.net.netstorm.boost.bullet.incredibles.core.Weaken;
 import leapstream.scoreboard.alien.ui.audio.Talker;
 import leapstream.scoreboard.alien.ui.audio.WavPlayer;
 import leapstream.scoreboard.core.model.Name;
@@ -7,7 +8,6 @@ import leapstream.scoreboard.core.model.Score;
 import leapstream.scoreboard.edge.java.net.URL;
 import leapstream.scoreboard.pylons.score.state.ScoreDelta;
 import leapstream.scoreboard.pylons.score.state.ScorePylonState;
-import au.net.netstorm.boost.bullet.incredibles.core.Weaken;
 
 public final class AudioScorePusher implements ScorePusher {
     ScorePylonState state;

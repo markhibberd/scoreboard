@@ -2,12 +2,12 @@ package leapstream.scoreboard.core.gunge;
 
 // OK GenericIllegalRegexp {
 
-import java.util.Calendar;
-import java.util.Date;
-
 import au.net.netstorm.boost.bullet.time.core.Clock;
 import au.net.netstorm.boost.bullet.time.core.TimeFactory;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public final class DefaultTimestamp implements Timestamp {
     TimeFactory times;

@@ -1,8 +1,8 @@
 package leapstream.scoreboard.core.bits;
 
-import leapstream.scoreboard.edge.java.net.URL;
-import leapstream.scoreboard.edge.java.io.InputStream;
 import leapstream.scoreboard.alien.gunge.Resources;
+import leapstream.scoreboard.edge.java.io.InputStream;
+import leapstream.scoreboard.edge.java.net.URL;
 
 public final class DefaultBits implements Bits {
     String path = "leapstream/scoreboard/core/bits";

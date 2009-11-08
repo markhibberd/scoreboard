@@ -39,7 +39,7 @@
 <module name="ParameterName"/>
 <module name="GenericIllegalRegexp">
 <property name="format"
-          value="sleep|abstract|extends HttpServlet|static void main|System\.out|System\.err|\.printStackTrace\(\)|Calendar|new Date|new DefaultEdgifier\(|extends TestCase|extends BoooostCase|InteractionTestCase|System.current"/>
+          value="sleep|abstract|extends HttpServlet|System\.out|System\.err|\.printStackTrace\(\)|Calendar|new Date|new DefaultEdgifier\(|extends TestCase|extends BoooostCase|InteractionTestCase|System.current"/>
 </module>
 <module name="EqualsHashCode"/>
 <module name="ParenPad"/>

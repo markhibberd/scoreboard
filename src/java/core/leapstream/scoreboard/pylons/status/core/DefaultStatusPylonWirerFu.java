@@ -1,6 +1,5 @@
 package leapstream.scoreboard.pylons.status.core;
 
-import au.net.netstorm.boost.gunge.lifecycle.StartStop;
 import au.net.netstorm.boost.spider.api.builder.Egg;
 import au.net.netstorm.boost.spider.api.builder.SpiderEgg;
 import au.net.netstorm.boost.spider.api.builder.Sticker;

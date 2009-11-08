@@ -1,8 +1,8 @@
 package leapstream.scoreboard.warts.providers.hudson.transforms;
 
+import hudson.model.Hudson;
 import hudson.model.Project;
 import hudson.model.TopLevelItem;
-import hudson.model.Hudson;
 
 // FIX pull out with other scorebaord stuff.
 public final class DefaultHudsonProject implements HudsonProject {

@@ -4,7 +4,6 @@ import hudson.model.Hudson;
 import hudson.model.Project;
 import leapstream.scoreboard.alien.clobber.core.Dumper;
 import leapstream.scoreboard.core.model.Score;
-import leapstream.scoreboard.warts.providers.hudson.transforms.HudsonScore;
 
 public final class DefaultScorer implements Scorer {
     private static final int HISTORY = 11;

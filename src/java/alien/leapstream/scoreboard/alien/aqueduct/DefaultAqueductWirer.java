@@ -1,7 +1,7 @@
 package leapstream.scoreboard.alien.aqueduct;
 
-import au.net.netstorm.boost.spider.api.builder.Sticker;
 import au.net.netstorm.boost.spider.api.builder.Egg;
+import au.net.netstorm.boost.spider.api.builder.Sticker;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import au.net.netstorm.boost.spider.api.runtime.Spider;
 import au.net.netstorm.boost.spider.ioc.BoostWeb;

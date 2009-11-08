@@ -1,11 +1,11 @@
 package leapstream.scoreboard.pylons.score.ui.layout;
 
+import leapstream.scoreboard.alien.ui.gunge.layout.BoomLayoutManager;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Rectangle;
-
-import leapstream.scoreboard.alien.ui.gunge.layout.BoomLayoutManager;
 
 public final class DefaultTileLayoutManager extends BoomLayoutManager implements TileLayoutManager {
     private Component[] parts;

@@ -1,8 +1,7 @@
 package leapstream.scoreboard.core.pylon;
 
-import leapstream.scoreboard.core.ui.tile.Tile;
 import leapstream.scoreboard.alien.ui.core.Widget;
-import au.net.netstorm.boost.gunge.lifecycle.StartStop;
+import leapstream.scoreboard.core.ui.tile.Tile;
 
 public final class DefaultPylon<T extends Tile> implements Pylon<T> {
     Widget<T> view;

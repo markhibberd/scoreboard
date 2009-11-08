@@ -29,12 +29,16 @@
         <copy file="${jars.dir}/${super.jar.name}" todir="${release.tar.dir}"/>
         <copy file="${hudson.plugin.hpi}" todir="${release.tar.plugins.dir}"/>
         <copy file="${cruise.plugin.jar}" todir="${release.tar.plugins.dir}"/>
+        <copy file="${score.config.dir}/config-example.js" todir="${release.tar.plugins.dir}"/>
+        <copy todir="${release.tar.plugins.dir}">
+            <fileset dir="${root}" includes="COPYING,FEATURES,README,TASKS"/>
+        </copy>
     </target>
 
     <target name="_package_tar">
         <mkdir dir="${tar.dir}"/>
-        <tar tarfile="${tar.dir}/${release.tar.name}">
-            <tarfileset dir="${release.tar.dir}" includes="**" prefix="${project.name}"/>
+        <tar tarfile="${tar.dir}/${release.tar.name}" compression="gzip">
+            <tarfileset dir="${release.tar.dir}" includes="**" prefix="${project.name}-${label}"/>
         </tar>
     </target>
 </project>

@@ -4,7 +4,7 @@
     <import file="build-sign.xml"/>
 
     <!-- FIX move to bob? -->
-    <target name="-package_release" depends="_super_jar, -sign-jar, _prepare_tar, _package_tar"/>
+    <target name="-package_release" depends="-jar-with-main, _super_jar, -sign-jar, _prepare_tar, _package_tar"/>
 
     <!-- FIX split this out... -->
     <target name="_super_jar">

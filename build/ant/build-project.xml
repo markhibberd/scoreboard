@@ -8,8 +8,9 @@
     <import file="build-package.xml"/>
     <import file="build-plugins.xml"/>
 
-    <target name="-all" depends="-clean, artifacts, -instrument, -compile, quality, -jar-with-main"/>
-    <target name="-plugins" depends="-all, -package_plugins"/>
+    <target name="-quick" depends="-clean, artifacts, -instrument, -compile, quality"/>
+    <target name="-main" depends="-quick, -jar-with-main"/>
+    <target name="-plugins" depends="-quick, -package_plugins"/>
     <target name="-release" depends="-plugins, -package_release"/>
-    <target name="-simstyle" depends="-clean, artifacts, -checkstyle_run, -simian_run, -checkstyle_check, -simian_check"/>
+    <target name="-analyse" depends="-clean, artifacts, -checkstyle_run, -simian_run, -checkstyle_check, -simian_check"/>
 </project>

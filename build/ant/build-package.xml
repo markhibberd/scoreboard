@@ -6,18 +6,29 @@
 
     <target name="-jar-with-main" depends="-jar,_jar-with-main"/>
 
-    <target name="_jar-with-main">
+    <target name="svn-rev">
+        <exec executable="svn" output="build/svn.properties">
+            <arg value="info"/>
+        </exec>
+        <property prefix="svn" file="${build.dir}/svn.properties"/>
+        <echo>Sandbox Revision: ${svn.Revision}</echo>
+    </target>
+
+    <target name="_jar-with-main" depends="svn-rev">
         <copy file="${jars.dir}/${dist.jar.name}" tofile="${jars.dir}/${tmp.jar.name}"/>
         <jar destfile="${jars.dir}/${dist.jar.name}">
             <zipfileset src="${jars.dir}/${tmp.jar.name}"/>
-            <fileset dir="${images.dir}" includes="splash.png"/>
+            <fileset dir="${config.dir}/splash" includes="splash.png"/>
             <manifest>
-                  <attribute name="Implementation-Title" value="${project.name}"/>
-                  <attribute name="Implementation-Version" value="${build.date}"/>
-                  <attribute name="Implementation-Vendor" value="${vendor.name}"/>
-                  <attribute name="FreeTTSVoiceDefinition" value="true"/>
-                  <attribute name="SplashScreen-Image" value="splash.png"/>
-                  <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Specification-Title" value="scoreboard"/>
+                <attribute name="Specification-Version" value="prerelease"/>
+                <attribute name="Specification-Vendor" value="scoreboarders"/>
+                <attribute name="Implementation-Title" value="scoreboard"/>
+                <attribute name="Implementation-Version" value="${build.date} rev-${svn.Revision}"/>
+                <attribute name="Implementation-Vendor" value="scoreboarders"/>
+                <attribute name="FreeTTSVoiceDefinition" value="true"/>
+                <attribute name="SplashScreen-Image" value="splash.png"/>
+                <attribute name="Main-Class" value="${main.class}"/>
             </manifest>
         </jar>
     </target>

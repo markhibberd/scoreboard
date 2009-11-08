@@ -3,7 +3,8 @@ package leapstream.scoreboard.pylons.score.ui.lf;
 import au.net.netstorm.boost.gunge.collection.DefaultStrictMap;
 import au.net.netstorm.boost.gunge.collection.StrictMap;
 
-// FIX CONFIG Replace this with js. 
+// FIX CONFIG Replace this with js.
+// DEBT NCSS {
 public final class DefaultPropDefs implements PropDefs {
     StrictMap<String, String> map = new DefaultStrictMap();
 
@@ -43,3 +44,5 @@ public final class DefaultPropDefs implements PropDefs {
         map.put(k, v);
     }
 }
+
+// } DEBT NCSS

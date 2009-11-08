@@ -13,6 +13,7 @@ import leapstream.scoreboard.test.framework.testcase.ScoreboardTestCase;
 import java.util.Arrays;
 import java.util.List;
 
+// DEBT MemberName {
 // FIX 1202 Jan 14, 2009 Delete once boost clobber is complete.
 public final class DefaultSimpleLexerAtomicTest extends ScoreboardTestCase implements HasFixtures, InjectableTest {
     private SimpleToken moo_token;
@@ -68,3 +69,4 @@ public final class DefaultSimpleLexerAtomicTest extends ScoreboardTestCase imple
         assertEquals(tokenList, actual);
     }
 }
+// } DEBT MemberName

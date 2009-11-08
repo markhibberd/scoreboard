@@ -7,6 +7,7 @@ import au.net.netstorm.boost.spider.api.runtime.Impl;
 import java.util.List;
 
 // FIX 1202 Jan 14, 2009 Delete once boost clobber is complete.
+// DEBT CyclomaticComplexity|NCSS|ReturnCount {
 public final class DefaultParserFactory implements ParserFactory {
     Impl impl;
 
@@ -24,3 +25,4 @@ public final class DefaultParserFactory implements ParserFactory {
         return expected.isAssignableFrom(cls);
     }
 }
+// } DEBT CyclomaticComplexity|NCSS|ReturnCount

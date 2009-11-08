@@ -12,6 +12,7 @@ import static leapstream.scoreboard.alien.clobber.read.lex.Token.Type.VALUE;
 import java.util.List;
 
 // FIX 1202 Jan 14, 2009 Delete once boost clobber is complete.
+// DEBT CyclomaticComplexity|NCSS {
 public final class DefaultLexer implements Lexer {
     private final Scanner scanner;
     List<Token> tokens;
@@ -99,3 +100,4 @@ public final class DefaultLexer implements Lexer {
         token(f, s);
     }
 }
+// } DEBT CyclomaticComplexity|NCSS

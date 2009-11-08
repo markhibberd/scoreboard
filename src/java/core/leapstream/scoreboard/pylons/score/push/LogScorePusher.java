@@ -18,6 +18,5 @@ public final class LogScorePusher implements ScorePusher {
 
     public void fail(Throwable t) {
         log.error("Failed... " + build, t);
-        t.printStackTrace();
     }
 }

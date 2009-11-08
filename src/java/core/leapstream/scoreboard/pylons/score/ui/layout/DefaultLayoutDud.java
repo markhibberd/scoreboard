@@ -23,6 +23,7 @@ public final class DefaultLayoutDud implements LayoutDud {
         return result;
     }
 
+    // OK ParameterNumber {
     private Rectangle rectangle(int[] px, int[] py, int ix1, int iy1, int ix2, int iy2) {
         int x1 = px[ix1];
         int x2 = px[ix2];
@@ -30,6 +31,7 @@ public final class DefaultLayoutDud implements LayoutDud {
         int y2 = py[iy2];
         return new Rectangle(x1, y1, x2 - x1, y2 - y1);
     }
+    // } OK ParameterNumber
 
     private int[] morph(Spacings spacings, int len) {
         Double[] s = spacings.abs();

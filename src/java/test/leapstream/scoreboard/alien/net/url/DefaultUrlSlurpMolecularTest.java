@@ -16,7 +16,6 @@ public final class DefaultUrlSlurpMolecularTest extends ScoreboardTestCase imple
 
     private void check(String expected, String location) {
         String content = slurper.slurp(location);
-        System.out.println("content = " + content);
         boolean actual = content.startsWith(expected);
         assertEquals(true, actual);
     }

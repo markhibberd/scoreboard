@@ -12,6 +12,7 @@ import static leapstream.scoreboard.alien.clobber.read.lex.Token.Type.LIST_START
 import static leapstream.scoreboard.alien.clobber.read.lex.Token.Type.VALUE;
 import leapstream.scoreboard.test.framework.testcase.ScoreboardTestCase;
 
+// DEBT MemberName|NCSS {
 // FIX 1202 Jan 14, 2009 Delete once boost clobber is complete.
 public final class DefaultNuLexerAtomicTest extends ScoreboardTestCase implements InjectableTest, HasFixtures {
     private static final String FLURGLE = "Flurgle";
@@ -129,3 +130,4 @@ public final class DefaultNuLexerAtomicTest extends ScoreboardTestCase implement
         assertEquals(expected, actual);
     }
 }
+// } DEBT MemberName|NCSS

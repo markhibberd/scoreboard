@@ -19,6 +19,7 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
     Handler s;
     Handler f;
 
+    // DEBT NCSS {
     public void constructor() {
         codes(32, space);
         codes(70, f);
@@ -31,7 +32,9 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
         codes(67, c);
         codes(83, s);
     }
+    // } DEBT NCSS
 
+    // DEBT GenericIllegalRegexp {
     public void keyTyped(KeyEvent e) {
         System.err.println("typed = " + e.getKeyCode());
     }
@@ -60,4 +63,5 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
         Handler h = codes.get(code);
         h.u();
     }
+    // } DEBT GenericIllegalRegexp
 }

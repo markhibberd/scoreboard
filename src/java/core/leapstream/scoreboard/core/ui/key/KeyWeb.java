@@ -17,6 +17,8 @@ public final class KeyWeb implements Web {
         wire.cls(PumpingKeyListener.class).to(KeyListener.class);
     }
 
+
+    // OK NCSS {
     private void keys() {
         // FIX 1205 I think the nameing pattern is wrong here.
         // FIX 1205 Impls should be named after what they do.
@@ -34,6 +36,7 @@ public final class KeyWeb implements Web {
         bind("c", CHandler.class);
         bind("s", SHandler.class);
     }
+    // } OK NCSS
 
     private void bind(String name, Class<? extends Handler> c) {
         wire.cls(c).to(Handler.class, name);

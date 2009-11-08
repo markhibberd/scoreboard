@@ -11,6 +11,7 @@ import java.util.List;
 // FIX 1202 Jan 14, 2009 Delete once boost clobber is complete.
 
 // FIX 1202 Use or lose.
+// DEBT CyclomaticComplexity|NCSS|ReturnCount {
 public final class DefaultSimpleLexer implements SimpleLexer {
     Nu nu;
 
@@ -71,3 +72,4 @@ public final class DefaultSimpleLexer implements SimpleLexer {
         return STRING;
     }
 }
+// } DEBT CyclomaticComplexity|NCSS|ReturnCount

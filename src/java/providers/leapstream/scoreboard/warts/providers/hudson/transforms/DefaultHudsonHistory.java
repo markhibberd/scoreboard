@@ -25,7 +25,8 @@ public final class DefaultHudsonHistory implements HudsonHistory {
     }
 
     private void accumulate(Integer noOfRuns, List<Run> runs, hudson.model.Run last) {
-        while (!done(noOfRuns, runs, last)) last = add(runs, last);
+        hudson.model.Run accumulator = last;
+        while (!done(noOfRuns, runs, accumulator)) accumulator = add(runs, accumulator);
     }
 
     private hudson.model.Run add(List<Run> runs, hudson.model.Run last) {

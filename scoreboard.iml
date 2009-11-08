@@ -15,7 +15,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="boost" />
     <orderEntry type="module-library">
       <library name="all">
         <CLASSES>

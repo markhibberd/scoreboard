@@ -36,3 +36,32 @@ The world according to mark:
  . Format support, html [for eyeballs], clobber [for swing], json [for js board],
  . Auto configure.
  . Save config via plugin, i.e. psuedo settings server.
+
+
+
+
+Old stuff...
+
+Release:
+ ui:
+  - initialisation (establishing scoreboard layout).
+  - implement layout manager for individual score tile.
+  - allow allocation of actual tiles to tile holders in scoreboard.
+  - implement basic key navigation (to logs and back).
+  - implement control interface.
+  - implement resizing fonts.
+  - sort out layout for pegs (most recent scores)
+  - sweep 7777 fixes.
+  - smart initial sizing
+  - apple spinning dial for initialisation and waits in general.
+ net:
+  - initialisation.
+  - proxy support.
+  - url specification.
+  - aggregating builds.
+ other:
+  - ping capability with corresponding status ball (or color build title).
+  - logging.
+  - local configuration.
+Future:
+ 

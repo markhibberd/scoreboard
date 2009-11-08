@@ -7,10 +7,10 @@
     <target name="-jar-with-main" depends="-jar,_jar-with-main"/>
 
     <target name="svn-rev">
-        <exec executable="svn" output="build/svn.properties">
+        <exec executable="svn" output="${gen.dir}/svn.properties">
             <arg value="info"/>
         </exec>
-        <property prefix="svn" file="${build.dir}/svn.properties"/>
+        <property prefix="svn" file="${gen.dir}/svn.properties"/>
         <echo>Sandbox Revision: ${svn.Revision}</echo>
     </target>
 

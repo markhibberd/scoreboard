@@ -16,44 +16,43 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="all">
+      <library name="prod">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/scripting/bsh-2.0b4.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/tools/jmock/jmock-1.1.0.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/cruisecontrol-dashboard.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/freetts.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/cmu_time_awb.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-beans.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/hudson/hudson-core-1.252.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/cruisecontrol.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-jmx.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/jna/examples.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/scripting/js.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/cmu_us_kal.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-aop.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/cmutimelex.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-web.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-support.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/en_us.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-core.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/joda-time-1.4.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/scripting/bsh-engine.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/cmulex.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-context.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/tools/junit/junit-4.3.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/jna/jna.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/hudson/servlet-api-2.4.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/hudson/stapler-1.82.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/scripting/js-engine.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/freetts/cmudict04.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/servlet-api-2.4.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/providers/cruise/spring-webmvc.jar!/" />
-          <root url="jar://$MODULE_DIR$/build/lib/runtime/scripting/scriptconsole4j-0.1.jar!/" />
+          <root url="file://$MODULE_DIR$/build/lib/runtime/boost" />
+          <root url="file://$MODULE_DIR$/build/lib/runtime/scripting" />
+          <root url="file://$MODULE_DIR$/build/lib/runtime/jna" />
+          <root url="file://$MODULE_DIR$/build/lib/runtime/freetts" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/build/lib/tools/junit/junit-4.3.1-src.jar!/" />
-        </SOURCES>
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/boost" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/freetts" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/jna" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/scripting" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="providers">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/build/lib/providers/cruise" />
+          <root url="file://$MODULE_DIR$/build/lib/providers/hudson" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/providers/cruise" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/providers/hudson" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="test">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/build/lib/tools/junit" />
+          <root url="file://$MODULE_DIR$/build/lib/tools/jmock" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/tools/jmock" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/build/lib/tools/junit" recursive="false" />
       </library>
     </orderEntry>
   </component>

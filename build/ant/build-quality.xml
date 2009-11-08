@@ -11,5 +11,5 @@
     <target name="quality_report" depends="-test_report, -coverage_report"/>
     <!-- FIX Reinstate once everything is locked down. -->
     <!--<target name="quality_check" depends="-checkstyle_check, -simian_check, -test_check, -coverage_check"/>-->
-    <target name="quality_check" depends="-checkstyle_check, -simian_check, -test_check"/>
+    <target name="quality_check" depends="-simian_check, -test_check"/>
 </project>

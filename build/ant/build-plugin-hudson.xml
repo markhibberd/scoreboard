@@ -11,6 +11,7 @@
     <target name="-hudson" depends="_hudson_jar,_hudson_hpi"/>
 
     <target name="_hudson_jar">
+         <mkdir dir="${jars.dir}"/>
         <jar destfile="${hudson.plugin.jar}">
             <fileset dir="${providers.class.dir}" includes="**/hudson/**/*"/>
             <fileset dir="${hudson.plugin.resources}" includes="**/*"/>

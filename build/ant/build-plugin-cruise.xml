@@ -6,6 +6,7 @@
     <target name="-cruise" depends="_cruise_jar"/>
 
     <target name="_cruise_jar">
+        <mkdir dir="${jars.dir}"/>
         <jar destfile="${cruise.plugin.jar}">
             <fileset dir="${providers.class.dir}" includes="**/cruise/**/*"/>
             <fileset dir="${core.class.dir}" includes="**/*"/>

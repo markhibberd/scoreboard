@@ -16,7 +16,7 @@
     <property name="release.template.dir" location="${config.dir}/release"/>
     <property name="super.jar.name" value="${project.name}-all.jar"/>
     <property name="signed.jar.name" value="${project.name}-all-signed.jar"/>
-
+    
     <config type="alien"/>
     <config type="core"/>
     <config type="clobber"/>

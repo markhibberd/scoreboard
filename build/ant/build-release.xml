@@ -38,7 +38,7 @@
     <target name="_package_tar">
         <mkdir dir="${tar.dir}"/>
         <tar tarfile="${tar.dir}/${release.tar.name}" compression="gzip">
-            <tarfileset dir="${release.tar.dir}" includes="**" prefix="${project.name}-${label}"/>
+            <tarfileset dir="${release.tar.dir}" includes="**" prefix="${project.name}-${build.label}"/>
         </tar>
     </target>
 </project>

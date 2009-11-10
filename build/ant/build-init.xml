@@ -4,15 +4,23 @@
     <import file="bob-overrides.xml"/>
     <import file="${basedir}/bob/ant/bob.xml"/>
 
+     <!-- FIX move to bob -->
+    <exec executable="svn" output="${gen.dir}/svn.properties">
+        <arg value="info"/>
+    </exec>
+    <property prefix="svn" file="${gen.dir}/svn.properties"/>
+    <echo>Revision: ${svn.Revision}</echo>
 
-    <!-- FIX move to bob -->
+    <!-- FIX build.date.short is probably unecessary, but it is a pain whilst there is more than one svn repo. -->
+    <property name="build.label" value="${version}.${build.date.short}r${svn.Revision}"/>
+    <echo>Build: ${build.label}</echo>
 
     <property name="root" location="."/>
     <property name="score.config.dir" location="config"/>
     <property name="tar.temp.dir" location="${gen.dir}/tar"/>
     <property name="tar.dir" value="${artifacts.dir}/tars"/>
     <property name="images.dir" value="${basedir}/images"/>
-    <property name="release.tar.name" value="${project.name}-${label}.tar.gz"/>
+    <property name="release.tar.name" value="${project.name}-${build.label}.tar.gz"/>
     <property name="release.tar.dir" value="${tar.temp.dir}/${release.tar.name}"/>
     <property name="release.tar.plugins.dir" value="${release.tar.dir}/plugins"/>
     <property name="release.template.dir" location="${config.dir}/release"/>

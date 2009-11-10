@@ -10,7 +10,7 @@
 
     <target name="-quick" depends="-clean, artifacts, -instrument, -compile, quality"/>
     <target name="-main" depends="-quick, -jar-with-main"/>
-    <target name="-plugins" depends="-quick, -package_plugins"/>
+    <target name="-plugins" depends="-main, -package_plugins"/>
     <target name="-release" depends="-plugins, -package_release"/>
     <target name="-analyse" depends="-clean, artifacts, -checkstyle_run, -simian_run, -checkstyle_check, -simian_check"/>
 </project>

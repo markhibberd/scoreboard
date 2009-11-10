@@ -30,7 +30,7 @@
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>**/artifacts/jars/scoreboard-all.jar,**/artifacts/jars/scoreboard-hudon.hpi,**/artifacts/jars/scoreboard-cruise.jar,**/artifacts/tars/scoreboard*.tar.gz</artifacts>
+      <artifacts>**/artifacts/jars/scoreboard-all.jar,**/artifacts/jars/scoreboard-hudson.hpi,**/artifacts/jars/scoreboard-cruise.jar,**/artifacts/tars/scoreboard*.tar.gz</artifacts>
       <latestOnly>true</latestOnly>
     </hudson.tasks.ArtifactArchiver>
     <hudson.tasks.junit.JUnitResultArchiver>

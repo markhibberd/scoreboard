@@ -1,40 +1,41 @@
 package leapstream.scoreboard.warts.providers.hudson.transforms;
 // OK GenericIllegalRegexp {
 
+import java.util.Calendar;
+import java.util.Date;
+
 import au.net.netstorm.boost.bullet.time.core.TimeFactory;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import hudson.model.Project;
+import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.gunge.Timestamp;
 import leapstream.scoreboard.core.model.Stati;
+import leapstream.scoreboard.core.model.Status;
+
 import static leapstream.scoreboard.core.model.Stati.BUILDING;
 import static leapstream.scoreboard.core.model.Stati.DISABLED;
 import static leapstream.scoreboard.core.model.Stati.QUEUED;
 import static leapstream.scoreboard.core.model.Stati.WAITING;
-import leapstream.scoreboard.core.model.Status;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public final class DefaultHudsonStatus implements HudsonStatus {
     Nu nu;
     Timestamp time;
     TimeFactory times;
 
-    public Status status(Project project) {
+    public Status status(AbstractProject project) {
         Stati stati = stati(project);
         TimePoint since = since(project);
         return nu.nu(Status.class, stati, since);
     }
 
-    private Stati stati(Project project) {
+    private Stati stati(AbstractProject project) {
         if (project.isBuilding()) return BUILDING;
         if (project.isInQueue()) return QUEUED;
         if (project.isDisabled()) return DISABLED;
         return WAITING;
     }
 
-    private TimePoint since(Project project) {
+    private TimePoint since(AbstractProject project) {
         hudson.model.Run run = project.getLastBuild();
         if (run == null) return time.now();
         Calendar timestamp = run.getTimestamp();

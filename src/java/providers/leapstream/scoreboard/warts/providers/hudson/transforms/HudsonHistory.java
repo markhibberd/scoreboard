@@ -1,8 +1,8 @@
 package leapstream.scoreboard.warts.providers.hudson.transforms;
 
-import hudson.model.Project;
+import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.model.History;
 
 public interface HudsonHistory {
-    History history(Project project, Integer noOfRuns);
+    History history(AbstractProject project, Integer noOfRuns);
 }

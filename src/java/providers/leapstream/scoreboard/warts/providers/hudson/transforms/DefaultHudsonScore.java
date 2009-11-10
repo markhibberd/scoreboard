@@ -2,7 +2,7 @@ package leapstream.scoreboard.warts.providers.hudson.transforms;
 
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import hudson.model.Project;
+import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.gunge.Timestamp;
 import leapstream.scoreboard.core.model.History;
 import leapstream.scoreboard.core.model.Name;
@@ -16,7 +16,7 @@ public class DefaultHudsonScore implements HudsonScore {
     Timestamp time;
     Nu nu;
 
-    public Score score(Project project, Integer noOfRuns) {
+    public Score score(AbstractProject project, Integer noOfRuns) {
         Name name = namer.name(project);
         Status status = statistician.status(project);
         TimePoint timestamp = time.now();

@@ -1,23 +1,23 @@
 package leapstream.scoreboard.warts.providers.hudson.transforms;
 
+import java.util.List;
+
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import hudson.model.Project;
+import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.model.History;
 import leapstream.scoreboard.core.model.Run;
-
-import java.util.List;
 
 public final class DefaultHudsonHistory implements HudsonHistory {
     HudsonRun runner;
     Nu nu;
 
-    public History history(Project project, Integer noOfRuns) {
+    public History history(AbstractProject project, Integer noOfRuns) {
         List<Run> runs = nu.nu(List.class);
         accumulate(project, noOfRuns, runs);
         return nu.nu(History.class, runs);
     }
 
-    private void accumulate(Project project, Integer noOfRuns, List<Run> runs) {
+    private void accumulate(AbstractProject project, Integer noOfRuns, List<Run> runs) {
         hudson.model.Run last = project.getLastBuild();
         if (last == null) return;
         if (last.isBuilding()) last = last.getPreviousBuild();

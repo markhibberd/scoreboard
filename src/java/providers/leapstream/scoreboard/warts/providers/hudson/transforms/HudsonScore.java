@@ -1,8 +1,8 @@
 package leapstream.scoreboard.warts.providers.hudson.transforms;
 
-import hudson.model.Project;
+import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.model.Score;
 
 public interface HudsonScore {
-    Score score(Project project, Integer noOfRuns);
+    Score score(AbstractProject project, Integer noOfRuns);
 }

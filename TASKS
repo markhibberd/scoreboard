@@ -9,6 +9,7 @@ The world according to mark:
  . release
   . move *.jar to lib
   . add bin/ start scripts
+  . checksum
 . Threading.
  . Strip farmer (aqueduct, resilient).
  . InvokeLater layer.

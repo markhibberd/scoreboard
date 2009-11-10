@@ -9,7 +9,7 @@ import javax.servlet.ServletContext;
 import java.util.List;
 
 public final class Hooker implements Runnable {
-    Class[] types = {ScoreAction.class, LeapstreamAction.class};
+    Class[] types = {ScoreAction.class};
     Restafarian restafarian;
     ServletContext context;
     Impl impl;

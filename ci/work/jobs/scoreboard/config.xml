@@ -29,6 +29,10 @@
     </hudson.tasks.Ant>
   </builders>
   <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/artifacts/jars/scoreboard-all.jar,**/artifacts/jars/scoreboard-hudon.hpi,**/artifacts/jars/scoreboard-cruise.jar,**/artifacts/tars/scoreboard*.tar.gz</artifacts>
+      <latestOnly>true</latestOnly>
+    </hudson.tasks.ArtifactArchiver>
     <hudson.tasks.junit.JUnitResultArchiver>
       <testResults>**/TestReport.xml</testResults>
     </hudson.tasks.junit.JUnitResultArchiver>

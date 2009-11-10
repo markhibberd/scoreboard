@@ -1,1 +1,9 @@
-FIX Fill this out.
+Tue Nov 10 23:50:46 EST 2009
+
+Continuous integration environment is now available from checkout. See ci/ci.sh.
+
+Replaced farmer background tasks with aqueduct. Aqueduct provides a lighter weight
+solution to the concurrency and reliability requirements. Includes ability to tweak
+thread pool as required for slower machines.
+
+Improved versioning of releases. Versioning is now, <major>.<minor>.<date>r<svn revision>.

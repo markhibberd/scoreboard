@@ -1,21 +1,37 @@
 FIX Fill this out.
 
-
-License
--------
-
-License can be found in LICENSE file, or at http://youknowwhere. License applies to all code, configuration and documentation.
-
-
 Install
 -------
+
+See http://www.assembla.com/wiki/show/peeble/Integration
 
 
 Configure
 ---------
 
+See http://www.assembla.com/wiki/show/peeble/Integration
 
-Realease Notes
+
+Build
+-----
+
+$ svn co ttp://subversion.assembla.com/svn/peeble/trunk scoreboard
+$ cd scoreboard
+$ ant release
+
+
+CI
+--
+
+To fire up hudson.
+
+$ svn co ttp://subversion.assembla.com/svn/peeble/trunk scoreboard
+$ scoreboard/ci/ci.sh
+
+Default port is 8080.
+
+
+Release Notes
 --------------
 
 See FEATURES file.
@@ -26,4 +42,9 @@ Whats Next
 
 See TASKS file.
 
+
+License
+-------
+
+Details can be found in COPYING file, or, https://www.assembla.com/wiki/show/peeble/License.
 

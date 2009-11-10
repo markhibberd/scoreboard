@@ -6,6 +6,9 @@ The world according to mark:
  . Tidy / speed up build.
  . CI on eminentfu.
  . De-alienize.
+ . release
+  . move *.jar to lib
+  . add bin/ start scripts
 . Threading.
  . Strip farmer (aqueduct, resilient).
  . InvokeLater layer.

@@ -12,5 +12,7 @@ HUDSON_HOME=$BASE_DIR/work
 
 export HUDSON_HOME
 
+# FIX support port change i.e. --httpPort=80
+
 exec $JAVA_CMD -jar $BASE_DIR/hudson.war
 

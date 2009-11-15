@@ -15,7 +15,9 @@ import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
 import leapstream.scoreboard.alien.aqueduct.ConduitIn;
 import leapstream.scoreboard.alien.clobber.core.ClobberWeb;
 import leapstream.scoreboard.alien.ioc.AlienWeb;
-import leapstream.scoreboard.alien.ui.audio.AudioWeb;
+import leapstream.scoreboard.alien.ui.audio.core.AudioWeb;
+import leapstream.scoreboard.alien.ui.audio.core.AudioWirer;
+import leapstream.scoreboard.alien.ui.audio.core.Audio;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
 import leapstream.scoreboard.alien.ui.swing.pear.FrameProvider;
 import leapstream.scoreboard.alien.ui.swing.pear.Label;
@@ -57,6 +59,7 @@ public final class ScoreboardWeb implements Web {
         ui();
         backend();
         logging();
+        audio();
     }
 
     private void subwebs() {
@@ -100,6 +103,12 @@ public final class ScoreboardWeb implements Web {
 
     private void logging() {
         wire.cls(StandardOutLogEngine.class).to(LogEngine.class);
+    }
+
+    private void audio() {
+        AudioWirer audios = nu.nu(AudioWirer.class);
+        Audio audio = audios.nu();
+        wire.ref(audio).to(Audio.class);
     }
 }
 // } OK NCSS

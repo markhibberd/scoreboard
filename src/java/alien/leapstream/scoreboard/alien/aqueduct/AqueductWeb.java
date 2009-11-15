@@ -5,7 +5,7 @@ import au.net.netstorm.boost.spider.api.config.web.Web;
 import au.net.netstorm.boost.spider.api.config.wire.Wire;
 
 public class AqueductWeb implements Web {
-    String scope = "leapstream.scoreboard.alien.aqueduct";
+    String scope = "leapstream.scoreboard.alien";
     Wire wire;
     Mapper mapper;
 

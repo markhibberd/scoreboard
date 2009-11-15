@@ -1,25 +1,23 @@
-package leapstream.scoreboard.alien.ui.audio;
+package leapstream.scoreboard.alien.ui.audio.voice;
 
-import au.net.netstorm.boost.bullet.primordial.Primordial;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
+import leapstream.scoreboard.alien.ui.audio.core.Playable;
 
-public class DefaultTalker extends Primordial implements Talker {
+public class VoicePlayable implements Playable {
     private static final String VOICE = "kevin16";
+    private String msg;
 
+    // FIX AUDIO sort this property crap.
     {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
     }
 
-    public void say(String msg) {
-        // FIX 826 Get rid of in favour of synchronous / locking / layer.
-        // FIX 826 Look at singletons across spiders and how that all works.
-        synchronized (AudioLock.class) {
-            locked(msg);
-        }
+    public VoicePlayable(String msg) {
+        this.msg = msg;
     }
 
-    private void locked(String msg) {
+    public void play() {
         Voice voice = getVoice();
         voice.allocate();
         voice.speak(msg);

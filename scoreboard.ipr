@@ -355,20 +355,6 @@
         <entry key="/home/markh/work/eminentfu/sb/gritty/gritty">
           <value>
             <SvnBranchConfiguration>
-              <option name="branchMap">
-                <map>
-                  <entry key="http://gritty.googlecode.com/svn/branches">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                  <entry key="http://gritty.googlecode.com/svn/tags">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                </map>
-              </option>
               <option name="branchUrls">
                 <list>
                   <option value="http://gritty.googlecode.com/svn/branches" />
@@ -382,20 +368,6 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
-              <option name="branchMap">
-                <map>
-                  <entry key="http://subversion.assembla.com/svn/peeble/branches">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                  <entry key="http://subversion.assembla.com/svn/peeble/tags">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                </map>
-              </option>
               <option name="branchUrls">
                 <list>
                   <option value="http://subversion.assembla.com/svn/peeble/branches" />

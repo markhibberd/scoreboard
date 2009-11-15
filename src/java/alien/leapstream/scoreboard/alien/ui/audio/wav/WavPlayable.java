@@ -1,30 +1,29 @@
-package leapstream.scoreboard.alien.ui.audio;
+package leapstream.scoreboard.alien.ui.audio.wav;
 
-import au.net.netstorm.boost.bullet.primordial.Primordial;
-import au.net.netstorm.boost.bullet.scalpel.core.Edges;
-import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.edge.java.net.URL;
-import leapstream.scoreboard.edge.javax.sound.sampled.AudioFormat;
 import leapstream.scoreboard.edge.javax.sound.sampled.AudioInputStream;
-import leapstream.scoreboard.edge.javax.sound.sampled.AudioSystemStatic;
+import leapstream.scoreboard.edge.javax.sound.sampled.AudioFormat;
+import leapstream.scoreboard.edge.javax.sound.sampled.SourceDataLine;
 import leapstream.scoreboard.edge.javax.sound.sampled.DataLine;
 import leapstream.scoreboard.edge.javax.sound.sampled.Line;
-import leapstream.scoreboard.edge.javax.sound.sampled.SourceDataLine;
+import leapstream.scoreboard.edge.javax.sound.sampled.AudioSystemStatic;
+import leapstream.scoreboard.alien.ui.audio.core.Playable;
+import leapstream.scoreboard.alien.ui.audio.wav.Streama;
+import au.net.netstorm.boost.bullet.scalpel.core.Edges;
+import au.net.netstorm.boost.spider.api.runtime.Nu;
 
-public class DefaultWavPlayer extends Primordial implements WavPlayer {
+public class WavPlayable implements Playable {
+    private URL wav;
     AudioSystemStatic system;
     Streama streama;
     Edges edges;
     Nu nu;
 
-    public void play(URL wav) {
-        // FIX 826 Get rid of in favour of lock layer.
-        synchronized (AudioLock.class) {
-            locked(wav);
-        }
+    public WavPlayable(URL wav) {
+        this.wav = wav;
     }
 
-    private void locked(URL wav) {
+    public void play() {
         AudioInputStream in = system.getAudioInputStream(wav);
         AudioFormat format = in.getFormat();
         SourceDataLine line = line(format);

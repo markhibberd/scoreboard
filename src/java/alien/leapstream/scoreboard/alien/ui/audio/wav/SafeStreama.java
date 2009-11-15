@@ -1,4 +1,4 @@
-package leapstream.scoreboard.alien.ui.audio;
+package leapstream.scoreboard.alien.ui.audio.wav;
 
 import leapstream.scoreboard.edge.javax.sound.sampled.AudioFormat;
 import leapstream.scoreboard.edge.javax.sound.sampled.AudioInputStream;

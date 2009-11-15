@@ -14,7 +14,7 @@ import leapstream.scoreboard.core.ioc.ScoreboardWeb;
 import leapstream.scoreboard.core.model.Build;
 import leapstream.scoreboard.core.poll.Poller;
 import leapstream.scoreboard.core.poll.Times;
-import leapstream.scoreboard.core.pylon.Pylon;
+import leapstream.scoreboard.core.pylon.PylonView;
 import leapstream.scoreboard.pylons.score.job.ScoreErrorHandler;
 import leapstream.scoreboard.pylons.score.job.ScoreRunnable;
 import leapstream.scoreboard.pylons.score.job.ScoreTimeoutHandler;
@@ -27,12 +27,12 @@ public final class DefaultScorePylonWirerFu implements ScorePylonWirerFu {
     Sticker sticker;
     Poller poller;
 
-    public Pylon<ScoreTile> nu(Build build) {
+    public PylonView<ScoreTile> nu(Build build) {
         Spider spider = spider();
         Widget<ScoreTile> widget = resolve(spider);
         wire(spider, build, widget);
         poll(spider);
-        return spider.nu(Pylon.class, widget);
+        return spider.nu(PylonView.class, widget);
     }
 
     private void poll(Spider spider) {

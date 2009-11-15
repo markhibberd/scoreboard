@@ -4,7 +4,7 @@ import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.alien.ui.gunge.layout.BoardLayoutManager;
 import leapstream.scoreboard.alien.ui.swing.pear.Panel;
-import leapstream.scoreboard.core.pylon.Pylon;
+import leapstream.scoreboard.core.pylon.PylonView;
 
 import javax.swing.JComponent;
 
@@ -25,7 +25,7 @@ public final class DefaultBoard implements Board, Widget<Board>, Constructable {
         return panel;
     }
 
-    public void add(Pylon pylon, boolean mandatory) {
+    public void add(PylonView pylon, boolean mandatory) {
         Widget widget = pylon.view();
         JComponent c = widget.ui();
         // FIX 1531 Dec 4, 2008 SPIKE.

@@ -14,7 +14,7 @@ import leapstream.scoreboard.core.ioc.ScoreboardWeb;
 import leapstream.scoreboard.core.model.Build;
 import leapstream.scoreboard.core.poll.Poller;
 import leapstream.scoreboard.core.poll.Times;
-import leapstream.scoreboard.core.pylon.Pylon;
+import leapstream.scoreboard.core.pylon.PylonView;
 import leapstream.scoreboard.pylons.score.core.HubWeb;
 import leapstream.scoreboard.pylons.score.core.StatusUiWeb;
 import leapstream.scoreboard.pylons.score.job.ScoreErrorHandler;
@@ -30,12 +30,12 @@ public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
     Poller poller;
 
     // FIX BREADCRUMB 1915 AAAAAAAAAAAAAAAAAAAAAAAAAA Here.
-    public Pylon<StatusTile> nu(Build build) {
+    public PylonView<StatusTile> nu(Build build) {
         Spider spider = spider();
         Widget<StatusTile> widget = resolve(spider);
         wire(spider, build, widget);
         poll(spider);
-        return spider.nu(Pylon.class, widget);
+        return spider.nu(PylonView.class, widget);
     }
 
     private void wire(Resolver resolver, Build build, Widget<StatusTile> widget) {

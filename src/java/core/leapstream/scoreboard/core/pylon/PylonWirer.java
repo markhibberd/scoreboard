@@ -1,5 +1,5 @@
 package leapstream.scoreboard.core.pylon;
 
 public interface PylonWirer {
-    void wire(Pylon pylons, boolean mandatory);
+    void wire(PylonView pylons, boolean mandatory);
 }

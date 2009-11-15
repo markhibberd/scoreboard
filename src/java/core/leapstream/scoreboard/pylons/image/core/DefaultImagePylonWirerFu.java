@@ -14,7 +14,7 @@ import leapstream.scoreboard.core.ioc.ScoreboardWeb;
 import leapstream.scoreboard.core.model.ImageLocation;
 import leapstream.scoreboard.core.model.ImagePack;
 import static leapstream.scoreboard.core.poll.Times.IMAGE;
-import leapstream.scoreboard.core.pylon.Pylon;
+import leapstream.scoreboard.core.pylon.PylonView;
 import leapstream.scoreboard.pylons.image.pull.DefaultImagePuller;
 import leapstream.scoreboard.pylons.image.pull.ImagePuller;
 import leapstream.scoreboard.pylons.image.pull.RotatingImagePuller;
@@ -28,24 +28,24 @@ public final class DefaultImagePylonWirerFu implements ImagePylonWirerFu {
     FarmerWirer farmers;
     Sticker sticker;
 
-    public Pylon<ImageTile> nu(ImageLocation location) {
+    public PylonView<ImageTile> nu(ImageLocation location) {
         Farmer farmer = farmers.nu(IMAGE);
         Spider spider = spider();
         sticker.instance(spider, ImageLocation.class, location);
         return pylon(spider, farmer, DefaultImagePuller.class);
     }
 
-    public Pylon<ImageTile> nu(long interval, ImagePack pack) {
+    public PylonView<ImageTile> nu(long interval, ImagePack pack) {
         Farmer farmer = farmers.nu(interval, IMAGE);
         Spider spider = spider();
         sticker.instance(spider, ImagePack.class, pack);
         return pylon(spider, farmer, RotatingImagePuller.class);
     }
 
-    private Pylon<ImageTile> pylon(Spider spider, Farmer farmer, Class<? extends ImagePuller> type) {
+    private PylonView<ImageTile> pylon(Spider spider, Farmer farmer, Class<? extends ImagePuller> type) {
         Widget<ImageTile> widget = widgets(spider);
         farm(spider, farmer, type);
-        return spider.nu(Pylon.class, widget);
+        return spider.nu(PylonView.class, widget);
     }
 
     private Widget<ImageTile> widgets(Spider spider) {

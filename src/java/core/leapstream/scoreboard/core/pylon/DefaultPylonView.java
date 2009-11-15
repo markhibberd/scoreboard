@@ -3,10 +3,10 @@ package leapstream.scoreboard.core.pylon;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.core.ui.tile.Tile;
 
-public final class DefaultPylon<T extends Tile> implements Pylon<T> {
+public final class DefaultPylonView<T extends Tile> implements PylonView<T> {
     Widget<T> view;
 
-    public DefaultPylon(Widget<T> view) {
+    public DefaultPylonView(Widget<T> view) {
         this.view = view;
     }
 

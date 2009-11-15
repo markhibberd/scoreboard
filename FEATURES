@@ -1,3 +1,8 @@
+Sun Nov 15 19:58:56 EST 2009
+
+Fixed audio race. Wav and speach now have guaranteed order and grouping.
+
+
 Wed Nov 11 08:33:48 EST 2009
 
 Added support for maven build in hudson plugin.

@@ -5,7 +5,7 @@ import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.alien.script.Args;
 import leapstream.scoreboard.alien.script.Script;
 import leapstream.scoreboard.core.pylon.PylonWirer;
-import leapstream.scoreboard.core.pylon.Pylons;
+import leapstream.scoreboard.core.pylon.PylonSticker;
 import leapstream.scoreboard.edge.java.net.URL;
 import leapstream.scoreboard.pylons.image.core.ImagePylonWirer;
 import leapstream.scoreboard.pylons.score.core.ScorePylonWirer;
@@ -16,10 +16,10 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
     ImagePylonWirer images;
     ScorePylonWirer scores;
     StatusPylonWirer stati;
+    PylonSticker pylons;
     Aqueduct aqueduct;
     PylonWirer wirer;
     Script script;
-    Pylons pylons;
     Nu nu;
     // FIX CONFIG add config facade here.
 

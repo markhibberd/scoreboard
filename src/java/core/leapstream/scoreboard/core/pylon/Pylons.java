@@ -1,8 +1,11 @@
 package leapstream.scoreboard.core.pylon;
 
+import java.util.List;
+
 // FIX LIFECYCLE Use or lose.  
-public interface Pylons {
-    void has(String name);
-    void get(String name);
-    void put(PylonView pylon);
+public interface Pylons extends Iterable<Pylon> {
+    void add(Pylon pylon);
+    // FIX LIFECYCLE Elliminate these. Drive this data structure deeper and they should not be needed.
+    List<Pylon> mandatory();
+    List<Pylon> optional();
 }

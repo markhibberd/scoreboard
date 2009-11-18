@@ -1,17 +1,25 @@
 package leapstream.scoreboard.core.ui.widgets;
 
 import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
+import au.net.netstorm.boost.spider.api.runtime.Impl;
+import au.net.netstorm.boost.spider.api.runtime.Nu;
+import leapstream.scoreboard.alien.ui.core.Ui;
 import leapstream.scoreboard.alien.ui.core.Widget;
-import leapstream.scoreboard.alien.ui.gunge.layout.BoardLayoutManager;
+import leapstream.scoreboard.core.ui.layout.BoardLayoutManager;
 import leapstream.scoreboard.alien.ui.swing.pear.Panel;
-import leapstream.scoreboard.core.pylon.PylonView;
+import leapstream.scoreboard.core.pylon.Pylon;
+import leapstream.scoreboard.core.pylon.Pylons;
+import leapstream.scoreboard.core.pylon.WrappedPylon;
 
 import javax.swing.JComponent;
 
 public final class DefaultBoard implements Board, Widget<Board>, Constructable {
     BoardLayoutManager layout;
     NavigableTiles navigator;
+    Pylons pylons;
     Panel panel;
+    Impl impl;
+    Nu nu;
 
     public void constructor() {
         panel.setLayout(layout);
@@ -25,17 +33,14 @@ public final class DefaultBoard implements Board, Widget<Board>, Constructable {
         return panel;
     }
 
-    public void add(PylonView pylon, boolean mandatory) {
-        Widget widget = pylon.view();
-        JComponent c = widget.ui();
+    public void add(Pylon pylon) {
+        Ui view = pylon.view();
+        JComponent c = view.ui();
         // FIX 1531 Dec 4, 2008 SPIKE.
         JComponent n = navigator.wrap(c);
+        Ui ui = nu.nu(Ui.class, n);
+        Pylon wrapped = impl.impl(WrappedPylon.class, pylon, ui);
         panel.add(n);
-        layout(n, mandatory);
-    }
-
-    private void layout(JComponent c, boolean mandatory) {
-        if (mandatory) layout.mandatory(c);
-        else layout.optional(c);
+        pylons.add(wrapped);
     }
 }

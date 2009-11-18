@@ -15,9 +15,9 @@ import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
 import leapstream.scoreboard.alien.aqueduct.ConduitIn;
 import leapstream.scoreboard.alien.clobber.core.ClobberWeb;
 import leapstream.scoreboard.alien.ioc.AlienWeb;
+import leapstream.scoreboard.alien.ui.audio.core.Audio;
 import leapstream.scoreboard.alien.ui.audio.core.AudioWeb;
 import leapstream.scoreboard.alien.ui.audio.core.AudioWirer;
-import leapstream.scoreboard.alien.ui.audio.core.Audio;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
 import leapstream.scoreboard.alien.ui.swing.pear.FrameProvider;
 import leapstream.scoreboard.alien.ui.swing.pear.Label;
@@ -27,6 +27,8 @@ import leapstream.scoreboard.alien.ui.swing.pear.PanelProvider;
 import leapstream.scoreboard.alien.ui.val.AspectRatio;
 import leapstream.scoreboard.alien.ui.val.PreferredSize;
 import leapstream.scoreboard.core.poll.Threads;
+import leapstream.scoreboard.core.pylon.DefaultPylons;
+import leapstream.scoreboard.core.pylon.Pylons;
 import leapstream.scoreboard.core.ui.key.DefaultNavigator;
 import leapstream.scoreboard.core.ui.key.KeyWeb;
 import leapstream.scoreboard.core.ui.key.Navigator;
@@ -55,11 +57,16 @@ public final class ScoreboardWeb implements Web {
         // FIX 1596 Dec 30, 2008 Revisit. Where how is the best way to declare.
         scoper.scope("leapstream.scoreboard");
         mapper.prefix("Default");
+        state();
         subwebs();
         ui();
         backend();
         logging();
         audio();
+    }
+
+    private void state() {
+        wire.cls(DefaultPylons.class).one().to(Pylons.class);
     }
 
     private void subwebs() {

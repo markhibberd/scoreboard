@@ -1,15 +1,14 @@
 package leapstream.scoreboard.core.pylon;
 
-import leapstream.scoreboard.core.ui.widgets.Board;
+import au.net.netstorm.boost.spider.api.runtime.Nu;
+import leapstream.scoreboard.alien.ui.core.Ui;
+import leapstream.scoreboard.core.model.Name;
 
 public final class DefaultPylonWirer implements PylonWirer {
-    Board board;
+    Nu nu;
 
-    public void wire(PylonView pylon, boolean mandatory) {
-        view(mandatory, pylon);
-    }
-
-    private void view(boolean mandatory, PylonView pylon) {
-        board.add(pylon, mandatory);
+    public Pylon nu(String name, Ui pylons, boolean mandatory) {
+        Name strong = nu.nu(Name.class, name);
+        return nu.nu(Pylon.class, strong, pylons, mandatory);
     }
 }

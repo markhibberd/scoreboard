@@ -1,8 +1,7 @@
 package leapstream.scoreboard.pylons.status.core;
 
-import leapstream.scoreboard.core.pylon.PylonView;
-import leapstream.scoreboard.pylons.status.ui.core.StatusTile;
+import leapstream.scoreboard.alien.ui.core.Ui;
 
 public interface StatusPylonWirer {
-    PylonView<StatusTile> nu(String name, String url);
+    Ui nu(String name, String url);
 }

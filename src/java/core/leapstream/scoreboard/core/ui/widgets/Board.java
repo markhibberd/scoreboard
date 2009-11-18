@@ -1,7 +1,7 @@
 package leapstream.scoreboard.core.ui.widgets;
 
-import leapstream.scoreboard.core.pylon.PylonView;
+import leapstream.scoreboard.core.pylon.Pylon;
 
 public interface Board {
-    void add(PylonView pylon, boolean mandatory);
+    void add(Pylon pylon);
 }

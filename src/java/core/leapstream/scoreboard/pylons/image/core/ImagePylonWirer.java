@@ -1,9 +1,8 @@
 package leapstream.scoreboard.pylons.image.core;
 
-import leapstream.scoreboard.core.pylon.PylonView;
-import leapstream.scoreboard.pylons.image.ui.core.ImageTile;
+import leapstream.scoreboard.alien.ui.core.Ui;
 
 public interface ImagePylonWirer {
-    PylonView<ImageTile> nu(String url);
-    PylonView<ImageTile> nu(long interval, String... urls);
+    Ui nu(String url);
+    Ui nu(long interval, String... urls);
 }

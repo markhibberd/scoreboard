@@ -1,6 +1,13 @@
+Thu Nov 19 23:40:32 EST 2009
+
+Jolly roger fail mode.
+
+
+
 Sun Nov 15 19:58:56 EST 2009
 
 Fixed audio race. Wav and speach now have guaranteed order and grouping.
+
 
 
 Wed Nov 11 08:33:48 EST 2009
@@ -10,6 +17,7 @@ Added support for maven build in hudson plugin.
 Pulled latest boost. Bug fixes:
  - Jit bug workaround.
  - Strengthen package mapper.
+
 
 
 Tue Nov 10 23:50:46 EST 2009

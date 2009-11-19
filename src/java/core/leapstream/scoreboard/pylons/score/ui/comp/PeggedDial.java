@@ -14,7 +14,6 @@ import leapstream.scoreboard.core.model.Status;
 
 import javax.swing.JComponent;
 import java.awt.Color;
-import static java.awt.Color.GRAY;
 
 public final class PeggedDial implements Widget<Dial>, Dial, Constructable {
     private WidgetFlasher flasher;
@@ -38,13 +37,6 @@ public final class PeggedDial implements Widget<Dial>, Dial, Constructable {
 
     public JComponent ui() {
         return l.ui();
-    }
-
-    // FIX 244 This a quick little nasty.
-    public void bomb(Throwable t) {
-        flasher.stop();
-        bg(GRAY);
-        l.text("X");
     }
 
     public void dial(History history, Status status) {

@@ -1,6 +1,7 @@
 package leapstream.scoreboard.core.ui.widgets;
 
 import au.net.netstorm.boost.spider.api.runtime.Impl;
+import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.ui.gunge.border.Borders;
 import leapstream.scoreboard.alien.ui.swing.pear.Panel;
 
@@ -12,12 +13,13 @@ public final class DefaultNavigableTiles implements NavigableTiles {
     List<JComponent> components;
     Borders borders;
     Impl impl;
+    Nu nu;
 
-    public JComponent wrap(JComponent c) {
+    public NavigableTile wrap(JComponent c) {
         Panel result = impl.impl(Panel.class);
         result.add(c);
         components.add(result);
-        return result;
+        return nu.nu(NavigableTile.class, result);
     }
 
     public void select(int x) {

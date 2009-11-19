@@ -50,11 +50,6 @@ public final class StatusDial implements Widget<Dial>, Dial, Constructable {
         bg(history);
     }
 
-    public void bomb(Throwable t) {
-        // FIX 1915 Dec 24, 2008 Different message (ie "[DUDDED])"
-        set(BLACK, GRAY);
-    }
-
     private void title() {
         Name name = build.name();
         String s = weaken.w(name);

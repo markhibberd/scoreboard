@@ -15,16 +15,12 @@ import leapstream.scoreboard.pylons.status.ui.core.StatusTile;
 public final class StatusUiScorePusher implements ScorePusher {
     StatusTile tile;
     Digger digger;
+
     public void push(Score score) {
         Dial dial = dial();
         History history = score.history();
         Status status = score.status();
         dial.dial(history, status);
-    }
-
-    public void fail(Throwable t) {
-        Dial dial = dial();
-        dial.bomb(t);
     }
 
     private Dial dial() {

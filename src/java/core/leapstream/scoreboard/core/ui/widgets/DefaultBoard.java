@@ -37,10 +37,9 @@ public final class DefaultBoard implements Board, Widget<Board>, Constructable {
         Ui view = pylon.view();
         JComponent c = view.ui();
         // FIX 1531 Dec 4, 2008 SPIKE.
-        JComponent n = navigator.wrap(c);
-        Ui ui = nu.nu(Ui.class, n);
-        Pylon wrapped = impl.impl(WrappedPylon.class, pylon, ui);
-        panel.add(n);
+        Ui n = navigator.wrap(c);
+        Pylon wrapped = impl.impl(WrappedPylon.class, pylon, n);
+        panel.add(n.ui());
         pylons.add(wrapped);
     }
 }

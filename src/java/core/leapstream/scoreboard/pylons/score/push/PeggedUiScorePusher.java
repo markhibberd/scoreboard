@@ -22,11 +22,6 @@ public final class PeggedUiScorePusher implements ScorePusher {
         freshness(score);
     }
 
-    public void fail(Throwable t) {
-        Dial dial = digger.dial(tile);
-        dial.bomb(t);
-    }
-
     private void dial(Score score) {
         Dial dial = digger.dial(tile);
         History history = score.history();

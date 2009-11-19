@@ -19,8 +19,4 @@ public final class HubScorePusher implements ScorePusher, Constructable {
     public void push(Score score) {
         for (ScorePusher pusher : pushers) pusher.push(score);
     }
-
-    public void fail(Throwable t) {
-        for (ScorePusher pusher : pushers) pusher.fail(t);
-    }
 }

@@ -1,12 +1,17 @@
 package leapstream.scoreboard.pylons.score.job;
 
+import au.net.netstorm.boost.bullet.log.Log;
 import leapstream.scoreboard.alien.resilient.TimeoutHandler;
-import leapstream.scoreboard.pylons.score.push.ScorePusher;
+import leapstream.scoreboard.alien.ui.swing.containers.Failable;
+import leapstream.scoreboard.core.model.Build;
 
 public class ScoreTimeoutHandler implements TimeoutHandler {
-    ScorePusher pusher;
+    Failable failable;
+    Build build;
+    Log log;
 
     public void timeout() {
-        pusher.fail(new RuntimeException());
+        log.error("Timed out... " + build);
+        failable.fail();
     }
 }

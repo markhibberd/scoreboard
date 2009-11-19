@@ -8,10 +8,6 @@ public final class LogScorePusher implements ScorePusher {
     Build build;
     Log log;
 
-    public void starting() {
-        log.info("Starting... " + build);
-    }
-
     public void push(Score score) {
         log.info("Grabbed: " + score);
     }

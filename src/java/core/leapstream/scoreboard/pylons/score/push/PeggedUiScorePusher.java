@@ -2,13 +2,11 @@ package leapstream.scoreboard.pylons.score.push;
 
 import leapstream.scoreboard.core.model.Build;
 import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Name;
 import leapstream.scoreboard.core.model.Score;
 import leapstream.scoreboard.pylons.score.ui.comp.Dial;
 import leapstream.scoreboard.pylons.score.ui.comp.Freshness;
 import leapstream.scoreboard.pylons.score.ui.comp.Pegs;
 import leapstream.scoreboard.pylons.score.ui.comp.Status;
-import leapstream.scoreboard.pylons.score.ui.comp.Title;
 import leapstream.scoreboard.pylons.score.ui.core.ScoreTile;
 import leapstream.scoreboard.pylons.score.ui.gunge.Digger;
 
@@ -16,10 +14,6 @@ public final class PeggedUiScorePusher implements ScorePusher {
     ScoreTile tile;
     Build build;
     Digger digger;
-
-    public void starting() {
-        title();
-    }
 
     public void push(Score score) {
         dial(score);
@@ -31,12 +25,6 @@ public final class PeggedUiScorePusher implements ScorePusher {
     public void fail(Throwable t) {
         Dial dial = digger.dial(tile);
         dial.bomb(t);
-    }
-
-    private void title() {
-        Title title = digger.title(tile);
-        Name name = build.name();
-        title.title(name);
     }
 
     private void dial(Score score) {

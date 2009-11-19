@@ -3,7 +3,6 @@ package leapstream.scoreboard.pylons.score.core;
 import au.net.netstorm.boost.spider.api.builder.Egg;
 import au.net.netstorm.boost.spider.api.builder.SpiderEgg;
 import au.net.netstorm.boost.spider.api.builder.Sticker;
-import au.net.netstorm.boost.spider.api.runtime.Resolver;
 import au.net.netstorm.boost.spider.api.runtime.Spider;
 import au.net.netstorm.boost.spider.ioc.BoostWeb;
 import leapstream.scoreboard.alien.resilient.ErrorHandler;
@@ -29,10 +28,18 @@ public final class DefaultScorePylonWirerFu implements ScorePylonWirerFu {
 
     public Ui nu(Build build) {
         Spider spider = spider();
+        sticker.instance(spider, Build.class, build);        
         // FIX LIFECYCLE No need for widget at all. Just tile. 
-        Widget<ScoreTile> widget = resolve(spider);
-        wire(spider, build, widget);
+        Widget<ScoreTile> widget = widget(spider);
         poll(spider);
+        return widget;
+    }
+
+    private Widget<ScoreTile> widget(Spider spider) {
+        ScoreTileWidgets widgets = spider.resolve(ScoreTileWidgets.class);
+        Widget<ScoreTile> widget = widgets.nu();
+        ScoreTile tile = widget.control();
+        sticker.instance(spider, ScoreTile.class, tile);
         return widget;
     }
 
@@ -42,18 +49,6 @@ public final class DefaultScorePylonWirerFu implements ScorePylonWirerFu {
         ErrorHandler errors = spider.impl(ScoreErrorHandler.class);
         Runnable imbued = resilient.imbune(runnable, errors, times, Times.SCORE_POLL);
         poller.poll(imbued, Times.SCORE_POLL);
-    }
-
-    // FIX 244 Split this out into two roles, switch to new spider, then wire everything together.
-    private Widget<ScoreTile> resolve(Resolver resolver) {
-        ScoreTileWidgets widgets = resolver.resolve(ScoreTileWidgets.class);
-        return widgets.nu();
-    }
-
-    private void wire(Resolver resolver, Build build, Widget<ScoreTile> widget) {
-        ScoreTile tile = widget.control();
-        sticker.instance(resolver, ScoreTile.class, tile);
-        sticker.instance(resolver, Build.class, build);
     }
 
     private Spider spider() {

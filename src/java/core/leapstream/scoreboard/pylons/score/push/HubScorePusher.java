@@ -16,10 +16,6 @@ public final class HubScorePusher implements ScorePusher, Constructable {
         pushers = new ScorePusher[]{state, ui, audio, log};
     }
 
-    public void starting() {
-        for (ScorePusher pusher : pushers) pusher.starting();
-    }
-
     public void push(Score score) {
         for (ScorePusher pusher : pushers) pusher.push(score);
     }

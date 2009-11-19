@@ -10,7 +10,6 @@ import leapstream.scoreboard.alien.ui.swing.type.FontSpec;
 import leapstream.scoreboard.core.gunge.Historian;
 import leapstream.scoreboard.core.gunge.Statistician;
 import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Name;
 import leapstream.scoreboard.core.model.Status;
 
 import javax.swing.JComponent;
@@ -46,9 +45,6 @@ public final class PeggedDial implements Widget<Dial>, Dial, Constructable {
         flasher.stop();
         bg(GRAY);
         l.text("X");
-    }
-
-    public void name(Name name) {
     }
 
     public void dial(History history, Status status) {

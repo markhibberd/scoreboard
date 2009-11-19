@@ -7,6 +7,7 @@ import leapstream.scoreboard.alien.ui.swing.pear.Label;
 import leapstream.scoreboard.alien.ui.swing.type.FontRatio;
 import leapstream.scoreboard.core.gunge.Historian;
 import leapstream.scoreboard.core.gunge.Statistician;
+import leapstream.scoreboard.core.model.Build;
 import leapstream.scoreboard.core.model.History;
 import leapstream.scoreboard.core.model.Name;
 import leapstream.scoreboard.core.model.Stati;
@@ -23,11 +24,12 @@ public final class StatusDial implements Widget<Dial>, Dial, Constructable {
     Historian historian;
     DialColors colors;
     Weaken weaken;
+    Build build;
     Label l;
 
     public void constructor() {
         l.font(ratio);
-        set("[ --- ]");
+        title();
     }
 
     public JComponent ui() {
@@ -36,10 +38,6 @@ public final class StatusDial implements Widget<Dial>, Dial, Constructable {
 
     public Dial control() {
         return this;
-    }
-
-    public void name(Name name) {
-        text(name);
     }
 
     public void dial(History history, Status status) {
@@ -57,9 +55,10 @@ public final class StatusDial implements Widget<Dial>, Dial, Constructable {
         set(BLACK, GRAY);
     }
 
-    private void text(Name n) {
-        String s = weaken.w(n);
-        set(s);
+    private void title() {
+        Name name = build.name();
+        String s = weaken.w(name);
+        l.text(s);
     }
 
     private void fg(Status status) {
@@ -76,10 +75,6 @@ public final class StatusDial implements Widget<Dial>, Dial, Constructable {
     private boolean disabled(Status s) {
         Stati stati = s.is();
         return stati == Stati.DISABLED;
-    }
-
-    private void set(String text) {
-        l.text(text);
     }
 
     private void set(Color fg, Color bg) {

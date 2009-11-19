@@ -13,7 +13,6 @@ public class ScoreRunnable implements Runnable {
     Build build;
 
     public void run() {
-        pusher.starting();
         URL url = build.url();
         Score score = net.process(url, scorer);
         pusher.push(score);

@@ -4,6 +4,7 @@ import au.net.netstorm.boost.bullet.incredibles.core.Weaken;
 import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.alien.ui.swing.pear.Label;
+import leapstream.scoreboard.core.model.Build;
 import leapstream.scoreboard.core.model.Name;
 import leapstream.scoreboard.pylons.score.ui.lf.Colors;
 
@@ -12,6 +13,7 @@ import java.awt.Color;
 
 // FIX 244 Package for each "thing"?
 public class DefaultTitle implements Widget<Title>, Title, Constructable {
+    Build build;
     Label label;
     Colors colors;
     Weaken weaken;
@@ -20,6 +22,7 @@ public class DefaultTitle implements Widget<Title>, Title, Constructable {
         Color fg = colors.get("title.active.fg");
         Color bg = colors.get("title.active.bg");
         colors(fg, bg);
+        title();
     }
 
     public Title control() {
@@ -30,7 +33,8 @@ public class DefaultTitle implements Widget<Title>, Title, Constructable {
         return label.ui();
     }
 
-    public void title(Name name) {
+    private void title() {
+        Name name = build.name();
         String s = weaken.w(name);
         label.text(s);
     }

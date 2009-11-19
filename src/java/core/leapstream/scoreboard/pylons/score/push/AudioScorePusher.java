@@ -21,8 +21,6 @@ public final class AudioScorePusher implements ScorePusher {
 
     public void fail(Throwable t) {}
 
-    public void starting() {}
-
     public void push(Score score) {
         if (state.first()) return;
         if (delta.fixed()) fixed();

@@ -1,13 +1,15 @@
-Current:
 
-. Sort pylon lifecycle, state, facets
+In progress:
 . Sort config
+. Sort pylon lifecycle, state, facets
 . Sort logging
+
+Next off bat:
 . Cleanup tile layout manager
 . Clover license
 
-The world according to mark's big list:
 
+The world according to mark's big list:
 . Tidy up. Project is a mess.
  . Dead code.
  . Dead tests.

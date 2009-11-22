@@ -1,11 +1,10 @@
-Immediate future:
+Current:
 
-. Sort application lifecycle.
-. Sort pylon lifecycle.
-. Sort pylon state.
-. Sort config.
-. Cleanup tile layout manager.
-. Clover license.
+. Sort pylon lifecycle, state, facets
+. Sort config
+. Sort logging
+. Cleanup tile layout manager
+. Clover license
 
 The world according to mark's big list:
 

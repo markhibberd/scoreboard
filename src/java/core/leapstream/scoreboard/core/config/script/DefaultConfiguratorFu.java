@@ -1,4 +1,4 @@
-package leapstream.scoreboard.core.config;
+package leapstream.scoreboard.core.config.script;
 
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.aqueduct.Aqueduct;

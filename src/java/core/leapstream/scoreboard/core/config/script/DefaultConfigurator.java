@@ -1,4 +1,4 @@
-package leapstream.scoreboard.core.config;
+package leapstream.scoreboard.core.config.script;
 
 import au.net.netstorm.boost.gunge.array.ArrayMaster;
 import leapstream.scoreboard.core.bits.Bits;

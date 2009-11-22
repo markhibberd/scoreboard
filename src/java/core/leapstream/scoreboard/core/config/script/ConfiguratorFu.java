@@ -1,4 +1,4 @@
-package leapstream.scoreboard.core.config;
+package leapstream.scoreboard.core.config.script;
 
 import leapstream.scoreboard.edge.java.net.URL;
 

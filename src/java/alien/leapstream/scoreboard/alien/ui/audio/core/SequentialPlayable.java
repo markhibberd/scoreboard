@@ -3,7 +3,7 @@ package leapstream.scoreboard.alien.ui.audio.core;
 public class SequentialPlayable implements Playable {
     private Playable[] playables;
 
-    public SequentialPlayable(Playable[]  playables) {
+    public SequentialPlayable(Playable...  playables) {
         this.playables = playables;
     }
 

@@ -3,6 +3,7 @@
 API
 ========================================
 
+/---------   General Options ----------------
 
 // set number of threads in thread pool
 threadpool.threads(20);
@@ -10,26 +11,37 @@ threadpool.threads(20);
 // get number of threads in thread pool
 threadpool.threads();
 
-// add a a mandatory pylon
-pylons.mandatory(pylon);
+// set window title
+window.title("my title");
 
-// add a an optional pylon
-pylons.optional(pylon);
+// set to fullscreen on load
+window.fullscreen();
+
+/---------   Low-Level Creation of Pylons ----------------
 
 // create a new status pylon
-var status = stati.nu(name, url);
+var tile = stati.nu(name, url);
 
 // create a new score pylon
-var status = builds.nu(name, url);
+var tile = builds.nu(name, url);
+
+// create a new score pylon, overriding poll period in millis (20 seconds in this case)
+var tile = builds.nu(name, url, 20 x 1000);
 
 // create a new rotating image pylon
-var status = images.nu(time, [urls]);
+var tile = images.nu(time, [urls]);
 
 // create a new static image pylon
-var status = images.nu(url);
+var tile = images.nu(url);
 
+// create a pylon from a tile.
+var pylon = wirer.nu(name, tile, mandatory);
 
-// convenience apis:
+// add pylon to board
+board.add(pylon);
+
+/--------    Simple api....
+
 // create and add a mandatory build pylon
 build(name, url);
 
@@ -41,12 +53,18 @@ image(name, url);
 
 */
 
+window.title("demo");
+
+threadpool.threads(2);
+
 hudson = "http://www.leapstream.com.au/products/scoreboard/samples/hudson/";
 cruise = "http://www.leapstream.com.au/products/scoreboard/samples/cruise/";
 
-build("hornet", hudson + "hudson-hornet");
-build("evil", hudson + "hudson-evil");
+build("hornet", hudson + "hudson-hornet", 20000);
+build("evil", hudson + "hudson-evil);
 build("cruiser", cruise + "cruiser");
 status("status", hudson + "hudson-status");
 
 image(300000, "http://www.bom.gov.au/radar/IDR662.gif");
+
+

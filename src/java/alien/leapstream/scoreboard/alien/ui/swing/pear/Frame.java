@@ -1,13 +1,6 @@
 package leapstream.scoreboard.alien.ui.swing.pear;
 
-import com.sun.jna.examples.WindowUtils;
-
-import javax.swing.JFrame;
-import java.awt.Dimension;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
+import javax.swing.*;
 
 // FIX 1531 Tidy up and sort out the jna shite.
 public final class Frame extends JFrame {
@@ -17,10 +10,6 @@ public final class Frame extends JFrame {
     {
         // FIX 1531 Dec 5, 2008 Tidy this bollocks.
         // FIX 1531 Dec 5, 2008 Move sideways.
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        Rectangle2D.Float rect = new Rectangle2D.Float(0, 0, screen.width, screen.height);
-        Shape mask = new Area(rect);
-        WindowUtils.setWindowMask(this, mask);
         alpha();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
@@ -39,9 +28,14 @@ public final class Frame extends JFrame {
     }
 
     private void alpha() {
-        if (WindowUtils.isWindowAlphaSupported()) {
-            WindowUtils.setWindowAlpha(this, alpha);
-        }
+//        FIX This breaks in same cases.... dropping it until it works.
+//        if (WindowUtils.isWindowAlphaSupported()) {
+//            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+//            Rectangle2D.Float rect = new Rectangle2D.Float(0, 0, screen.width, screen.height);
+//            Shape mask = new Area(rect);
+//            WindowUtils.setWindowMask(this, mask);
+//            WindowUtils.setWindowAlpha(this, alpha);
+//        }
     }
 
     public void top() {

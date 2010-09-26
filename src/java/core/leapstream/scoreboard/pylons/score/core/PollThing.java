@@ -5,5 +5,5 @@ import leapstream.scoreboard.core.poll.Poller;
 
 // FIX LIFECYCLE Temporary shim to kill some dupe, before the pylon wiring is pulled apart.
 public interface PollThing {
-    void poll(Spider spider, Poller poller);
+    void poll(Spider spider, Poller poller, int period);
 }

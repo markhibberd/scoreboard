@@ -21,11 +21,11 @@ public final class DefaultScorePylonWirerFu implements ScorePylonWirerFu {
     Nu nu;
 
     // FIX LIFECYCLE A lot of this is generic and needs to be pulled out.  See DefaultStatusPylonWirerFu.
-    public Ui nu(Build build) {
+    public Ui nu(Build build, int poll) {
         Spider spider = spider();
         sticker.instance(spider, Build.class, build);
         Ui ui = uis.ui(spider, ScoreTileWidgets.class, ScoreTile.class);
-        polls.poll(spider, poller);
+        polls.poll(spider, poller, poll);
         return ui;
     }
 

@@ -17,7 +17,7 @@ public final class DefaultConfigurator implements Configurator {
     }
 
     private URL[] env(String... strings) {
-        URL[] env = {bits.url("core.js")};
+        URL[] env = {bits.url("utils.js"), bits.url("core.js")};
         URL[] urls = urler.get(strings);
         return arrays.plus(env, urls);
     }

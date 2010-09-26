@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project relativePaths="false" version="4">
+<project version="4">
   <component name="AntConfiguration">
     <defaultAnt bundledAnt="true" />
     <buildFile url="file://$PROJECT_DIR$/build.xml">
@@ -91,11 +91,9 @@
         </ADDITIONAL_INDENT_OPTIONS>
       </value>
     </option>
-    <option name="USE_PER_PROJECT_SETTINGS" value="false" />
   </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
-    <option name="DEPLOY_AFTER_MAKE" value="0" />
     <resourceExtensions>
       <entry name=".+\.(properties|xml|html|dtd|tld)" />
       <entry name=".+\.(gif|png|jpeg|jpg)" />
@@ -113,6 +111,7 @@
       <entry name="?*.ftl" />
       <entry name="?*.*" />
     </wildcardResourcePatterns>
+    <annotationProcessing enabled="false" useClasspath="true" />
   </component>
   <component name="CopyrightManager" default="">
     <module2copyright />
@@ -129,18 +128,6 @@
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="IdProvider" IDEtalkID="D74E589F9B27D8E7586D01B51DE12FFF" />
-  <component name="InspectionProjectProfileManager">
-    <option name="PROJECT_PROFILE" value="Project Default" />
-    <option name="USE_PROJECT_LEVEL_SETTINGS" value="false" />
-    <scopes />
-    <profiles>
-      <profile version="1.0" is_locked="false">
-        <option name="myName" value="Project Default" />
-        <option name="myLocal" value="false" />
-      </profile>
-    </profiles>
-    <list size="0" />
-  </component>
   <component name="InspectorGeneralConfiguration">
     <option name="MAKE_CLASSES_AND_METHODS_FINAL_IF_NOT_OVERRIDDEN" value="false" />
     <option name="PREFER_FINAL_FOR_PARAMETERS" value="false" />
@@ -160,13 +147,6 @@
     <option name="CLEANUP_REFERENCES_ON_CHECKIN" value="false" />
     <option name="OVERRIDE_ANNOTATION_RULE" value="1" />
     <option name="protectedAnnotationStringFlattened" value="" />
-  </component>
-  <component name="JavacSettings">
-    <option name="DEBUGGING_INFO" value="true" />
-    <option name="GENERATE_NO_WARNINGS" value="false" />
-    <option name="DEPRECATION" value="true" />
-    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
-    <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />
@@ -317,7 +297,6 @@
   <component name="ProjectDetails">
     <option name="projectName" value="scoreboard" />
   </component>
-  <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectKey">
     <option name="state" value="http://subversion.assembla.com/svn/peeble/trunk/scoreboard.ipr" />
   </component>
@@ -336,39 +315,26 @@
       </value>
     </option>
   </component>
-  <component name="RmicSettings">
-    <option name="IS_EANABLED" value="false" />
-    <option name="DEBUGGING_INFO" value="true" />
-    <option name="GENERATE_NO_WARNINGS" value="false" />
-    <option name="GENERATE_IIOP_STUBS" value="false" />
-    <option name="ADDITIONAL_OPTIONS_STRING" value="" />
-  </component>
   <component name="SvnBranchConfigurationManager">
     <option name="myConfigurationMap">
       <map>
-        <entry key="/home/markh/work/eminentfu/sb/beanshell/BeanShell">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="trunkUrl" value="http://ikayzo.org/svn/beanshell/BeanShell" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
-        <entry key="/home/markh/work/eminentfu/sb/gritty/gritty">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="branchUrls">
-                <list>
-                  <option value="http://gritty.googlecode.com/svn/branches" />
-                  <option value="http://gritty.googlecode.com/svn/tags" />
-                </list>
-              </option>
-              <option name="trunkUrl" value="http://gritty.googlecode.com/svn/trunk" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
+              <option name="branchMap">
+                <map>
+                  <entry key="http://subversion.assembla.com/svn/peeble/branches">
+                    <value>
+                      <list />
+                    </value>
+                  </entry>
+                  <entry key="http://subversion.assembla.com/svn/peeble/tags">
+                    <value>
+                      <list />
+                    </value>
+                  </entry>
+                </map>
+              </option>
               <option name="branchUrls">
                 <list>
                   <option value="http://subversion.assembla.com/svn/peeble/branches" />

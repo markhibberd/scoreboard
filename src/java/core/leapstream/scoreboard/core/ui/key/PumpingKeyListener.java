@@ -36,16 +36,16 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
 
     // DEBT GenericIllegalRegexp {
     public void keyTyped(KeyEvent e) {
-        System.err.println("typed = " + e.getKeyCode());
+//        System.err.println("typed = " + e.getKeyCode());
     }
 
     public void keyPressed(KeyEvent e) {
-        System.err.println("pressed = " + e.getKeyCode());
+//        System.err.println("pressed = " + e.getKeyCode());
         process(e);
     }
 
     public void keyReleased(KeyEvent e) {
-        System.err.println("released = " + e.getKeyCode());
+//        System.err.println("released = " + e.getKeyCode());
     }
 
     private void codes(int i, Handler h) {
@@ -56,7 +56,7 @@ public final class PumpingKeyListener implements KeyListener, Constructable {
         Integer code = e.getKeyCode();
         if (codes.exists(code)) go(code);
             // FIX 1530 Dec 15, 2008 Something a little nicer...
-        else System.err.println("unbound key press: " + code);
+//        else System.err.println("unbound key press: " + code);
     }
 
     private void go(Integer code) {

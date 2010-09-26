@@ -24,11 +24,11 @@ public final class DefaultStatusPylonWirerFu implements StatusPylonWirerFu {
     UiThing uis;
     Nu nu;
 
-    public Ui nu(Build build) {
+    public Ui nu(Build build, int poll) {
         Spider spider = spider();
         sticker.instance(spider, Build.class, build);
         Ui ui = uis.ui(spider, StatusTileWidgets.class, StatusTile.class);
-        polls.poll(spider, poller);
+        polls.poll(spider, poller, poll);
         return ui;
     }
 

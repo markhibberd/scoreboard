@@ -5,6 +5,30 @@ base=`cd $base > /dev/null && pwd`
 lib=$base/lib
 log=$base/log
 main=leapstream.scoreboard.core.entry.Main
+java_cmd=java
+os=`uname -s`
+
+case $os in
+Darwin)
+    java_cmd=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/bin/java
+*)
+    java_cmd=java
+esac
+
+java -version 2> /dev/null
+
+if [ $? -ne 0 ]; then
+    echo "\`java\` not found: expected to be on path."
+    exit 10
+fi 
+
+# FIX future proof this
+java -version 2>&1 | head -n 1 | grep -q 1.6 || java -version 2>&1 | head -n 1 | grep -q 1.7
+
+if [ $? -ne 0 ]; then
+    echo "Incorrect java version, requires 1.6+"
+    exit 20
+fi
 
 mkdir -p $log
 

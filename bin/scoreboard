@@ -1,0 +1,12 @@
+#!/bin/sh
+
+base=`dirname $0`/..
+base=`cd $base > /dev/null && pwd`
+lib=$base/lib
+log=$base/log
+main=leapstream.scoreboard.core.entry.Main
+
+mkdir -p $log
+
+java -cp $lib/\* $main "$@" > $log/scoreboard.`date "+%Y%m%d%H%M"`.log
+

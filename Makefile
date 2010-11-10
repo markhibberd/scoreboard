@@ -3,13 +3,13 @@ PROD = src/java/core
 PROV = src/java/providers
 TEST = src/java/test
 LIB = lib/run
-CP = lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
+CP = lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
 CP_PROD = ${CP}:${PROD_CLS}
 CP_PROV = ${CP_PROD}:${PROV_CLS}
 CP_TEST = ${CP_PROV}:${TEST_CLS}
 GEN = gen
 ETC = etc
-PRoD_CLS = gen/prod/classes
+PROD_CLS = gen/prod/classes
 PROV_CLS = gen/provider/classes
 ALL_CLS = gen/all/classes
 TEST_CLS = gen/test/classes
@@ -31,8 +31,6 @@ compile: clean ${PROD_CLS} ${TEST_CLS} ${PROV_CLS} ${ALL_CLS}
 	find ${PROD} -name "*.scala"  -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP} -d ${PROD_CLS} && \
 	find ${PROD} -name "*.java" | xargs -s 30000 javac -classpath ${CP} -d ${PROD_CLS} && \
 	find ${PROV} -name "*.scala"  -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROD} -d ${PROV_CLS} && \
-	find ${PROV} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROD} -d ${PROV_CLS} && \
-	find ${TEST} -name "*.scala" -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROV} -d ${TEST_CLS} && \
 	find ${PROV} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROD} -d ${PROV_CLS} && \
 	find ${TEST} -name "*.scala" -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROV} -d ${TEST_CLS} && \
 	find ${TEST} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROV} -d ${TEST_CLS} && \
@@ -91,7 +89,3 @@ ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} 
 
 clean:
 	rm -rf ${GEN}; find . -name "*~" -o -name "*.core" -print0 | xargs -0 rm
-
-# hacky, based on my work directory ;) they get checked in after
-depend: 
-	echo "nothing yet"

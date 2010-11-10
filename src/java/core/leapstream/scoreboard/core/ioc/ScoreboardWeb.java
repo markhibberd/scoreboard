@@ -28,6 +28,8 @@ import leapstream.scoreboard.alien.ui.val.AspectRatio;
 import leapstream.scoreboard.alien.ui.val.PreferredSize;
 import leapstream.scoreboard.core.config.exposed.DefaultSeeds;
 import leapstream.scoreboard.core.config.exposed.Seeds;
+import leapstream.scoreboard.core.config.script.ConfiguratorLibraries;
+import leapstream.scoreboard.core.config.script.DefaultConfiguratorLibraries;
 import leapstream.scoreboard.core.poll.Threads;
 import leapstream.scoreboard.core.pylon.DefaultPylons;
 import leapstream.scoreboard.core.pylon.Pylons;
@@ -70,6 +72,7 @@ public final class ScoreboardWeb implements Web {
     private void state() {
         wire.cls(DefaultPylons.class).one().to(Pylons.class);
         wire.cls(DefaultSeeds.class).one().to(Seeds.class);
+        wire.cls(DefaultConfiguratorLibraries.class).one().to(ConfiguratorLibraries.class);
     }
 
     private void subwebs() {

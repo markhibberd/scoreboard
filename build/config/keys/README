@@ -1,0 +1,5 @@
+This keystore is used to generate a selfsigned jar for use with jnlp. There is no security here. Just dodginess.
+
+The keystore was generated with:
+
+    keytool -genkey -alias scoreboard -keyalg DSA -keystore scoreboard.keystore -keysize 1024 -validity 1460

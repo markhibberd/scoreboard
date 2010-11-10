@@ -1,24 +1,21 @@
 package leapstream.scoreboard.core.config.script;
 
-import au.net.netstorm.boost.gunge.array.ArrayMaster;
-import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.gunge.Urler;
 import leapstream.scoreboard.edge.java.net.URL;
 
 public final class DefaultConfigurator implements Configurator {
-    ArrayMaster arrays;
     ConfiguratorFu fu;
+    ConfiguratorLibraries libraries;
+    ExtensionMaster extensions;
     Urler urler;
-    Bits bits;
 
     public void config(String... strings) {
-        URL[] env = env(strings);
-        fu.config(env);
+        if (strings.length == 0)
+            return;
+        String ext = extensions.extension(strings);
+        URL[] libs = libraries.get(ext);
+        URL[] configs = urler.get(strings);
+        fu.config(libs, configs);
     }
 
-    private URL[] env(String... strings) {
-        URL[] env = {bits.url("utils.js"), bits.url("core.js")};
-        URL[] urls = urler.get(strings);
-        return arrays.plus(env, urls);
-    }
 }

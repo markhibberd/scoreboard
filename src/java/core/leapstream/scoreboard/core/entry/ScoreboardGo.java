@@ -5,28 +5,25 @@ import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
 import leapstream.scoreboard.core.bits.Bits;
-import leapstream.scoreboard.core.config.script.Configurator;
-import leapstream.scoreboard.core.config.script.ConfiguratorFu;
+import leapstream.scoreboard.core.config.script.ConfiguratorLibraries;
 import leapstream.scoreboard.core.ui.config.Config;
 import leapstream.scoreboard.core.ui.widgets.Board;
 import leapstream.scoreboard.edge.java.awt.FontStatic;
 import leapstream.scoreboard.edge.java.io.InputStream;
 import leapstream.scoreboard.pylons.score.ui.lf.Colors;
 
-import javax.swing.JComponent;
-import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
-import static java.awt.Font.TRUETYPE_FONT;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyListener;
+
+import static java.awt.Font.TRUETYPE_FONT;
 
 // FIX 244 Tidy this guy, should be split out more. In particular the ui wiring should be pulled out together.
 public final class ScoreboardGo implements Go, Constructable {
     private Color background;
-    Configurator configurator;
+    ConfiguratorLibraries libraries;
+    ScoreboardArguments arguments;
     KeyListener listener;
-    ConfiguratorFu fu;
     FontStatic font;
     Config config;
     Colors colors;
@@ -34,7 +31,10 @@ public final class ScoreboardGo implements Go, Constructable {
     Frame frame;
     Bits bits;
 
+
     public void constructor() {
+        libraries.add("js", bits.url("core.js"));
+        libraries.add("js", bits.url("utils.js"));
         background = colors.get("board.bg");
         // FIX 1530 Dec 12, 2008 Tidy font gear.
         InputStream is = bits.stream("Robotron.ttf");
@@ -43,14 +43,11 @@ public final class ScoreboardGo implements Go, Constructable {
     }
 
     public void go(String[] args) {
-        config(args);
+        // FIX replace this with some real command line processing, this is a quick start gone to far.
+        arguments.process(args);
         wire();
         show();
         check(args);
-    }
-
-    private void config(String[] args) {
-        configurator.config(args);
     }
 
     private void wire() {

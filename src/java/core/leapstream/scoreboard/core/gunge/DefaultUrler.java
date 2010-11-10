@@ -7,7 +7,8 @@ public final class DefaultUrler implements Urler {
     Nu nu;
 
     public URL get(String url) {
-        return nu.nu(URL.class, url);
+        String defaulted = url.contains(":") ? url : "file:" + url;
+        return nu.nu(URL.class, defaulted);
     }
 
     public URL[] get(String[] urls) {

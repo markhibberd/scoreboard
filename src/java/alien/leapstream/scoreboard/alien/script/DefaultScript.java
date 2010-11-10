@@ -6,6 +6,8 @@ import leapstream.scoreboard.edge.java.net.URL;
 import leapstream.scoreboard.edge.java.net.URLConnection;
 import leapstream.scoreboard.edge.javax.script.ScriptEngine;
 
+import java.util.List;
+
 public final class DefaultScript implements Script {
     StringSlurper slurper;
     Engines engines;

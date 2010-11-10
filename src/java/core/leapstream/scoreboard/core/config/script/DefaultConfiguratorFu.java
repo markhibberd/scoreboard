@@ -1,9 +1,11 @@
 package leapstream.scoreboard.core.config.script;
 
+import au.net.netstorm.boost.gunge.array.ArrayMaster;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.alien.script.Args;
 import leapstream.scoreboard.alien.script.Script;
+import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.pylon.PylonWirer;
 import leapstream.scoreboard.core.ui.frob.WindowFrobber;
 import leapstream.scoreboard.core.ui.widgets.Board;
@@ -18,16 +20,23 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
     ImagePylonWirer images;
     ScorePylonWirer scores;
     StatusPylonWirer stati;
+    ArrayMaster arrays;
     Aqueduct aqueduct;
     PylonWirer wirer;
     Script script;
     Board board;
+    Bits bits;
     Nu nu;
-    // FIX CONFIG add config facade here.
 
-    public void config(URL... urls) {
+    public void config(URL[] libraries, URL... configs) {
         Args args = args();
-        script.execute(args, urls);
+        for (URL config : configs)
+            evalconfig(libraries, args, config);
+    }
+
+    private void evalconfig(URL[] libraries, Args args, URL config) {
+        URL[] contextualised = arrays.plus(libraries, config);
+        script.execute(args, contextualised);
     }
 
     private Args args() {

@@ -3,6 +3,7 @@ package leapstream.scoreboard.edge.javax.script;
 import au.net.netstorm.boost.bullet.scalpel.core.Edge;
 
 import javax.script.Bindings;
+import javax.script.ScriptEngineFactory;
 
 public interface ScriptEngine extends Edge {
     void put(String key, Object value);
@@ -12,4 +13,6 @@ public interface ScriptEngine extends Edge {
     Bindings createBindings();
 
     void setBindings(Bindings bindings, int scope);
+
+    ScriptEngineFactory getFactory(); 
 }

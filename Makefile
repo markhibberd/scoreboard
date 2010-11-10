@@ -59,12 +59,12 @@ ${CRUISE_PLUGIN}: ${JAR} ${GEN}/tmp
 	(cd ${GEN}/tmp && jar xf ../../lib/run/boost/boost.jar) &&
 	jar cfm ${CRUISE_PLUGIN} ${ETC}/plugins/cruise/MANIFEST.MF -C ${ALL_CLS} . -C ${GEN}/tmp .
 
-
 ${JAR}: compile ${DIST_MANIFEST} ${DIST}
 	jar cfm ${JAR} ${DIST_MANIFEST} -C ${PROD_CLS} .
 
 ${TAR}: ${JAR} ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins
 	cp -r bin ${TAR_IMAGE} && \
+	rm ${TAR_IMAGE}/bin/scoreboard-dev && \
 	cp ${JAR} lib/run/*/*.jar ${TAR_IMAGE}/lib && \
 	cp ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE}/plugins && \
 	cp COPYING FEATURES README TASKS etc/config/config-example.js ${TAR_IMAGE} && \
@@ -72,7 +72,6 @@ ${TAR}: ${JAR} ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE} ${TAR_IMAGE}/lib $
 	tar cfz ${TAR} -C ${GEN}/image .
 
 dist: clean ${TAR}
-
 
 ${DIST_MANIFEST}: ${GEN}
 	sed -e 's/VERSION/${VERSION}/' ${MANIFEST} > ${DIST_MANIFEST}
@@ -83,6 +82,9 @@ repl: compile
 size: 
 	find ${PROD} -name "*.java" | xargs wc | sort -n && \
 	find ${PROD} -name "*.scala" | xargs wc | sort -n
+
+simian:
+	echo "implement me"
 
 ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins ${GEN}/image-hudson:
 	mkdir -p $@

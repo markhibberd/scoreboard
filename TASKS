@@ -1,3 +1,17 @@
+Release:
+. src tarball
+. sha's for tars and jars
+Code:
+. diet
+  . kill dead code / spikes
+. de-boostify
+. robust config
+. dump and reload as 'config update'
+
+
+
+Old stuff....
+
 In progress:
 . Sort config
 . Sort pylon lifecycle, state, facets
@@ -48,10 +62,7 @@ The world according to mark's big list:
  . Auto configure.
  . Save config via plugin, i.e. psuedo settings server.
 
-
-
-
-Old stuff...
+Really Old stuff...
 
 Release:
  ui:

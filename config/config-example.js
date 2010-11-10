@@ -60,7 +60,7 @@ threadpool.threads(2);
 hudson = "http://www.leapstream.com.au/products/scoreboard/samples/hudson/";
 cruise = "http://www.leapstream.com.au/products/scoreboard/samples/cruise/";
 
-build("hornet", hudson + "hudson-hornet", 20000);
+build("hornet", hudson + "hudson-hornet", 10000);
 build("evil", hudson + "hudson-evil");
 build("cruiser", cruise + "cruiser");
 status("status", hudson + "hudson-status");

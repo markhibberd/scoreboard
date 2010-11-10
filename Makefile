@@ -1,15 +1,15 @@
-MODULE = scoreboard
+ODULE = scoreboard
 PROD = src/java/core
 PROV = src/java/providers
 TEST = src/java/test
 LIB = lib/run
-CP = lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
+CP = lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
 CP_PROD = ${CP}:${PROD_CLS}
 CP_PROV = ${CP_PROD}:${PROV_CLS}
 CP_TEST = ${CP_PROV}:${TEST_CLS}
 GEN = gen
 ETC = etc
-PROD_CLS = gen/prod/classes
+PRoD_CLS = gen/prod/classes
 PROV_CLS = gen/provider/classes
 ALL_CLS = gen/all/classes
 TEST_CLS = gen/test/classes
@@ -90,7 +90,7 @@ ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} 
 	mkdir -p $@
 
 clean:
-	rm -rf ${GEN}; find . -name "*~" -print0 | xargs -0 rm
+	rm -rf ${GEN}; find . -name "*~" -o -name "*.core" -print0 | xargs -0 rm
 
 # hacky, based on my work directory ;) they get checked in after
 depend: 

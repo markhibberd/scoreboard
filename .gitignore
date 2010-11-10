@@ -1,4 +1,5 @@
 *.iws
+*~
 *.core
 bob
 gen

@@ -3,6 +3,8 @@
 base=`dirname $0`/..
 base=`cd $base > /dev/null && pwd`
 lib=$base/lib
+dist=$base/gen/dist
+cp="$lib/bc/*:$lib/boost/*:$lib/freetts/*:$lib/jna/*:$lib/scripting/*:$dist/scoreboard.jar"
 log=$base/log
 main=leapstream.scoreboard.core.entry.Main
 java_cmd=java
@@ -31,11 +33,11 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ ! -f "$dist/scoreboard.jar" ]; then
-    echo "Could not find scoreboard.jar, is this a released version? if not try scoreboard-dev."
+    echo "Could not find scoreboard.jar, try \`make dist\`"
     exit 30
 fi
 
 mkdir -p $log
 
-java -cp $lib/\* $main "$@" > $log/scoreboard.`date "+%Y%m%d%H%M"`.log
+java -cp "$cp" $main "$@" > $log/scoreboard.`date "+%Y%m%d%H%M"`.log
 

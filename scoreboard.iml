@@ -18,10 +18,7 @@
     <output-test url="file://$MODULE_DIR$/../out/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/java/alien" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/java/clobber" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/java/core" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/java/edge" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/java/providers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/java/test" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/ci" />
@@ -30,52 +27,27 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="prod">
+      <library name="libs">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/build/lib/runtime/boost" />
-          <root url="file://$MODULE_DIR$/build/lib/runtime/scripting" />
-          <root url="file://$MODULE_DIR$/build/lib/runtime/jna" />
-          <root url="file://$MODULE_DIR$/build/lib/runtime/freetts" />
+          <root url="file://$MODULE_DIR$/lib/run/freetts" />
+          <root url="file://$MODULE_DIR$/lib/test" />
+          <root url="file://$MODULE_DIR$/lib/run/boost" />
+          <root url="file://$MODULE_DIR$/lib/run/jna" />
+          <root url="file://$MODULE_DIR$/lib/run/scripting" />
+          <root url="file://$MODULE_DIR$/lib/providers/hudson" />
+          <root url="file://$MODULE_DIR$/lib/providers/cruise" />
+          <root url="file://$MODULE_DIR$/lib/run/bc" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/boost" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/freetts" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/jna" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/runtime/scripting" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="providers">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/build/lib/providers/cruise" />
-          <root url="file://$MODULE_DIR$/build/lib/providers/hudson" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/providers/cruise" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/providers/hudson" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="test">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/build/lib/tools/junit" />
-          <root url="file://$MODULE_DIR$/build/lib/tools/jmock" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/tools/jmock" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/build/lib/tools/junit" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/lib/javaee.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib/providers/cruise" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/providers/hudson" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/bc" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/boost" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/freetts" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/jna" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/scripting" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/test" recursive="false" />
       </library>
     </orderEntry>
   </component>

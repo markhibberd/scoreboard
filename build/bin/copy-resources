@@ -1,0 +1,10 @@
+#!/bin/sh
+SRC=$1
+TRG=$2
+
+for resource in `find ${SRC} -type f -not -name '*.java'` ; do 
+    target=`echo $resource | sed -e 's:'${SRC}':'${TRG}':'`  
+    mkdir -p `dirname $target` 
+    cp $resource $target 
+done 
+

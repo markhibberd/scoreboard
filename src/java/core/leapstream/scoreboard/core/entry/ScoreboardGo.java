@@ -12,8 +12,11 @@ import leapstream.scoreboard.edge.java.awt.FontStatic;
 import leapstream.scoreboard.edge.java.io.InputStream;
 import leapstream.scoreboard.pylons.score.ui.lf.Colors;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComponent;
+import javax.swing.UIManager;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
 import java.awt.event.KeyListener;
 
 import static java.awt.Font.TRUETYPE_FONT;

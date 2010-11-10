@@ -4,5 +4,13 @@ To sync up (from central server ~git/svn/scoreboard):
   git svn rebase
   git push origin assembla
 
-
+To push changes back:
+  git checkout master
+  git pull origin master
+  git svn dcommit
+  git svn rebase
+  git checkout assembla
+  git svn rebase
+  git push origin assembla
+  
 See http://www.fnokd.com/2008/08/20/mirroring-svn-repository-to-github/

@@ -36,9 +36,9 @@ compile: clean ${PROD_CLS} ${TEST_CLS} ${PROV_CLS} ${ALL_CLS}
 	find ${PROV} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROD} -d ${PROV_CLS} && \
 	find ${TEST} -name "*.scala" -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROV} -d ${TEST_CLS} && \
 	find ${TEST} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROV} -d ${TEST_CLS} && \
-	./build/bin/copy-resources ${PROD} ${PROD_CLS} && \
-	./build/bin/copy-resources ${PROV} ${PROV_CLS} && \
-	./build/bin/copy-resources ${TEST} ${TEST_CLS} && \
+	./etc/copy-resources ${PROD} ${PROD_CLS} && \
+	./etc/copy-resources ${PROV} ${PROV_CLS} && \
+	./etc/copy-resources ${TEST} ${TEST_CLS} && \
 	cp -r ${PROD_CLS} ${PROV_CLS} ${ALL_CLS}
 
 
@@ -69,7 +69,7 @@ ${TAR}: ${JAR} ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE} ${TAR_IMAGE}/lib $
 	cp -r bin ${TAR_IMAGE} && \
 	cp ${JAR} lib/run/*/*.jar ${TAR_IMAGE}/lib && \
 	cp ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE}/plugins && \
-	cp COPYING FEATURES README TASKS config/config-example.js ${TAR_IMAGE} && \
+	cp COPYING FEATURES README TASKS etc/config/config-example.js ${TAR_IMAGE} && \
 	cp -r ${ETC}/licenses ${TAR_IMAGE} && \
 	tar cfz ${TAR} -C ${GEN}/image .
 

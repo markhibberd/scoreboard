@@ -10,16 +10,13 @@ import leapstream.scoreboard.core.pylon.PylonWirer;
 import leapstream.scoreboard.core.ui.frob.WindowFrobber;
 import leapstream.scoreboard.core.ui.widgets.Board;
 import leapstream.scoreboard.edge.java.net.URL;
-import leapstream.scoreboard.pylons.image.core.ImagePylonWirer;
-import leapstream.scoreboard.pylons.score.core.ScorePylonWirer;
-import leapstream.scoreboard.pylons.status.core.StatusPylonWirer;
 
 public final class DefaultConfiguratorFu implements ConfiguratorFu {
     WindowFrobber frobber;
     // FIX 1205 Need a generic way to allow this to be bound. Spider??
-    ImagePylonWirer images;
-    ScorePylonWirer scores;
-    StatusPylonWirer stati;
+    Object images = new Object();
+    Object scores = new Object();
+    Object stati = new Object();
     ArrayMaster arrays;
     Aqueduct aqueduct;
     PylonWirer wirer;

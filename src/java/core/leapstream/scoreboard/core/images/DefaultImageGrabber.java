@@ -5,7 +5,7 @@ import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.io.stream.BytesFromInputStream;
 import leapstream.scoreboard.alien.net.url.UrlProcessor;
 import leapstream.scoreboard.alien.ui.gunge.image.ImageData;
-import leapstream.scoreboard.core.model.ImageLocation;
+import leapstream.scoreboard.legacy.model.ImageLocation;
 import leapstream.scoreboard.edge.java.net.URL;
 
 public final class DefaultImageGrabber implements ImageGrabber {

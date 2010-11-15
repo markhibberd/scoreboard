@@ -1,6 +1,6 @@
 package leapstream.scoreboard.warts.providers.cruise.transforms;
 
-import leapstream.scoreboard.core.model.History;
+import leapstream.scoreboard.legacy.model.History;
 import net.sourceforge.cruisecontrol.dashboard.Build;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package leapstream.scoreboard.core.gunge;
 
-import leapstream.scoreboard.core.model.Stati;
-import static leapstream.scoreboard.core.model.Stati.BUILDING;
-import static leapstream.scoreboard.core.model.Stati.QUEUED;
-import leapstream.scoreboard.core.model.Status;
+import leapstream.scoreboard.legacy.model.Stati;
+import static leapstream.scoreboard.legacy.model.Stati.BUILDING;
+import static leapstream.scoreboard.legacy.model.Stati.QUEUED;
+import leapstream.scoreboard.legacy.model.Status;
 
 public final class DefaultStatistician implements Statistician {
     public boolean building(Status status) {

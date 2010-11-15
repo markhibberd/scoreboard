@@ -2,12 +2,12 @@ package leapstream.scoreboard.warts.providers.cruise.transforms;
 
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Id;
-import leapstream.scoreboard.core.model.Result;
-import static leapstream.scoreboard.core.model.Result.FAILURE;
-import static leapstream.scoreboard.core.model.Result.SUCCESS;
-import leapstream.scoreboard.core.model.Run;
+import leapstream.scoreboard.legacy.model.History;
+import leapstream.scoreboard.legacy.model.Id;
+import leapstream.scoreboard.legacy.model.Result;
+import static leapstream.scoreboard.legacy.model.Result.FAILURE;
+import static leapstream.scoreboard.legacy.model.Result.SUCCESS;
+import leapstream.scoreboard.legacy.model.Run;
 import net.sourceforge.cruisecontrol.dashboard.Build;
 import org.joda.time.DateTime;
 

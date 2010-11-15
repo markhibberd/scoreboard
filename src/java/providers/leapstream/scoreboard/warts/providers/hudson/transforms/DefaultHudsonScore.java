@@ -4,10 +4,10 @@ import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.gunge.Timestamp;
-import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Name;
-import leapstream.scoreboard.core.model.Score;
-import leapstream.scoreboard.core.model.Status;
+import leapstream.scoreboard.legacy.model.History;
+import leapstream.scoreboard.legacy.model.Name;
+import leapstream.scoreboard.legacy.model.Score;
+import leapstream.scoreboard.legacy.model.Status;
 
 public class DefaultHudsonScore implements HudsonScore {
     HudsonStatus statistician;

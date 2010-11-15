@@ -20,7 +20,7 @@ public final class ClobberWeb implements Web {
         // FIX 1596 Dec 30, 2008 Should not be here. Move out and kill this.
         mapper.prefix("Default", "leapstream.scoreboard.alien");
         TypeMapper typer = nu.nu(TypeMapper.class);
-        NameMapper namer = nu.nu(NameMapper.class, "leapstream.scoreboard.core.model");
+        NameMapper namer = nu.nu(NameMapper.class, "leapstream.scoreboard.legacy.model");
         typer.add(namer);
         wire.ref(typer).to(TypeMapper.class);
     }

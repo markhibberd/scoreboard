@@ -3,10 +3,10 @@ package leapstream.scoreboard.warts.providers.cruise.transforms;
 import au.net.netstorm.boost.bullet.time.core.Clock;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Name;
-import leapstream.scoreboard.core.model.Score;
-import leapstream.scoreboard.core.model.Status;
+import leapstream.scoreboard.legacy.model.History;
+import leapstream.scoreboard.legacy.model.Name;
+import leapstream.scoreboard.legacy.model.Score;
+import leapstream.scoreboard.legacy.model.Status;
 import net.sourceforge.cruisecontrol.dashboard.Build;
 
 import java.util.List;

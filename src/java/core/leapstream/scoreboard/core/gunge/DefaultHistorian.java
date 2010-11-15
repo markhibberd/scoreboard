@@ -2,10 +2,10 @@ package leapstream.scoreboard.core.gunge;
 
 import au.net.netstorm.boost.bullet.incredibles.core.Weaken;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Id;
-import leapstream.scoreboard.core.model.Result;
-import leapstream.scoreboard.core.model.Run;
+import leapstream.scoreboard.legacy.model.History;
+import leapstream.scoreboard.legacy.model.Id;
+import leapstream.scoreboard.legacy.model.Result;
+import leapstream.scoreboard.legacy.model.Run;
 
 import static java.lang.Math.min;
 import java.util.List;

@@ -6,28 +6,28 @@ import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class DefaultPylons implements Pylons {
-    private List<Pylon> pylons = new CopyOnWriteArrayList<Pylon>();
+    private List<PylonX> pylonXs = new CopyOnWriteArrayList<PylonX>();
 
-    public void add(Pylon pylon) {
-        pylons.add(pylon);
+    public void add(PylonX pylonX) {
+        pylonXs.add(pylonX);
     }
 
-    public List<Pylon> mandatory() {
+    public List<PylonX> mandatory() {
         return accumulate(true);
     }
 
-    public List<Pylon> optional() {
+    public List<PylonX> optional() {
         return accumulate(false);
     }
 
-    public Iterator<Pylon> iterator() {
-        return pylons.iterator();
+    public Iterator<PylonX> iterator() {
+        return pylonXs.iterator();
     }
 
-    private List<Pylon> accumulate(boolean mandatory) {
-        List<Pylon> result = new ArrayList<Pylon>();
-        for (Pylon pylon : this) {
-            if (mandatory == pylon.mandatory()) result.add(pylon);
+    private List<PylonX> accumulate(boolean mandatory) {
+        List<PylonX> result = new ArrayList<PylonX>();
+        for (PylonX pylonX : this) {
+            if (mandatory == pylonX.mandatory()) result.add(pylonX);
         }
         return result;
     }

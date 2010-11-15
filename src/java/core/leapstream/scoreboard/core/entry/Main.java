@@ -25,7 +25,7 @@ public final class Main {
         Throwable cause = master.realCause(t);
         System.err.println("Error starting scoreboard [" + cause.getClass().getSimpleName() + ":" + cause.getMessage());
         System.err.println("Set system property scoreboard.debug=true for complete stack trace.");
-        System.err.println("usage: java -jar scoreboard-all.jar [-l|--lib config-libraries.(js|bsh) ...] config.js");
+        System.err.println("usage: java -jar scoreboard-all.jar [-l|--lib configPrompt-libraries.(js|bsh) ...] configPrompt.js");
         if (debug())
             cause.printStackTrace();
         System.exit(1);
@@ -33,7 +33,7 @@ public final class Main {
 
     // FIX pull this out.
     private static boolean debug() {
-        String prop = System.getProperty("scoreboard.debug");
+        String prop = System.getProperty("scoreboard.debug", "false");
         return "true".equals(prop.toLowerCase()) || "1".equals(prop) || "yes".equals(prop);
     }
 }

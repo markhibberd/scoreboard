@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 public final class DefaultArrangeDude implements ArrangeDude {
-    Scraps scraps;
+    Scraps scraps = new DefaultScraps();
 
     public void arrange(Layout layout, Component[] mandatory, Component[] optional) {
         Dimension board = layout.layout();

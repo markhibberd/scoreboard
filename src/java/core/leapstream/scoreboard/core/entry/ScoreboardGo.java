@@ -4,13 +4,14 @@ import au.net.netstorm.boost.spider.api.entry.Go;
 import au.net.netstorm.boost.spider.api.lifecycle.Constructable;
 import leapstream.scoreboard.alien.ui.core.Widget;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
+import leapstream.scoreboard.config.DefaultConfig;
 import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.config.script.ConfiguratorLibraries;
-import leapstream.scoreboard.core.ui.config.Config;
+import leapstream.scoreboard.core.ui.config.ConfigPrompt;
 import leapstream.scoreboard.core.ui.widgets.Board;
 import leapstream.scoreboard.edge.java.awt.FontStatic;
 import leapstream.scoreboard.edge.java.io.InputStream;
-import leapstream.scoreboard.pylons.score.ui.lf.Colors;
+import leapstream.scoreboard.pylons.core.Colours;
 
 import javax.swing.JComponent;
 import javax.swing.UIManager;
@@ -28,17 +29,17 @@ public final class ScoreboardGo implements Go, Constructable {
     ScoreboardArguments arguments;
     KeyListener listener;
     FontStatic font;
-    Config config;
-    Colors colors;
+    ConfigPrompt configPrompt;
     Board board;
     Frame frame;
     Bits bits;
 
 
     public void constructor() {
+        
         libraries.add("js", bits.url("core.js"));
         libraries.add("js", bits.url("utils.js"));
-        background = colors.get("board.bg");
+        background = Colours.colour("4000000");
         // FIX 1530 Dec 12, 2008 Tidy font gear.
         InputStream is = bits.stream("Robotron.ttf");
         Font f = font.createFont(TRUETYPE_FONT, is);
@@ -73,6 +74,6 @@ public final class ScoreboardGo implements Go, Constructable {
     }
 
     private void check(String[] args) {
-        if (args.length == 0) config.get();
+        if (args.length == 0) configPrompt.get();
     }
 }

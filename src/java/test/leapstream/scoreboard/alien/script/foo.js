@@ -1,4 +1,0 @@
-print(config);
-
-function foo() {
-}

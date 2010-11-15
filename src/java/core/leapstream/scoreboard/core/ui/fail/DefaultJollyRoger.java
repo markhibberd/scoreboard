@@ -13,8 +13,8 @@ import leapstream.scoreboard.alien.ui.swing.pear.Label;
 import leapstream.scoreboard.alien.ui.swing.pear.Panel;
 import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.images.ImageGrabber;
-import leapstream.scoreboard.core.model.ImageLocation;
-import leapstream.scoreboard.core.model.Name;
+import leapstream.scoreboard.legacy.model.ImageLocation;
+import leapstream.scoreboard.legacy.model.Name;
 import leapstream.scoreboard.edge.java.net.URL;
 
 import javax.swing.JComponent;

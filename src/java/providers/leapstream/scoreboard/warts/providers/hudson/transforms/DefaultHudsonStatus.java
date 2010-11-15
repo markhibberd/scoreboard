@@ -9,13 +9,13 @@ import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
 import leapstream.scoreboard.core.gunge.Timestamp;
-import leapstream.scoreboard.core.model.Stati;
-import leapstream.scoreboard.core.model.Status;
+import leapstream.scoreboard.legacy.model.Stati;
+import leapstream.scoreboard.legacy.model.Status;
 
-import static leapstream.scoreboard.core.model.Stati.BUILDING;
-import static leapstream.scoreboard.core.model.Stati.DISABLED;
-import static leapstream.scoreboard.core.model.Stati.QUEUED;
-import static leapstream.scoreboard.core.model.Stati.WAITING;
+import static leapstream.scoreboard.legacy.model.Stati.BUILDING;
+import static leapstream.scoreboard.legacy.model.Stati.DISABLED;
+import static leapstream.scoreboard.legacy.model.Stati.QUEUED;
+import static leapstream.scoreboard.legacy.model.Stati.WAITING;
 
 public final class DefaultHudsonStatus implements HudsonStatus {
     Nu nu;

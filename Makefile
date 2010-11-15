@@ -3,7 +3,7 @@ PROD = src/java/core
 PROV = src/java/providers
 TEST = src/java/test
 LIB = lib/run
-CP = lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
+CP = lib/run/scala/\*:lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
 CP_PROD = ${CP}:${PROD_CLS}
 CP_PROV = ${CP_PROD}:${PROV_CLS}
 CP_TEST = ${CP_PROV}:${TEST_CLS}
@@ -29,11 +29,11 @@ default: test dist
 
 compile: clean ${PROD_CLS} ${TEST_CLS} ${PROV_CLS} ${ALL_CLS}
 	find ${PROD} -name "*.scala"  -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP} -d ${PROD_CLS} && \
-	find ${PROD} -name "*.java" | xargs -s 30000 javac -classpath ${CP} -d ${PROD_CLS} && \
+	find ${PROD} -name "*.java" | xargs -s 30000 javac -classpath ${CP}:${PROD_CLS} -d ${PROD_CLS} && \
 	find ${PROV} -name "*.scala"  -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROD} -d ${PROV_CLS} && \
-	find ${PROV} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROD} -d ${PROV_CLS} && \
+	find ${PROV} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROD}:${PROV_CLS} -d ${PROV_CLS} && \
 	find ${TEST} -name "*.scala" -o -name "*.java" | xargs -s 30000 fsc -classpath ${CP_PROV} -d ${TEST_CLS} && \
-	find ${TEST} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROV} -d ${TEST_CLS} && \
+	find ${TEST} -name "*.java" | xargs -s 30000 javac -classpath ${CP_PROV}:${TEST_CLS} -d ${TEST_CLS} && \
 	./etc/copy-resources ${PROD} ${PROD_CLS} && \
 	./etc/copy-resources ${PROV} ${PROV_CLS} && \
 	./etc/copy-resources ${TEST} ${TEST_CLS} && \

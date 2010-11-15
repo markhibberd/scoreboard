@@ -9,7 +9,7 @@ import java.awt.Rectangle;
 
 public final class DefaultTileLayoutManager extends BoomLayoutManager implements TileLayoutManager {
     private Component[] parts;
-    LayoutDud dud;
+    private LayoutDud dud = new DefaultLayoutDud();
 
     public void set(Component[] parts) {
         if (parts.length != 5) throw new IllegalArgumentException("Expect exactly 5 parts.");
@@ -17,7 +17,7 @@ public final class DefaultTileLayoutManager extends BoomLayoutManager implements
     }
 
     public Dimension preferredLayoutSize(Container container) {
-        return new Dimension(0, 0); // FIX 244 Smart ... should be based on initial screen sizing.
+        return new Dimension(50, 50); // FIX 244 Smart ... should be based on initial screen sizing.
     }
 
     public void layoutContainer(Container container) {

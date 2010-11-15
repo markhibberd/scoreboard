@@ -1,7 +1,7 @@
 package leapstream.scoreboard.core.gunge;
 
-import leapstream.scoreboard.core.model.History;
-import leapstream.scoreboard.core.model.Id;
+import leapstream.scoreboard.legacy.model.History;
+import leapstream.scoreboard.legacy.model.Id;
 
 public interface Historian {
     Id last(History history);

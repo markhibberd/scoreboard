@@ -1,6 +1,6 @@
 package leapstream.scoreboard.core.gunge;
 
-import leapstream.scoreboard.core.model.Build;
+import leapstream.scoreboard.legacy.model.Build;
 
 public interface Builder {
     Build get(String name, String url);

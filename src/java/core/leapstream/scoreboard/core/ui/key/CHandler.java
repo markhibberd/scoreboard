@@ -1,11 +1,11 @@
 package leapstream.scoreboard.core.ui.key;
 
-import leapstream.scoreboard.core.ui.config.Config;
+import leapstream.scoreboard.core.ui.config.ConfigPrompt;
 
 public class CHandler implements Handler {
-    Config config;
+    ConfigPrompt configPrompt;
 
     public void u() {
-        config.get();
+        configPrompt.get();
     }
 }

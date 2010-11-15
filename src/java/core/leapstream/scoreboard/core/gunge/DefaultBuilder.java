@@ -1,8 +1,8 @@
 package leapstream.scoreboard.core.gunge;
 
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.core.model.Build;
-import leapstream.scoreboard.core.model.Name;
+import leapstream.scoreboard.legacy.model.Build;
+import leapstream.scoreboard.legacy.model.Name;
 import leapstream.scoreboard.edge.java.net.URL;
 
 public final class DefaultBuilder implements Builder {

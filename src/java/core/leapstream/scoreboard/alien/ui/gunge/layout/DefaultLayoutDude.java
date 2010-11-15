@@ -1,19 +1,20 @@
 package leapstream.scoreboard.alien.ui.gunge.layout;
 
-import au.net.netstorm.boost.spider.api.runtime.Nu;
+import leapstream.scoreboard.alien.ui.gunge.fitter.DefaultFitter;
+import leapstream.scoreboard.alien.ui.gunge.fitter.DefaultInsider;
 import leapstream.scoreboard.alien.ui.gunge.fitter.Fitter;
 import leapstream.scoreboard.alien.ui.gunge.fitter.Insider;
+import leapstream.scoreboard.alien.ui.gunge.invert.DefaultInverter;
 import leapstream.scoreboard.alien.ui.gunge.invert.Inverter;
 
 import java.awt.Dimension;
 import java.awt.Point;
 
 public final class DefaultLayoutDude implements LayoutDude {
-    Inverter inverter;
-    Insider insider;
-    Fitter fitter;
-    Tiler tiler;
-    Nu nu;
+    Inverter inverter = new DefaultInverter();
+    Insider insider = new DefaultInsider();
+    Fitter fitter = new DefaultFitter();
+    Tiler tiler = new DefaultTiler();
 
     public Layout layout(Dimension canvas, int count, Dimension aspect) {
         Dimension[] layouts = layouts(count);
@@ -34,7 +35,7 @@ public final class DefaultLayoutDude implements LayoutDude {
 
     private Layout layout(Dimension canvas, Dimension layout, Dimension tile) {
         Point offset = fitter.fit(canvas, layout, tile);
-        return nu.nu(Layout.class, offset, layout, tile);
+        return new DefaultLayout(offset, layout, tile);
     }
 
     private int max(int tiles) {

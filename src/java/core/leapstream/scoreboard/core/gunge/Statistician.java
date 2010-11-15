@@ -1,6 +1,6 @@
 package leapstream.scoreboard.core.gunge;
 
-import leapstream.scoreboard.core.model.Status;
+import leapstream.scoreboard.legacy.model.Status;
 
 public interface Statistician {
     boolean building(Status status);

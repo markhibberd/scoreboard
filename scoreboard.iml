@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module relativePaths="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="scala" name="Scala">
+      <configuration>
+        <option name="compilerLibraryLevel" value="Global" />
+        <option name="compilerLibraryName" value="scala-compiler-2.8.0" />
+      </configuration>
+    </facet>
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
@@ -37,6 +43,7 @@
           <root url="file://$MODULE_DIR$/lib/providers/hudson" />
           <root url="file://$MODULE_DIR$/lib/providers/cruise" />
           <root url="file://$MODULE_DIR$/lib/run/bc" />
+          <root url="file://$MODULE_DIR$/lib/run/scala" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -46,6 +53,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib/run/boost" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/run/freetts" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/run/jna" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run/scala" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/run/scripting" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/test" recursive="false" />
       </library>

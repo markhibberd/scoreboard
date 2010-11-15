@@ -1,7 +1,7 @@
 package leapstream.scoreboard.warts.providers.cruise.hooks;
 
 import leapstream.scoreboard.alien.clobber.core.Dumper;
-import leapstream.scoreboard.core.model.Score;
+import leapstream.scoreboard.legacy.model.Score;
 import leapstream.scoreboard.warts.providers.cruise.transforms.CruiseScore;
 import net.sourceforge.cruisecontrol.dashboard.Build;
 import net.sourceforge.cruisecontrol.dashboard.service.HistoricalBuildSummariesService;

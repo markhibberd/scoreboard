@@ -1,11 +1,12 @@
 package leapstream.scoreboard.alien.ui.gunge.fitter;
 
 import leapstream.scoreboard.alien.ui.gunge.aspect.AspectAdjuster;
+import leapstream.scoreboard.alien.ui.gunge.aspect.DefaultAspectAdjuster;
 
 import java.awt.Dimension;
 
 public final class DefaultInsider implements Insider {
-    AspectAdjuster aspector;
+    AspectAdjuster aspector = new DefaultAspectAdjuster();
 
     public Dimension inside(Dimension canvas, Dimension widget, Dimension aspect) {
         int h = canvas.height / widget.height;

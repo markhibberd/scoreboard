@@ -22,7 +22,7 @@ public class OneSixthLayoutManager extends BoomLayoutManager {
         Dimension canvas = container.getSize();
         int oneSixth = canvas.height / 6;
         int fiveSixths = canvas.height - oneSixth;
-        head.setBounds(0, 0, canvas.width, fiveSixths);
-        tail.setBounds(0, fiveSixths, canvas.width, oneSixth);
+        head.setBounds(0, 0, canvas.width, oneSixth);
+        tail.setBounds(0, oneSixth, canvas.width, fiveSixths);
     }
 }

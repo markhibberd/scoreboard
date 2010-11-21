@@ -2,10 +2,8 @@ package leapstream.scoreboard.core.config.script;
 
 import au.net.netstorm.boost.gunge.array.ArrayMaster;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.alien.aqueduct.Aqueduct;
 import leapstream.scoreboard.alien.script.Args;
 import leapstream.scoreboard.alien.script.Script;
-import leapstream.scoreboard.core.bits.Bits;
 import leapstream.scoreboard.core.pylon.PylonWirer;
 import leapstream.scoreboard.core.ui.frob.WindowFrobber;
 import leapstream.scoreboard.core.ui.widgets.Board;
@@ -18,11 +16,9 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
     Object scores = new Object();
     Object stati = new Object();
     ArrayMaster arrays;
-    Aqueduct aqueduct;
     PylonWirer wirer;
     Script script;
     Board board;
-    Bits bits;
     Nu nu;
 
     public void config(URL[] libraries, URL... configs) {
@@ -49,7 +45,6 @@ public final class DefaultConfiguratorFu implements ConfiguratorFu {
         args.put("builds", scores);
         args.put("stati", stati);
         args.put("board", board);
-        args.put("threadpool", aqueduct);
         args.put("window", frobber);
     }
 }

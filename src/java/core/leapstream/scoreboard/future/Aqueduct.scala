@@ -10,7 +10,6 @@ class Aqueduct(poolsize: Int, timebox: Int) {
     val pipe = new Runnable {
       def run = out(in())
     }
-    val resilient = Resilient.nu(pipe, errorx, timeout, timebox)
-    executor.execute(resilient)
+    Resilient.nu(pipe, errorx, timeout, timebox)
   }
 }

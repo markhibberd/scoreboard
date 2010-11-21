@@ -9,18 +9,20 @@ import java.net.URL
 import au.net.netstorm.boost.bullet.time.core.Duration
 import au.net.netstorm.boost.bullet.roughly.Roughly
 import model.Score
-import pylons.core.{Failable, JollyRoger, Scoreboard, ScorePylon}
+import pylons.core._
 
 object Main {
   def main(args: Array[String]) {
+    val pollperiod = 120 * 1000L;
     val config = DefaultConfig
     val aqueduct = new Aqueduct(config.threadpool.threads, config.threadpool.timeout)
     val roughly = new Roughly {
       def is(p1: Duration) = "" + p1.millis
     }
     val hudson = new ScorePylon(new URL("http://www.leapstream.com.au/products/scoreboard/samples/hudson/hudson-hornet"), config, roughly)
+    val loading = LoadingScreen.nu("hornet")
     val jollyroger = JollyRoger.nu("hornet")
-    val failable = Failable.failable(hudson.ui, jollyroger)
+    val failable = Failable.failable(loading, hudson.ui, jollyroger)
 //    val hudson = new StatusPylon(new URL("http://www.leapstream.com.au/products/scoreboard/samples/hudson/hudson-hornet"), "fred")
     val pylon = new PylonX {
       def view = new Ui {
@@ -37,7 +39,11 @@ object Main {
     scoreboard.ui.add(pylon.view.ui)
     scoreboard.pylons.add(pylon)
 
-    aqueduct.conduit(hudson.build, (a: Score) => {failable.ok; hudson.ok(a)}, _ => failable.fail, _ => failable.fail)
+    val scheduler = new Scheduler(config.threadpool.threads)
+    scheduler.schedule(
+        aqueduct.conduit(hudson.build, (a: Score) => {failable.ok; hudson.ok(a)}, _ => failable.fail, _ => failable.fail)
+        , pollperiod
+      )
 
     println("done")
 

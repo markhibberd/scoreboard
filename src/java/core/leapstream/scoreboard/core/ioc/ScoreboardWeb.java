@@ -7,12 +7,7 @@ import au.net.netstorm.boost.spider.api.config.mapping.Mapper;
 import au.net.netstorm.boost.spider.api.config.scope.Scoper;
 import au.net.netstorm.boost.spider.api.config.web.Web;
 import au.net.netstorm.boost.spider.api.config.wire.Wire;
-import au.net.netstorm.boost.spider.api.runtime.Impl;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import au.net.netstorm.boost.spider.api.runtime.Resolver;
-import leapstream.scoreboard.alien.aqueduct.Aqueduct;
-import leapstream.scoreboard.alien.aqueduct.AqueductWirer;
-import leapstream.scoreboard.alien.aqueduct.ConduitIn;
 import leapstream.scoreboard.alien.clobber.core.ClobberWeb;
 import leapstream.scoreboard.alien.ioc.AlienWeb;
 import leapstream.scoreboard.alien.ui.audio.core.Audio;
@@ -28,7 +23,6 @@ import leapstream.scoreboard.alien.ui.val.AspectRatio;
 import leapstream.scoreboard.alien.ui.val.PreferredSize;
 import leapstream.scoreboard.core.config.script.ConfiguratorLibraries;
 import leapstream.scoreboard.core.config.script.DefaultConfiguratorLibraries;
-import leapstream.scoreboard.core.poll.Threads;
 import leapstream.scoreboard.core.pylon.DefaultPylons;
 import leapstream.scoreboard.core.pylon.Pylons;
 import leapstream.scoreboard.core.ui.key.DefaultNavigator;
@@ -46,12 +40,8 @@ public final class ScoreboardWeb implements Web {
     Dimension preferred = new Dimension(800, 800);
     Dimension aspect = new Dimension(5, 6);
     Spinneret spinneret;
-    Resolver resolver;
     Scoper scoper;
     Mapper mapper;
-    // FIX 3081 Feb 18, 2009 Remove binders.
-    //    RefThing ref;
-    Impl impl;
     Nu nu;
     Wire wire;
 
@@ -62,7 +52,6 @@ public final class ScoreboardWeb implements Web {
         state();
         subwebs();
         ui();
-        backend();
         logging();
         audio();
     }
@@ -101,14 +90,6 @@ public final class ScoreboardWeb implements Web {
         wire.cls(DefaultNavigator.class).one().to(Navigator.class);
         wire.cls(DefaultNavigableTiles.class).one().to(NavigableTiles.class);
         wire.cls(DefaultBoard.class).one().to(Board.class);
-    }
-
-    private void backend() {
-        AqueductWirer aqueducts = nu.nu(AqueductWirer.class);
-        Aqueduct aqueduct = aqueducts.nu(Threads.DEFAULT_POOL);
-        ConduitIn in = aqueduct.in();
-        wire.ref(in).to(ConduitIn.class);
-        wire.ref(aqueduct).to(Aqueduct.class);
     }
 
     private void logging() {

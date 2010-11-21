@@ -1,4 +1,4 @@
-ODULE = scoreboard
+MODULE = scoreboard
 PROD = src/java/core
 PROV = src/java/providers
 TEST = src/java/test
@@ -21,7 +21,7 @@ CRUISE_PLUGIN = ${DIST}/${MODULE}-cruise.jar
 VERSION = 0.93
 MANIFEST = ${ETC}/MANIFEST.MF
 DIST_MANIFEST = ${GEN}/MANIFEST.MF
-TAR_IMAGE = ${GEN}/image/scoreboard-${VERSION}
+TAR_IMAGE = ${GEN}/image/${MODULE}-${VERSION}
 
 .PHONY: clean
 
@@ -41,6 +41,7 @@ compile: clean ${PROD_CLS} ${TEST_CLS} ${PROV_CLS} ${ALL_CLS}
 
 
 test: compile
+	scala -cp ${CP_TEST} org.scalatest.tools.Runner -p ${TEST_CLS} -oDFW && \
 	(cd ${TEST} > /dev/null && find * -name \*Test.java | sed -e s/.java// | sed -e s:/:.:g) | xargs  \
 	java -cp ${CP_TEST} org.junit.runner.JUnitCore 
 
@@ -85,6 +86,11 @@ size:
 
 simian:
 	echo "implement me"
+
+depend:
+        cp ../lever/gen/dist/lever.jar ../phonic/gen/dist/phonic/phonic.jar lib/run/. && \
+        cp ../lever/LICENSE etc/licenses/lever && \
+        cp ../phonic/LICENSE etc/licenses/phonic
 
 ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins ${GEN}/image-hudson:
 	mkdir -p $@

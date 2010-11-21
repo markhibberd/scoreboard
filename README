@@ -1,50 +1,36 @@
-FIX Fill this out.
+NAME
+        scoreboard - build radiator
 
-Install
--------
+DESCRIPTION
+        Scoreboard is an application designed as an information radiator. It
+        uses visual and audio feedback for maximum effect. It is designed to
+        support multiple continuous integration servers. The application
+        currently includes connectors for Hudson and Cruise Control.
 
-See http://www.assembla.com/wiki/show/peeble/Integration
+        This version of scoreboard represents a new development direction for
+        the original leapstream developed scoreboard.
 
+USAGE
+        T.B.A.
 
-Configure
----------
+STATE
+        The `scoreboard` application has a stable release based upon a
+        scriptable (javascript) config. There is currently a development
+        push to replace this with a more reliable mechanism. The new
+        mechanism MAY provide a compatability layer to the current config
+        style.
 
-See http://www.assembla.com/wiki/show/peeble/Integration
+AUTHOR
+        Mark Hibberd <mark@hibberd.id.au>
+        Leapstream <http://www.leapstream.com.au>
 
-
-Build
------
-
-$ svn co ttp://subversion.assembla.com/svn/peeble/trunk scoreboard
-$ cd scoreboard
-$ ant release
-
-
-CI
---
-
-To fire up hudson.
-
-$ svn co ttp://subversion.assembla.com/svn/peeble/trunk scoreboard
-$ scoreboard/ci/ci.sh
-
-Default port is 8080.
-
-
-Release Notes
---------------
-
-See FEATURES file.
-
-
-Whats Next
-----------
-
-See TASKS file.
-
-
-License
--------
-
-Details can be found in COPYING file, or, https://www.assembla.com/wiki/show/peeble/License.
+NOTES
+        1. official repository
+           https://github.com/markhibberd/phonic
+        2. original leapstream repository
+           https://www.assembla.com/wiki/show/peeble
+        2. site and documentation
+           http://scoreboard.mth.io
+        3. license (apache)
+           https://github.com/markhibberd/phonic/blob/master/LICENSE
 

@@ -2,7 +2,7 @@
 SRC=$1
 TRG=$2
 
-for resource in `find ${SRC} -type f -not -name '*.java'` ; do 
+for resource in `find ${SRC} -type f -not -name '*.java' -not -name '*.scala'` ; do 
     target=`echo $resource | sed -e 's:'${SRC}':'${TRG}':'`  
     mkdir -p `dirname $target` 
     cp $resource $target 

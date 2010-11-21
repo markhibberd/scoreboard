@@ -1,9 +1,8 @@
 MODULE = scoreboard
-PROD = src/java/core
-PROV = src/java/providers
-TEST = src/java/test
-LIB = lib/run
-CP = lib/run/scala/\*:lib/run/bc/\*:lib/run/boost/\*:lib/run/freetts/\*:lib/run/jna/\*:lib/run/scripting/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
+PROD = src/prod
+PROV = src/providers
+TEST = src/test
+CP = lib/run/\*:lib/test/\*:lib/providers/cruise/\*:lib/providers/hudson/\*
 CP_PROD = ${CP}:${PROD_CLS}
 CP_PROV = ${CP_PROD}:${PROV_CLS}
 CP_TEST = ${CP_PROV}:${TEST_CLS}
@@ -41,14 +40,12 @@ compile: clean ${PROD_CLS} ${TEST_CLS} ${PROV_CLS} ${ALL_CLS}
 
 
 test: compile
-	scala -cp ${CP_TEST} org.scalatest.tools.Runner -p ${TEST_CLS} -oDFW && \
-	(cd ${TEST} > /dev/null && find * -name \*Test.java | sed -e s/.java// | sed -e s:/:.:g) | xargs  \
-	java -cp ${CP_TEST} org.junit.runner.JUnitCore 
+	scala -cp ${CP_TEST} org.scalatest.tools.Runner -p ${TEST_CLS} -oDFW 
 
 ${HUDSON_PLUGIN}: ${JAR} ${GEN}/tmp ${GEN}/image-hudson
 	mkdir -p ${GEN}/image-hudson/WEB-INF/classes/META-INF/services && \
 	mkdir -p ${GEN}/image-hudson/WEB-INF/lib && \
-	cp ${JAR} lib/run/boost/boost.jar ${GEN}/image-hudson/WEB-INF/lib && \
+	cp ${JAR} lib/run/boost.jar ${GEN}/image-hudson/WEB-INF/lib && \
 	cp ${ETC}/plugins/hudson/MANIFEST.MF ${GEN}/image-hudson/WEB-INF/classes/META-INF && \
 	cp ${ETC}/plugins/hudson/hudson.plugin ${GEN}/image-hudson/WEB-INF/classes/META-INF/services && \
 	cp -r ${ETC}/plugins/hudson/resources/. ${GEN}/image-hudson/WEB-INF/classes && \
@@ -57,7 +54,7 @@ ${HUDSON_PLUGIN}: ${JAR} ${GEN}/tmp ${GEN}/image-hudson
 	jar cfm ${HUDSON_PLUGIN} ${ETC}/plugins/cruise/MANIFEST.MF -C ${GEN}/image-hudson .
 
 ${CRUISE_PLUGIN}: ${JAR} ${GEN}/tmp
-	(cd ${GEN}/tmp && jar xf ../../lib/run/boost/boost.jar) &&
+	(cd ${GEN}/tmp && jar xf ../../lib/run/boost.jar) &&
 	jar cfm ${CRUISE_PLUGIN} ${ETC}/plugins/cruise/MANIFEST.MF -C ${ALL_CLS} . -C ${GEN}/tmp .
 
 ${JAR}: compile ${DIST_MANIFEST} ${DIST}
@@ -66,7 +63,7 @@ ${JAR}: compile ${DIST_MANIFEST} ${DIST}
 ${TAR}: ${JAR} ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins
 	cp -r bin ${TAR_IMAGE} && \
 	rm ${TAR_IMAGE}/bin/scoreboard-dev && \
-	cp ${JAR} lib/run/*/*.jar ${TAR_IMAGE}/lib && \
+	cp ${JAR} lib/run/*.jar ${TAR_IMAGE}/lib && \
 	cp ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE}/plugins && \
 	cp COPYING FEATURES README TASKS etc/config/config-example.js ${TAR_IMAGE} && \
 	cp -r ${ETC}/licenses ${TAR_IMAGE} && \

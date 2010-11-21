@@ -18,8 +18,7 @@ class Board(config: Config) {
   val scheduler = new Scheduler(config.threadpool.threads)
   val aqueduct = new Aqueduct(config.threadpool.timeout)
   val scoreboard = new Scoreboard
-  scoreboard.ui.add(pylon.view.ui)
-  scoreboard.pylons.add(pylon)
+
 
   /*
    * Faked roughly, port or replace.
@@ -48,6 +47,10 @@ class Board(config: Config) {
 
     def name = throw new IllegalStateException
   }
+
+  scoreboard.ui.add(pylon.view.ui)
+  scoreboard.pylons.add(pylon)
+  
 
   val conduit = aqueduct.conduit(hudson.build, (a: Score) => {failable.ok; hudson.ok(a)}, _ => failable.fail, _ => failable.fail)
 

@@ -2,6 +2,7 @@ package leapstream.scoreboard.model
 
 import org.scalatest.FunSuite
 import util.parsing.input.CharSequenceReader
+import leapstream.scoreboard.data.score.ScoreParser
 
 class ScoreParserTest extends FunSuite {
   import ScoreParser._

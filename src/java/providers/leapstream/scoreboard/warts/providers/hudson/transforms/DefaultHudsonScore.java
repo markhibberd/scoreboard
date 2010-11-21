@@ -3,7 +3,7 @@ package leapstream.scoreboard.warts.providers.hudson.transforms;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
-import leapstream.scoreboard.core.gunge.Timestamp;
+import leapstream.scoreboard.legacy.operations.Timestamp;
 import leapstream.scoreboard.legacy.model.History;
 import leapstream.scoreboard.legacy.model.Name;
 import leapstream.scoreboard.legacy.model.Score;

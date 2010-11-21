@@ -10,5 +10,5 @@ Implementation-Version: VERSION
 Implementation-Vendor: scoreboarders
 FreeTTSVoiceDefinition: true
 SplashScreen-Image: splash.png
-Main-Class: leapstream.scoreboard.core.entry.Main
+Main-Class: leapstream.scoreboard.legacy.entry.Main
 

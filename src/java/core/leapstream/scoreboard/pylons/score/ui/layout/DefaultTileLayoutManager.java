@@ -1,6 +1,6 @@
 package leapstream.scoreboard.pylons.score.ui.layout;
 
-import leapstream.scoreboard.alien.ui.gunge.layout.BoomLayoutManager;
+import leapstream.scoreboard.legacy.ui.gunge.layout.BoomLayoutManager;
 
 import java.awt.Component;
 import java.awt.Container;

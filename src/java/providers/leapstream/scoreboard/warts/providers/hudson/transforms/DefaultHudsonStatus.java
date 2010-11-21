@@ -8,7 +8,7 @@ import au.net.netstorm.boost.bullet.time.core.TimeFactory;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
-import leapstream.scoreboard.core.gunge.Timestamp;
+import leapstream.scoreboard.legacy.operations.Timestamp;
 import leapstream.scoreboard.legacy.model.Stati;
 import leapstream.scoreboard.legacy.model.Status;
 

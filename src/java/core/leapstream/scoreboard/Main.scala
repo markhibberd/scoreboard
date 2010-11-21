@@ -1,14 +1,15 @@
 package leapstream.scoreboard
 
-import alien.ui.core.Ui
-import alien.ui.swing.pear.Frame
-import config.DefaultConfig
-import core.pylon.PylonX
-import future.Aqueduct
+import async.{Scheduler, Aqueduct}
+import data.config.DefaultConfig
+import data.score.Score
 import java.net.URL
 import au.net.netstorm.boost.bullet.time.core.Duration
 import au.net.netstorm.boost.bullet.roughly.Roughly
-import model.Score
+import legacy.pylon.PylonX
+import legacy.ui.core.Ui
+import legacy.ui.swing.pear.Frame
+
 import pylons.core._
 import io.mth.phonic.Phonic
 

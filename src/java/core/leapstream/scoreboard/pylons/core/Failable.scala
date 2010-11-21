@@ -1,6 +1,6 @@
 package leapstream.scoreboard.pylons.core
 
-import leapstream.scoreboard.alien.ui.swing.pear.Panel
+import leapstream.scoreboard.legacy.ui.swing.pear.Panel
 import java.awt.{Component, CardLayout}
 
 object Failable {

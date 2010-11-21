@@ -1,7 +1,7 @@
 package leapstream.scoreboard.pylons.core
 
-import leapstream.scoreboard.alien.ui.swing.pear.{ShimLabel, Panel}
-import leapstream.scoreboard.alien.ui.gunge.image.ScalableImageIcon
+import leapstream.scoreboard.legacy.ui.swing.pear.{ShimLabel, Panel}
+import leapstream.scoreboard.legacy.ui.gunge.image.ScalableImageIcon
 import java.net.URL
 import javax.swing.JComponent
 

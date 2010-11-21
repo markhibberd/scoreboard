@@ -6,7 +6,7 @@ import au.net.netstorm.boost.spider.api.config.wire.Wire;
 import au.net.netstorm.boost.spider.api.runtime.Spider;
 import au.net.netstorm.boost.spider.ioc.BoostWeb;
 import hudson.Plugin;
-import leapstream.scoreboard.core.ioc.ScoreboardWeb;
+import leapstream.scoreboard.legacy.ioc.ScoreboardWeb;
 
 import javax.servlet.ServletContext;
 

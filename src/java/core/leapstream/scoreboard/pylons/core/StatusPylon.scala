@@ -1,8 +1,8 @@
 package leapstream.scoreboard.pylons.core
 
-import leapstream.scoreboard.alien.ui.swing.pear.{ShimLabel, Panel}
+import leapstream.scoreboard.legacy.ui.swing.pear.{ShimLabel, Panel}
 import java.awt.Color
-import leapstream.scoreboard.model._
+import leapstream.scoreboard.data.score._
 import scala.io.Source
 import java.net.URL
 import util.parsing.input.CharSequenceReader

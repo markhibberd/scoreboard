@@ -1,15 +1,16 @@
 package leapstream.scoreboard.pylons.core
 
-import leapstream.scoreboard.model._
-import leapstream.scoreboard.alien.ui.swing.pear.{ShimLabel, Panel}
+import leapstream.scoreboard.data.score._
+import leapstream.scoreboard.legacy.ui.swing.pear.{ShimLabel, Panel}
 import leapstream.scoreboard.pylons.score.ui.layout.DefaultTileLayoutManager
 import java.awt.{GridLayout, Color}
-import leapstream.scoreboard.config.Config
 import au.net.netstorm.boost.bullet.roughly.Roughly
 import au.net.netstorm.boost.bullet.time.core.Duration
 import scala.io.Source
 import java.net.URL
 import util.parsing.input.CharSequenceReader
+import leapstream.scoreboard.data.score.{Success, ScoreParser, Score}
+import leapstream.scoreboard.data.config.Config
 
 // FIX split
 // FIX audio

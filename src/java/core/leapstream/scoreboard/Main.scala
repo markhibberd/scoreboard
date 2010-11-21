@@ -10,9 +10,12 @@ import au.net.netstorm.boost.bullet.time.core.Duration
 import au.net.netstorm.boost.bullet.roughly.Roughly
 import model.Score
 import pylons.core._
+import io.mth.phonic.Phonic
 
 object Main {
   def main(args: Array[String]) {
+    val phonic = new Phonic()
+    phonic.start
     val pollperiod = 120 * 1000L;
     val config = DefaultConfig
     val aqueduct = new Aqueduct(config.threadpool.threads, config.threadpool.timeout)

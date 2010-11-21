@@ -7,20 +7,13 @@ import au.net.netstorm.boost.spider.api.config.mapping.Mapper;
 import au.net.netstorm.boost.spider.api.config.scope.Scoper;
 import au.net.netstorm.boost.spider.api.config.web.Web;
 import au.net.netstorm.boost.spider.api.config.wire.Wire;
-import au.net.netstorm.boost.spider.api.runtime.Nu;
 import leapstream.scoreboard.alien.clobber.core.ClobberWeb;
-import leapstream.scoreboard.alien.ioc.AlienWeb;
-import leapstream.scoreboard.alien.ui.audio.core.Audio;
-import leapstream.scoreboard.alien.ui.audio.core.AudioWeb;
-import leapstream.scoreboard.alien.ui.audio.core.AudioWirer;
 import leapstream.scoreboard.alien.ui.swing.pear.Frame;
 import leapstream.scoreboard.alien.ui.swing.pear.FrameProvider;
 import leapstream.scoreboard.alien.ui.swing.pear.Label;
 import leapstream.scoreboard.alien.ui.swing.pear.LabelProvider;
 import leapstream.scoreboard.alien.ui.swing.pear.Panel;
 import leapstream.scoreboard.alien.ui.swing.pear.PanelProvider;
-import leapstream.scoreboard.alien.ui.val.AspectRatio;
-import leapstream.scoreboard.alien.ui.val.PreferredSize;
 import leapstream.scoreboard.core.config.script.ConfiguratorLibraries;
 import leapstream.scoreboard.core.config.script.DefaultConfiguratorLibraries;
 import leapstream.scoreboard.core.pylon.DefaultPylons;
@@ -42,7 +35,6 @@ public final class ScoreboardWeb implements Web {
     Spinneret spinneret;
     Scoper scoper;
     Mapper mapper;
-    Nu nu;
     Wire wire;
 
     public void web() {
@@ -53,7 +45,6 @@ public final class ScoreboardWeb implements Web {
         subwebs();
         ui();
         logging();
-        audio();
     }
 
     private void state() {
@@ -63,9 +54,7 @@ public final class ScoreboardWeb implements Web {
 
     private void subwebs() {
         spinneret.spin(ClobberWeb.class);
-        spinneret.spin(AudioWeb.class);
         spinneret.spin(KeyWeb.class);
-        spinneret.spin(AlienWeb.class);
     }
 
     // FIX 3081 Feb 18, 2009 Look at how scoping works.
@@ -83,8 +72,6 @@ public final class ScoreboardWeb implements Web {
     }
 
     private void single() {
-        wire.nu(PreferredSize.class, preferred).to(PreferredSize.class);
-        wire.nu(AspectRatio.class, aspect).to(AspectRatio.class);
         wire.provider(FrameProvider.class).one().to(Frame.class);
         // FIX 1596 Mar 5, 2009 The following do not need the mapping (only the single).
         wire.cls(DefaultNavigator.class).one().to(Navigator.class);
@@ -96,10 +83,5 @@ public final class ScoreboardWeb implements Web {
         wire.cls(StandardOutLogEngine.class).to(LogEngine.class);
     }
 
-    private void audio() {
-        AudioWirer audios = nu.nu(AudioWirer.class);
-        Audio audio = audios.nu();
-        wire.ref(audio).to(Audio.class);
-    }
 }
 // } OK NCSS

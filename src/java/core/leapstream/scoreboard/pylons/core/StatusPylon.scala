@@ -3,7 +3,7 @@ package leapstream.scoreboard.pylons.core
 import leapstream.scoreboard.alien.ui.swing.pear.{ShimLabel, Panel}
 import java.awt.Color
 import leapstream.scoreboard.model._
-import io.Source
+import scala.io.Source
 import java.net.URL
 import util.parsing.input.CharSequenceReader
 

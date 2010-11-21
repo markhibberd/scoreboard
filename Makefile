@@ -87,10 +87,13 @@ size:
 simian:
 	echo "implement me"
 
+chain:
+	(cd ../lever && make && cd ../phonic && make depend && make) && make depend && make
+
 depend:
-        cp ../lever/gen/dist/lever.jar ../phonic/gen/dist/phonic/phonic.jar lib/run/. && \
-        cp ../lever/LICENSE etc/licenses/lever && \
-        cp ../phonic/LICENSE etc/licenses/phonic
+	cp ../lever/gen/dist/lever.jar ../phonic/gen/dist/phonic.jar lib/run/. && \
+	cp ../lever/LICENSE etc/licenses/lever && \
+	cp ../phonic/LICENSE etc/licenses/phonic
 
 ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins ${GEN}/image-hudson:
 	mkdir -p $@

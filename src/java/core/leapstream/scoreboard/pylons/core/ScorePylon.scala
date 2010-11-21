@@ -7,7 +7,7 @@ import java.awt.{GridLayout, Color}
 import leapstream.scoreboard.config.Config
 import au.net.netstorm.boost.bullet.roughly.Roughly
 import au.net.netstorm.boost.bullet.time.core.Duration
-import io.Source
+import scala.io.Source
 import java.net.URL
 import util.parsing.input.CharSequenceReader
 

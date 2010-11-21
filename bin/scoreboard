@@ -11,8 +11,10 @@ os=`uname -s`
 case $os in
 Darwin)
     java_cmd=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/bin/java
+    ;;
 *)
     java_cmd=java
+    ;;
 esac
 
 java -version 2> /dev/null

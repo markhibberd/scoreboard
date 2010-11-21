@@ -2,19 +2,21 @@
 
 base=`dirname $0`/..
 base=`cd $base > /dev/null && pwd`
-lib=$base/lib
+lib=$base/lib/run
 dist=$base/gen/dist
-cp="$lib/bc/*:$lib/boost/*:$lib/freetts/*:$lib/jna/*:$lib/scripting/*:$dist/scoreboard.jar"
+cp="$lib/*:$dist/scoreboard.jar"
 log=$base/log
-main=leapstream.scoreboard.core.entry.Main
+main=scoreboard.Main
 java_cmd=java
 os=`uname -s`
 
 case $os in
 Darwin)
     java_cmd=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/bin/java
+    ;;
 *)
     java_cmd=java
+    ;;
 esac
 
 java -version 2> /dev/null
@@ -39,5 +41,5 @@ fi
 
 mkdir -p $log
 
-java -cp "$cp" $main "$@" > $log/scoreboard.`date "+%Y%m%d%H%M"`.log
+java -cp "$cp" $main "$@"
 

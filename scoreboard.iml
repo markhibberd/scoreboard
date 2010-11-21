@@ -36,26 +36,16 @@
     <orderEntry type="module-library">
       <library name="libs">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/lib/run/freetts" />
           <root url="file://$MODULE_DIR$/lib/test" />
-          <root url="file://$MODULE_DIR$/lib/run/boost" />
-          <root url="file://$MODULE_DIR$/lib/run/jna" />
-          <root url="file://$MODULE_DIR$/lib/run/scripting" />
           <root url="file://$MODULE_DIR$/lib/providers/hudson" />
           <root url="file://$MODULE_DIR$/lib/providers/cruise" />
-          <root url="file://$MODULE_DIR$/lib/run/bc" />
-          <root url="file://$MODULE_DIR$/lib/run/scala" />
+          <root url="file://$MODULE_DIR$/lib/run" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/lib/providers/cruise" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/providers/hudson" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/bc" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/boost" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/freetts" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/jna" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/scala" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/lib/run/scripting" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/run" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/lib/test" recursive="false" />
       </library>
     </orderEntry>

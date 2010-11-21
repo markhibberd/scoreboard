@@ -1,4 +1,4 @@
-package leapstream.scoreboard.model
+package scoreboard.data.score
 
 import org.scalatest.FunSuite
 import util.parsing.input.CharSequenceReader

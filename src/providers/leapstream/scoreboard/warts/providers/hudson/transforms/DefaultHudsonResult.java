@@ -6,7 +6,7 @@ import static hudson.model.Result.NOT_BUILT;
 import static hudson.model.Result.SUCCESS;
 import static hudson.model.Result.UNSTABLE;
 import hudson.model.Run;
-import leapstream.scoreboard.legacy.model.Result;
+import leapstream.scoreboard.warts.providers.model.Result;
 
 import java.util.HashMap;
 import java.util.Map;

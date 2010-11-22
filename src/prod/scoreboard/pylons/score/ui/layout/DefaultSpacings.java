@@ -1,4 +1,4 @@
-package leapstream.scoreboard.pylons.score.ui.layout;
+package scoreboard.pylons.score.ui.layout;
 
 public final class DefaultSpacings implements Spacings {
     private final Double[] spacings;

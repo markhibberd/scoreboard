@@ -1,7 +1,7 @@
 package leapstream.scoreboard.warts.providers.cruise.transforms;
 
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.legacy.model.Name;
+import leapstream.scoreboard.warts.providers.model.Name;
 import net.sourceforge.cruisecontrol.dashboard.Build;
 
 public final class DefaultCruiseName implements CruiseName {

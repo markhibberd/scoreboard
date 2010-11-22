@@ -41,7 +41,7 @@ class StatusPylon(url: URL, name: String) extends Pylon[Score] {
       case _ => Color.BLACK
   }
 
-  def ok(score: Score): Unit ={
+  def ok(score: Score, previous: Option[Score]): Unit ={
     ui.label.bg(bg(score));
     ui.label.fg(fg(score))
   }

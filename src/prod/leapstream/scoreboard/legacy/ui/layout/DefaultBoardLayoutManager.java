@@ -2,15 +2,12 @@ package leapstream.scoreboard.legacy.ui.layout;
 
 import leapstream.scoreboard.legacy.ui.gunge.layout.DefaultArrangeDude;
 import leapstream.scoreboard.legacy.ui.gunge.layout.DefaultLayoutDude;
-import leapstream.scoreboard.legacy.ui.core.Ui;
 import leapstream.scoreboard.legacy.ui.gunge.layout.BoomLayoutManager;
 import leapstream.scoreboard.legacy.ui.gunge.layout.ArrangeDude;
 import leapstream.scoreboard.legacy.ui.gunge.layout.LayoutDude;
 import leapstream.scoreboard.legacy.ui.gunge.layout.Layout;
-import leapstream.scoreboard.legacy.pylon.DefaultPylons;
-import leapstream.scoreboard.legacy.pylon.PylonX;
-import leapstream.scoreboard.legacy.pylon.Pylons;
 
+import javax.swing.JComponent;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -21,20 +18,20 @@ public class DefaultBoardLayoutManager extends BoomLayoutManager implements Boar
     Dimension preferred = new Dimension(800, 800);
     Dimension aspect = new Dimension(5, 6);
     LayoutDude dude = new DefaultLayoutDude();
-    Pylons pylons = new DefaultPylons();
-    
-    public Pylons pylons() {
-        return pylons;
+    private List<JComponent> mandatory;
+    private List<JComponent> optional;
+
+
+    public DefaultBoardLayoutManager(List<JComponent> mandatory, List<JComponent> optional) {
+        this.mandatory = mandatory;
+        this.optional = optional;
     }
 
     public Dimension preferredLayoutSize(Container c) {
         return preferred;
     }
 
-    // FIX LIFECYCLE Push PylonX deeper.
     public void layoutContainer(Container c) {
-        List<PylonX> mandatory = pylons.mandatory();
-        List<PylonX> optional = pylons.optional();
         if (mandatory.size() == 0) return;
         Dimension size = c.getSize();
         Dimension a = aspect;
@@ -42,19 +39,17 @@ public class DefaultBoardLayoutManager extends BoomLayoutManager implements Boar
         arrange(mandatory, optional, layout);
     }
 
-    private void arrange(List<PylonX> mandatory, List<PylonX> optional, Layout layout) {
+    private void arrange(List<JComponent> mandatory, List<JComponent> optional, Layout layout) {
         Component[] ms = components(mandatory);
         Component[] os = components(optional);
         arrange.arrange(layout, ms, os);
     }
 
     // FIX LIFECYCLE Remove need for this.
-    private Component[] components(List<PylonX> pylonXs) {
-        Component[] components = new Component[pylonXs.size()];
-        for (int i = 0; i < pylonXs.size(); i++) {
-            PylonX pylonX = pylonXs.get(i);
-            Ui view = pylonX.view();
-            components[i] = view.ui();
+    private Component[] components(List<JComponent> cs) {
+        Component[] components = new Component[cs.size()];
+        for (int i = 0; i < cs.size(); i++) {
+            components[i] = cs.get(i);
         }
         return components;
     }

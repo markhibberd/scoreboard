@@ -2,7 +2,7 @@ package leapstream.scoreboard.warts.providers.hudson.transforms;
 
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
-import leapstream.scoreboard.legacy.model.Name;
+import leapstream.scoreboard.warts.providers.model.Name;
 
 public final class DefaultHudsonName implements HudsonName {
     Nu nu;

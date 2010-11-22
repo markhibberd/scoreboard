@@ -8,14 +8,14 @@ import au.net.netstorm.boost.bullet.time.core.TimeFactory;
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
-import leapstream.scoreboard.legacy.operations.Timestamp;
-import leapstream.scoreboard.legacy.model.Stati;
-import leapstream.scoreboard.legacy.model.Status;
+import leapstream.scoreboard.warts.providers.operations.Timestamp;
+import leapstream.scoreboard.warts.providers.model.Stati;
+import leapstream.scoreboard.warts.providers.model.Status;
 
-import static leapstream.scoreboard.legacy.model.Stati.BUILDING;
-import static leapstream.scoreboard.legacy.model.Stati.DISABLED;
-import static leapstream.scoreboard.legacy.model.Stati.QUEUED;
-import static leapstream.scoreboard.legacy.model.Stati.WAITING;
+import static leapstream.scoreboard.warts.providers.model.Stati.BUILDING;
+import static leapstream.scoreboard.warts.providers.model.Stati.DISABLED;
+import static leapstream.scoreboard.warts.providers.model.Stati.QUEUED;
+import static leapstream.scoreboard.warts.providers.model.Stati.WAITING;
 
 public final class DefaultHudsonStatus implements HudsonStatus {
     Nu nu;

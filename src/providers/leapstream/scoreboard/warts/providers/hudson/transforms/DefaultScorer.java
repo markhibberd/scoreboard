@@ -2,8 +2,8 @@ package leapstream.scoreboard.warts.providers.hudson.transforms;
 
 import hudson.model.AbstractProject;
 import hudson.model.Hudson;
-import leapstream.scoreboard.legacy.clobber.core.Dumper;
-import leapstream.scoreboard.legacy.model.Score;
+import leapstream.scoreboard.warts.providers.clobber.core.Dumper;
+import leapstream.scoreboard.warts.providers.model.Score;
 
 public final class DefaultScorer implements Scorer {
     private static final int HISTORY = 11;

@@ -2,7 +2,7 @@ package leapstream.scoreboard.pylons.core
 
 import leapstream.scoreboard.data.score._
 import leapstream.scoreboard.legacy.ui.swing.pear.{ShimLabel, Panel}
-import leapstream.scoreboard.pylons.score.ui.layout.DefaultTileLayoutManager
+import scoreboard.pylons.score.ui.layout.DefaultTileLayoutManager
 import java.awt.{GridLayout, Color}
 import au.net.netstorm.boost.bullet.roughly.Roughly
 import au.net.netstorm.boost.bullet.time.core.Duration
@@ -12,11 +12,25 @@ import util.parsing.input.CharSequenceReader
 import leapstream.scoreboard.data.score.{Success, ScoreParser, Score}
 import leapstream.scoreboard.data.config.Config
 
+
+
+object ScorePylon {
+  def apply(url: URL) = (config: Config) => new ScorePylon(url, config)
+  def apply(url: String) = (config: Config) => new ScorePylon(new URL(url), config)
+}
+
 // FIX split
 // FIX audio
 // FIX log
 // FIX flash
-class ScorePylon(url: URL, config: Config, roughly: Roughly) extends Pylon[Score] {
+class ScorePylon(url: URL, config: Config) extends Pylon[Score] {
+  /*
+   * Faked roughly, port or replace.
+   */
+  val roughly = new Roughly {
+    def is(p1: Duration) = "" + p1.millis
+  }
+
   implicit def string2colour(s: String): Color = Colours.colour(s)
   
   val ui = new Panel {
@@ -53,14 +67,14 @@ class ScorePylon(url: URL, config: Config, roughly: Roughly) extends Pylon[Score
 
   // FIX de-dupe
   def build(): Score = {
+    // FIX https, port code for self-signed certs.
     val source = Source.fromURL(url)
     val feed = source.getLines.mkString("\n")
     val result = ScoreParser.score(new CharSequenceReader(feed))
     result.get
   }
 
-  def ok(score: Score): Unit = {
-      println("updating")
+  def ok(score: Score, previous: Option[Score]): Unit = {
       ui.title.bg(config.colours.title.bg)
       ui.title.fg(config.colours.title.fg)
       ui.title.text(score.name)

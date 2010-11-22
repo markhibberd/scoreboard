@@ -71,6 +71,9 @@ ${TAR}: ${JAR} ${HUDSON_PLUGIN} ${CRUISE_PLUGIN} ${TAR_IMAGE} ${TAR_IMAGE}/lib $
 
 dist: clean ${TAR}
 
+publish:
+	rsync -aH --stats --exclude \*~ ${ETC}/www/ web@mth.io:scoreboard.mth.io/data
+
 ${DIST_MANIFEST}: ${GEN}
 	sed -e 's/VERSION/${VERSION}/' ${MANIFEST} > ${DIST_MANIFEST}
 
@@ -85,12 +88,13 @@ simian:
 	echo "implement me"
 
 chain:
-	(cd ../lever && make && cd ../phonic && make depend && make) && make depend && make
+	(cd ../lever && make && cd ../phonic && make depend && make && cd ../../pirate && make) && make depend && make
 
 depend:
-	cp ../lever/gen/dist/lever.jar ../phonic/gen/dist/phonic.jar lib/run/. && \
+	cp ../../pirate/gen/dist/pirate.jar ../lever/gen/dist/lever.jar ../phonic/gen/dist/phonic.jar lib/run/. && \
 	cp ../lever/LICENSE etc/licenses/lever && \
-	cp ../phonic/LICENSE etc/licenses/phonic
+	cp ../phonic/LICENSE etc/licenses/phonic && \
+	cp ../../pirate/LICENSE etc/licenses/pirate
 
 ${GEN} ${GEN}/tmp ${PROV_CLS} ${PROD_CLS} ${TEST_CLS} ${ALL_CLS} ${DIST} ${LIB} ${TAR_IMAGE} ${TAR_IMAGE}/lib ${TAR_IMAGE}/plugins ${GEN}/image-hudson:
 	mkdir -p $@

@@ -286,6 +286,7 @@
       <module fileurl="file://$PROJECT_DIR$/../../foil/foil.iml" filepath="$PROJECT_DIR$/../../foil/foil.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lever/lever.iml" filepath="$PROJECT_DIR$/../lever/lever.iml" />
       <module fileurl="file://$PROJECT_DIR$/../phonic/phonic.iml" filepath="$PROJECT_DIR$/../phonic/phonic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../pirate/pirate.iml" filepath="$PROJECT_DIR$/../../pirate/pirate.iml" />
       <module fileurl="file://$PROJECT_DIR$/scoreboard.iml" filepath="$PROJECT_DIR$/scoreboard.iml" />
     </modules>
   </component>

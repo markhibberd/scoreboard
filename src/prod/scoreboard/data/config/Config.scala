@@ -1,13 +1,13 @@
 package leapstream.scoreboard.data.config
 
 import leapstream.scoreboard.legacy.ui.key.Handler
-import leapstream.scoreboard.legacy.pylon.PylonX
+import leapstream.scoreboard.pylons.core.Pylon
 
 case class Config(
           colours: Colours,
           window: Window,
           threadpool: ThreadPool,
-          tiles: List[PylonX],
+          tiles: List[(String, Boolean, Config => Pylon[_], Int)],
           keys: List[KeyBinding]
         )
 

@@ -3,10 +3,10 @@ package leapstream.scoreboard.warts.providers.hudson.transforms;
 
 import au.net.netstorm.boost.bullet.time.core.TimePoint;
 import au.net.netstorm.boost.spider.api.runtime.Nu;
-import leapstream.scoreboard.legacy.operations.Timestamp;
-import leapstream.scoreboard.legacy.model.Id;
-import leapstream.scoreboard.legacy.model.Result;
-import leapstream.scoreboard.legacy.model.Run;
+import leapstream.scoreboard.warts.providers.operations.Timestamp;
+import leapstream.scoreboard.warts.providers.model.Id;
+import leapstream.scoreboard.warts.providers.model.Result;
+import leapstream.scoreboard.warts.providers.model.Run;
 
 import java.util.Calendar;
 

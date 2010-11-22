@@ -1,4 +1,4 @@
-package leapstream.scoreboard.pylons.score.ui.layout;
+package scoreboard.pylons.score.ui.layout;
 
 import java.awt.Component;
 

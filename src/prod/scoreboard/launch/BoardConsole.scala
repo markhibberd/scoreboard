@@ -13,6 +13,28 @@ class BoardConsole(configs: List[String], in: Option[BufferedReader], out: Print
   val paths = loader.getURLs.map(x => x.getFile)
   paths.foreach(settings.classpath.append _)
 
+  val state = new BoardState
+
+  val x = new scala.tools.nsc.InterpreterLoop(in, out) {
+    override def createInterpreter() {
+      super.createInterpreter()
+      interpreter.beQuietDuring {
+        interpreter.bind("launch", "scala.Function1[leapstream.scoreboard.data.config.Config,Unit]", state.launch)
+//        interpreter.bind("close", "scala.Function1[Unit,Unit]", state.close)
+      }
+      configs.foreach( s =>
+                interpretAllFrom(File(new java.io.File(s)))
+        )
+    }
+  }
+
+  def run {
+    x.main(settings)
+  }
+}
+
+
+class BoardState {
   var board: Option[Board] = None
 
   val launch = (c: Config) => {
@@ -27,21 +49,9 @@ class BoardConsole(configs: List[String], in: Option[BufferedReader], out: Print
     ()
   }
 
-
-  val x = new scala.tools.nsc.InterpreterLoop(in, out) {
-    override def createInterpreter() {
-      super.createInterpreter()
-//      interpreter.beQuietDuring {
-        interpreter.bind("launch", "scala.Function1[leapstream.scoreboard.data.config.Config,Unit]", launch)
-//      }
-      configs.foreach( s =>
-                interpretAllFrom(File(new java.io.File(s)))
-        )
-    }
-  }
-
-
-  def run {
-    x.main(settings)
+  val close = () => {
+    val b = board.get
+    board = None
+    b.stop
   }
 }

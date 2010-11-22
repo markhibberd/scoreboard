@@ -3,7 +3,6 @@ package leapstream.scoreboard.pylons.core
 import leapstream.scoreboard.legacy.ui.swing.pear.{ShimLabel, Panel}
 import leapstream.scoreboard.legacy.ui.gunge.image.ScalableImageIcon
 import java.net.URL
-import javax.swing.JComponent
 
 // FIX split
 class ImagePylon(url: URL) extends Pylon[Array[Byte]] {
@@ -23,6 +22,6 @@ class ImagePylon(url: URL) extends Pylon[Array[Byte]] {
   }
 
 
-  def ok(data:Array[Byte]) =
+  def ok(data:Array[Byte], previous: Option[Array[Byte]]) =
     ui.image.icon(new ScalableImageIcon(data))
 }

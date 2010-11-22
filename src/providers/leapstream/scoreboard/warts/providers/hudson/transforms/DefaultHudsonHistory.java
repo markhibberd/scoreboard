@@ -4,8 +4,8 @@ import java.util.List;
 
 import au.net.netstorm.boost.spider.api.runtime.Nu;
 import hudson.model.AbstractProject;
-import leapstream.scoreboard.legacy.model.History;
-import leapstream.scoreboard.legacy.model.Run;
+import leapstream.scoreboard.warts.providers.model.History;
+import leapstream.scoreboard.warts.providers.model.Run;
 
 public final class DefaultHudsonHistory implements HudsonHistory {
     HudsonRun runner;

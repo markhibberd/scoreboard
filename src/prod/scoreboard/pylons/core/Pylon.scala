@@ -7,5 +7,5 @@ trait Pylon[A] {
 
   def build(): A
 
-  def ok(result: A): Unit
+  def ok(result: A, previous: Option[A]): Unit
 }

@@ -7,7 +7,7 @@ import leapstream.scoreboard.legacy.ui.gunge.layout.OneSixthLayoutManager
 
 object JollyRoger {
   lazy val bytes = {
-    val in = classOf[Scoreboard].getClassLoader.getResourceAsStream("leapstream/scoreboard/legacy/resource/bits/Jolly-roger.png")
+    val in = classOf[Scoreboard].getClassLoader.getResourceAsStream("scoreboard/resources/image/Jolly-roger.png")
     try {
       (Iterator continually (in.read()) takeWhile (_ != -1)).map(_.toByte).toArray
     } finally {
